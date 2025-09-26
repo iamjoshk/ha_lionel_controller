@@ -107,11 +107,32 @@ entities:
 
 ## Protocol Details
 
-This integration is based on reverse-engineered Lionel LionChief Bluetooth protocol:
+This integration implements the complete Lionel LionChief Bluetooth protocol based on multiple reverse-engineering efforts:
 
-- **Default Service UUID**: `e20a39f4-73f5-4bc4-a12f-17d1ad07a961` (may vary by model)
-- **Write Characteristic**: `08590f7e-db05-467e-8757-72f6faeb13d4`
-- **Notify Characteristic**: `08590f7e-db05-467e-8757-72f6faeb14d3`
+- **Primary Service UUID**: `e20a39f4-73f5-4bc4-a12f-17d1ad07a961` (LionChief control)
+- **Device Info Service**: `0000180a-0000-1000-8000-00805f9b34fb` (standard BLE device information)
+- **Write Characteristic**: `08590f7e-db05-467e-8757-72f6faeb13d4` (LionelCommand)
+- **Notify Characteristic**: `08590f7e-db05-467e-8757-72f6faeb14d3` (LionelData)
+
+### Enhanced Command Structure
+
+The integration now uses the proper Lionel command format:
+- **Byte 0**: Always `0x00` (command prefix)
+- **Byte 1**: Command code (e.g., `0x45` for speed, `0x46` for direction)
+- **Byte 2+**: Parameters specific to each command
+- **Last Byte**: Checksum (simplified to `0x00` for compatibility)
+
+### Device Information
+
+The integration automatically reads and displays:
+- Model number
+- Serial number
+- Firmware revision
+- Hardware revision
+- Software revision
+- Manufacturer name
+
+This information is displayed in Home Assistant's device registry for better identification.
 
 ## Compatibility
 
@@ -137,6 +158,7 @@ Different locomotive models may use different service UUIDs. If the default does
 
 - Protocol reverse engineering by [Property404](https://github.com/Property404/lionchief-controller)
 - ESPHome reference implementation by [@iamjoshk](https://github.com/iamjoshk/home-assistant-collection/tree/main/ESPHome/LionelController)
+- Additional protocol details from [pedasmith's BluetoothDeviceController](https://github.com/pedasmith/BluetoothDeviceController/blob/main/BluetoothProtocolsDevices/Lionel_LionChief.cs)
 
 ## Contributing
 

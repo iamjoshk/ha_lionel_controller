@@ -43,9 +43,7 @@ class LionelTrainFan(FanEntity):
         self._attr_device_info = {
             "identifiers": {(DOMAIN, coordinator.mac_address)},
             "name": name,
-            "manufacturer": "Lionel",
-            "model": "LionChief Locomotive",
-            "sw_version": "1.0",
+            **coordinator.device_info,
         }
 
     @property

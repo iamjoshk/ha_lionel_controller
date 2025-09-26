@@ -12,6 +12,10 @@
     {
       "service_uuid": "e20a39f4-73f5-4bc4-a12f-17d1ad07a961",
       "connectable": true
+    },
+    {
+      "service_uuid": "0000180a-0000-1000-8000-00805f9b34fb",
+      "connectable": false
     }
   ],
   "iot_class": "local_push",

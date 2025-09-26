@@ -44,9 +44,7 @@ class LionelTrainConnectionSensor(BinarySensorEntity):
         self._attr_device_info = {
             "identifiers": {(DOMAIN, coordinator.mac_address)},
             "name": device_name,
-            "manufacturer": "Lionel",
-            "model": "LionChief Locomotive",
-            "sw_version": "1.0",
+            **coordinator.device_info,
         }
 
     @property

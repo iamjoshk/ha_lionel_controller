@@ -49,9 +49,7 @@ class LionelTrainButtonBase(ButtonEntity):
         self._attr_device_info = {
             "identifiers": {(DOMAIN, coordinator.mac_address)},
             "name": device_name,
-            "manufacturer": "Lionel",
-            "model": "LionChief Locomotive",
-            "sw_version": "1.0",
+            **coordinator.device_info,
         }
 
     @property
@@ -108,7 +106,6 @@ class LionelTrainAnnouncementButton(LionelTrainButtonBase):
 
     async def async_press(self) -> None:
         """Press the button."""
-        command_data = ANNOUNCEMENTS[self._announcement_name]
-        # Extract the announcement code from the command
-        announcement_code = command_data[2]
+        announcement_config = ANNOUNCEMENTS[self._announcement_name]
+        announcement_code = announcement_config["code"]
         await self._coordinator.async_play_announcement(announcement_code)

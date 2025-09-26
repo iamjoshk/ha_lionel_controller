@@ -17,9 +17,18 @@ from .const import (
     CONF_SERVICE_UUID,
     DEFAULT_RETRY_COUNT,
     DEFAULT_TIMEOUT,
+    DEVICE_INFO_SERVICE_UUID,
     DOMAIN,
+    FIRMWARE_REVISION_CHAR_UUID,
+    HARDWARE_REVISION_CHAR_UUID,
+    LIONCHIEF_SERVICE_UUID,
+    MANUFACTURER_NAME_CHAR_UUID,
+    MODEL_NUMBER_CHAR_UUID,
     NOTIFY_CHARACTERISTIC_UUID,
+    SERIAL_NUMBER_CHAR_UUID,
+    SOFTWARE_REVISION_CHAR_UUID,
     WRITE_CHARACTERISTIC_UUID,
+    build_command,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -83,6 +92,14 @@ class LionelTrainCoordinator:
         self._lights_on = False
         self._horn_on = False
         self._bell_on = False
+        
+        # Device information
+        self._model_number = None
+        self._serial_number = None
+        self._firmware_revision = None
+        self._hardware_revision = None
+        self._software_revision = None
+        self._manufacturer_name = None
 
     @property
     def connected(self) -> bool:
@@ -113,6 +130,17 @@ class LionelTrainCoordinator:
     def bell_on(self) -> bool:
         """Return True if bell is on."""
         return self._bell_on
+
+    @property
+    def device_info(self) -> dict:
+        """Return device information."""
+        return {
+            "model": self._model_number or "LionChief Locomotive",
+            "manufacturer": self._manufacturer_name or "Lionel",
+            "sw_version": self._software_revision or "Unknown",
+            "hw_version": self._hardware_revision or "Unknown", 
+            "serial_number": self._serial_number,
+        }
 
     async def async_setup(self) -> None:
         """Set up the coordinator."""
@@ -149,6 +177,9 @@ class LionelTrainCoordinator:
                 except BleakError:
                     _LOGGER.debug("Could not set up notifications (train may not support them)")
                 
+                # Read device information if available
+                await self._read_device_info()
+                
                 self._connected = True
                 self._retry_count = 0
                 _LOGGER.info("Connected to Lionel train at %s", self.mac_address)
@@ -162,6 +193,27 @@ class LionelTrainCoordinator:
         """Handle notifications from the train."""
         _LOGGER.debug("Received notification: %s", data.hex())
         # TODO: Parse status data when protocol is better understood
+
+    async def _read_device_info(self) -> None:
+        """Read device information characteristics."""
+        device_info_chars = {
+            MODEL_NUMBER_CHAR_UUID: "_model_number",
+            SERIAL_NUMBER_CHAR_UUID: "_serial_number", 
+            FIRMWARE_REVISION_CHAR_UUID: "_firmware_revision",
+            HARDWARE_REVISION_CHAR_UUID: "_hardware_revision",
+            SOFTWARE_REVISION_CHAR_UUID: "_software_revision",
+            MANUFACTURER_NAME_CHAR_UUID: "_manufacturer_name",
+        }
+        
+        for char_uuid, attr_name in device_info_chars.items():
+            try:
+                result = await self._client.read_gatt_char(char_uuid)
+                value = result.decode('utf-8', errors='ignore').strip()
+                if value:
+                    setattr(self, attr_name, value)
+                    _LOGGER.debug("Read %s: %s", attr_name, value)
+            except BleakError:
+                _LOGGER.debug("Could not read characteristic %s", char_uuid)
 
     async def async_send_command(self, command_data: list[int]) -> bool:
         """Send a command to the train."""
@@ -191,7 +243,7 @@ class LionelTrainCoordinator:
         
         # Convert 0-100 to 0-31 (0x00-0x1F) hex scale
         hex_speed = int((speed / 100) * 31)
-        command = [0x00, 0x45, hex_speed]
+        command = build_command(0x45, [hex_speed])
         
         success = await self.async_send_command(command)
         if success:
@@ -201,7 +253,7 @@ class LionelTrainCoordinator:
     async def async_set_direction(self, forward: bool) -> bool:
         """Set train direction."""
         direction_value = 0x01 if forward else 0x02
-        command = [0x00, 0x46, direction_value]
+        command = build_command(0x46, [direction_value])
         
         success = await self.async_send_command(command)
         if success:
@@ -210,7 +262,7 @@ class LionelTrainCoordinator:
 
     async def async_set_lights(self, on: bool) -> bool:
         """Set train lights."""
-        command = [0x00, 0x51, 0x01 if on else 0x00]
+        command = build_command(0x51, [0x01 if on else 0x00])
         success = await self.async_send_command(command)
         if success:
             self._lights_on = on
@@ -218,7 +270,7 @@ class LionelTrainCoordinator:
 
     async def async_set_horn(self, on: bool) -> bool:
         """Set train horn."""
-        command = [0x00, 0x48, 0x01 if on else 0x00]
+        command = build_command(0x48, [0x01 if on else 0x00])
         success = await self.async_send_command(command)
         if success:
             self._horn_on = on
@@ -226,7 +278,7 @@ class LionelTrainCoordinator:
 
     async def async_set_bell(self, on: bool) -> bool:
         """Set train bell."""
-        command = [0x00, 0x47, 0x01 if on else 0x00]
+        command = build_command(0x47, [0x01 if on else 0x00])
         success = await self.async_send_command(command)
         if success:
             self._bell_on = on
@@ -234,10 +286,10 @@ class LionelTrainCoordinator:
 
     async def async_play_announcement(self, announcement_code: int) -> bool:
         """Play announcement sound."""
-        command = [0x00, 0x4D, announcement_code, 0x00]
+        command = build_command(0x4D, [announcement_code, 0x00])
         return await self.async_send_command(command)
 
     async def async_disconnect(self) -> bool:
         """Disconnect from train."""
-        command = [0x00, 0x4B, 0x00, 0x00]
+        command = build_command(0x4B, [0x00, 0x00])
         return await self.async_send_command(command)
