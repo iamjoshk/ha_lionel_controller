@@ -1,0 +1,19 @@
+{
+  "domain": "lionel_controller",
+  "name": "Lionel Train Controller",
+  "version": "1.0.0",
+  "documentation": "https://github.com/iamjoshk/ha_lionel_controller",
+  "issue_tracker": "https://github.com/iamjoshk/ha_lionel_controller/issues",
+  "dependencies": [],
+  "config_flow": true,
+  "codeowners": ["@iamjoshk"],
+  "requirements": ["bleak>=0.20.0"],
+  "bluetooth": [
+    {
+      "service_uuid": "e20a39f4-73f5-4bc4-a12f-17d1ad07a961",
+      "connectable": true
+    }
+  ],
+  "iot_class": "local_push",
+  "quality_scale": "silver"
+}
