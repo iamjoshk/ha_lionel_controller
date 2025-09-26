@@ -61,6 +61,49 @@ You can find your locomotive's MAC address by:
 1. Using a Bluetooth scanner app on your phone
 2. Looking in Home Assistant Developer Tools → States for bluetooth devices
 3. Using the ESPHome logs if you have the reference implementation
+4. Using Home Assistant's built-in Bluetooth integration to scan for devices
+
+### Example MAC Address Format
+`FC:1F:C3:9F:A5:4A` (format: XX:XX:XX:XX:XX:XX)
+
+## Usage Examples
+
+Once configured, you can control your train through:
+
+### Automations
+```yaml
+# Example automation to start train at sunset
+automation:
+  - alias: "Start Christmas Train at Sunset"
+    trigger:
+      - platform: sun
+        event: sunset
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.lionel_train_lights
+      - service: fan.set_percentage  
+        target:
+          entity_id: fan.lionel_train_speed
+        data:
+          percentage: 30
+      - service: button.press
+        target:
+          entity_id: button.lionel_train_announcement_ready_to_roll
+```
+
+### Dashboard Cards
+```yaml
+# Speed control card
+type: entities
+entities:
+  - entity: fan.lionel_train_speed
+  - entity: switch.lionel_train_direction_forward_reverse
+  - entity: switch.lionel_train_lights
+  - entity: switch.lionel_train_horn
+  - entity: switch.lionel_train_bell
+  - entity: binary_sensor.lionel_train_connection
+```
 
 ## Protocol Details
 
