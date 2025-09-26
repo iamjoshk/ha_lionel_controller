@@ -9,6 +9,7 @@ A Home Assistant custom integration for controlling Lionel LionChief Bluetooth l
 - **Sound Effects**: Control horn, bell, and announcements  
 - **Lighting**: Turn train lights on/off
 - **Connection Status**: Monitor Bluetooth connection status
+- **Auto-Discovery**: Automatically discover locomotives when powered on
 - **HACS Compatible**: Easy installation through HACS
 
 ## Supported Controls
@@ -48,6 +49,13 @@ A Home Assistant custom integration for controlling Lionel LionChief Bluetooth l
 
 ## Configuration
 
+### Auto-Discovery (Recommended)
+1. Power on your Lionel LionChief locomotive near your Home Assistant device
+2. The integration will automatically detect the train and show a notification
+3. Go to Settings → Devices & Services to see the discovered train
+4. Click "Configure" to add it to Home Assistant
+
+### Manual Setup
 1. Go to Settings → Devices & Services
 2. Click "Add Integration" 
 3. Search for "Lionel Train Controller"

@@ -11,8 +11,8 @@
         }
       },
       "bluetooth_confirm": {
-        "title": "Confirm Lionel Train",
-        "description": "Do you want to set up the discovered Lionel train?"
+        "title": "Confirm Lionel Train Discovery",
+        "description": "Discovered Lionel train: **{name}** at address `{address}`. Do you want to add it to Home Assistant?"
       }
     },
     "error": {
@@ -21,7 +21,8 @@
       "unknown": "Unexpected error occurred"
     },
     "abort": {
-      "already_configured": "Device is already configured"
+      "already_configured": "Device is already configured",
+      "not_lionel_device": "This device is not a Lionel LionChief locomotive"
     }
   }
 }

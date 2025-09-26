@@ -133,7 +133,22 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         await self.async_set_unique_id(discovery_info.address)
         self._abort_if_unique_id_configured()
 
+        # Check if this is a Lionel train by service UUID
+        lionel_service_found = False
+        for service_uuid in discovery_info.service_uuids:
+            if service_uuid.lower() == DEFAULT_SERVICE_UUID.lower():
+                lionel_service_found = True
+                break
+        
+        if not lionel_service_found:
+            return self.async_abort(reason="not_lionel_device")
+
         self._discovered_devices[discovery_info.address] = discovery_info
+        
+        # Set context for better user experience
+        self.context["title_placeholders"] = {
+            "name": discovery_info.name or f"Lionel Train ({discovery_info.address[-5:]})"
+        }
         
         return await self.async_step_bluetooth_confirm()
 
@@ -143,17 +158,34 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         """Confirm discovery."""
         if user_input is not None:
             discovery_info = self._discovered_devices[self.unique_id]
+            
+            # Try to get device name from discovery or use default
+            device_name = discovery_info.name
+            if not device_name:
+                # Create a friendly name based on MAC address
+                mac_suffix = discovery_info.address[-5:].replace(":", "")
+                device_name = f"Lionel Train {mac_suffix}"
+            
             return self.async_create_entry(
-                title=f"Lionel Train ({discovery_info.name or discovery_info.address})",
+                title=device_name,
                 data={
                     CONF_MAC_ADDRESS: discovery_info.address,
-                    CONF_NAME: discovery_info.name or DEFAULT_NAME,
+                    CONF_NAME: device_name,
                     CONF_SERVICE_UUID: DEFAULT_SERVICE_UUID,
                 },
             )
 
-        self._set_confirm_only()
-        return self.async_show_form(step_id="bluetooth_confirm")
+        # Show confirmation form with device details
+        discovery_info = self._discovered_devices[self.unique_id]
+        device_name = discovery_info.name or f"Lionel Train ({discovery_info.address[-5:]})"
+        
+        return self.async_show_form(
+            step_id="bluetooth_confirm",
+            description_placeholders={
+                "name": device_name,
+                "address": discovery_info.address,
+            },
+        )
 
 
 class CannotConnect(HomeAssistantError):

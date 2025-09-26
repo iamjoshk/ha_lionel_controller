@@ -7,9 +7,10 @@ from typing import Any
 
 from bleak import BleakClient, BleakError
 from homeassistant.components import bluetooth
+from homeassistant.components.bluetooth import BluetoothServiceInfoBleak, BluetoothChange
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_NAME, Platform
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
 
 from .const import (
@@ -34,6 +35,22 @@ from .const import (
 _LOGGER = logging.getLogger(__name__)
 
 PLATFORMS: list[Platform] = [Platform.FAN, Platform.SWITCH, Platform.BUTTON, Platform.BINARY_SENSOR]
+
+
+@callback
+def _async_discovered_device(
+    service_info: BluetoothServiceInfoBleak, change: BluetoothChange
+) -> bool:
+    """Check if discovered device is a Lionel LionChief locomotive."""
+    if change != BluetoothChange.ADVERTISEMENT:
+        return False
+    
+    # Check for Lionel LionChief service UUID
+    lionel_service_uuid = LIONCHIEF_SERVICE_UUID.lower()
+    return any(
+        service_uuid.lower() == lionel_service_uuid
+        for service_uuid in service_info.service_uuids
+    )
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
