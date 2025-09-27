@@ -4,7 +4,7 @@ A Home Assistant custom integration for controlling Lionel LionChief Bluetooth l
 
 ## Features
 
-- **Speed Control**: Use a fan entity to control train speed (0-100%)
+- **Throttle Control**: Use a number slider to control train speed (0-100%)
 - **Direction Control**: Switch between forward and reverse
 - **Sound Effects**: Control horn, bell, and announcements  
 - **Lighting**: Turn train lights on/off
@@ -14,8 +14,8 @@ A Home Assistant custom integration for controlling Lionel LionChief Bluetooth l
 
 ## Supported Controls
 
-### Fan Entity
-- **Speed**: Variable speed control from 0-100%
+### Number Entity
+- **Throttle**: Variable speed control slider from 0-100%
 
 ### Switch Entities  
 - **Lights**: Control locomotive lighting
@@ -90,11 +90,11 @@ automation:
       - service: switch.turn_on
         target:
           entity_id: switch.lionel_train_lights
-      - service: fan.set_percentage  
+      - service: number.set_value  
         target:
-          entity_id: fan.lionel_train_speed
+          entity_id: number.lionel_train_throttle
         data:
-          percentage: 30
+          value: 30
       - service: button.press
         target:
           entity_id: button.lionel_train_announcement_ready_to_roll
@@ -102,10 +102,10 @@ automation:
 
 ### Dashboard Cards
 ```yaml
-# Speed control card
+# Throttle control card
 type: entities
 entities:
-  - entity: fan.lionel_train_speed
+  - entity: number.lionel_train_throttle
   - entity: switch.lionel_train_direction_forward_reverse
   - entity: switch.lionel_train_lights
   - entity: switch.lionel_train_horn
