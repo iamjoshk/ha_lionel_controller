@@ -168,6 +168,11 @@ class LionelTrainCoordinator:
         self._hardware_revision = None
         self._software_revision = None
         self._manufacturer_name = None
+        
+        # Dynamic characteristic discovery
+        self._discovered_write_char = None
+        self._discovered_notify_char = None
+        self._discovered_lionchief_service = None
 
     @property
     def connected(self) -> bool:
@@ -328,19 +333,21 @@ class LionelTrainCoordinator:
                     max_attempts=3,
                 )
                 
-                # Set up notification handler for status updates
-                try:
-                    await self._client.start_notify(
-                        NOTIFY_CHARACTERISTIC_UUID, self._notification_handler
-                    )
-                except BleakError:
-                    _LOGGER.debug("Could not set up notifications (train may not support them)")
-                
                 # Read device information if available
                 await self._read_device_info()
                 
                 # Log all BLE services and characteristics for debugging
                 await self._log_ble_characteristics()
+                
+                # Set up notification handler for status updates (after discovery)
+                try:
+                    notify_char_uuid = self._discovered_notify_char or NOTIFY_CHARACTERISTIC_UUID
+                    await self._client.start_notify(
+                        notify_char_uuid, self._notification_handler
+                    )
+                    _LOGGER.info("📡 Set up notifications on %s", notify_char_uuid)
+                except BleakError as err:
+                    _LOGGER.debug("Could not set up notifications (train may not support them): %s", err)
                 
                 self._connected = True
                 self._retry_count = 0
@@ -429,7 +436,7 @@ class LionelTrainCoordinator:
                 _LOGGER.debug("Could not read characteristic %s", char_uuid)
 
     async def _log_ble_characteristics(self) -> None:
-        """Log all BLE services and characteristics for debugging."""
+        """Log all BLE services and characteristics for debugging and discover dynamic characteristics."""
         try:
             _LOGGER.info("=== BLE Service Discovery for %s ===", self.mac_address)
             
@@ -438,36 +445,104 @@ class LionelTrainCoordinator:
             service_list = list(services)
             _LOGGER.info("Found %d services", len(service_list))
             
+            # Store discovered characteristics for dynamic usage
+            self._discovered_write_char = None
+            self._discovered_notify_char = None
+            self._discovered_lionchief_service = None
+            
+            service_count = 0
             for service in service_list:
-                _LOGGER.info("Service: %s (UUID: %s)", service.description, service.uuid)
+                service_count += 1
+                _LOGGER.info("Service %d: %s (UUID: %s)", service_count, service.description, service.uuid)
                 
+                # Check if this might be the LionChief control service
+                # Look for services with writable characteristics that aren't standard BLE services
+                is_potential_lionchief = (
+                    str(service.uuid).lower() not in [
+                        "0000180a-0000-1000-8000-00805f9b34fb",  # Device Information
+                        "0000180f-0000-1000-8000-00805f9b34fb",  # Battery Service
+                        "00001800-0000-1000-8000-00805f9b34fb",  # Generic Access
+                        "00001801-0000-1000-8000-00805f9b34fb",  # Generic Attribute
+                    ]
+                )
+                
+                char_count = 0
                 for char in service.characteristics:
+                    char_count += 1
                     properties = []
+                    has_write = False
+                    has_notify = False
+                    
                     if "read" in char.properties:
                         properties.append("READ")
-                    if "write" in char.properties or "write-without-response" in char.properties:
+                    if "write" in char.properties:
                         properties.append("WRITE")
+                        has_write = True
+                    if "write-without-response" in char.properties:
+                        properties.append("WRITE-NO-RESP")
+                        has_write = True
                     if "notify" in char.properties:
                         properties.append("NOTIFY")
+                        has_notify = True
                     if "indicate" in char.properties:
                         properties.append("INDICATE")
+                        has_notify = True
                     
-                    _LOGGER.info("  Characteristic: %s (UUID: %s) [%s]", 
-                               char.description, char.uuid, ", ".join(properties))
+                    _LOGGER.info("  Char %d: %s (UUID: %s) [%s]", 
+                               char_count, char.description, char.uuid, ", ".join(properties))
                     
-                    # Try to read characteristics that support reading
+                    # Identify potential LionChief characteristics
+                    if is_potential_lionchief:
+                        if has_write and not self._discovered_write_char:
+                            self._discovered_write_char = str(char.uuid)
+                            _LOGGER.info("    *** POTENTIAL LIONCHIEF WRITE CHARACTERISTIC ***")
+                        if has_notify and not self._discovered_notify_char:
+                            self._discovered_notify_char = str(char.uuid)
+                            _LOGGER.info("    *** POTENTIAL LIONCHIEF NOTIFY CHARACTERISTIC ***")
+                        
+                        if has_write or has_notify:
+                            self._discovered_lionchief_service = str(service.uuid)
+                    
+                    # Try to read characteristics that support reading (with better error handling)
                     if "read" in char.properties:
                         try:
+                            _LOGGER.debug("    Attempting to read characteristic value...")
                             value = await self._client.read_gatt_char(char.uuid)
-                            if len(value) <= 20:  # Only log short values
-                                _LOGGER.info("    Value: %s", value.hex() if value else "None")
+                            if value and len(value) <= 50:  # Increased limit and null check
+                                try:
+                                    # Try to decode as string first
+                                    decoded = value.decode('utf-8').strip('\x00')
+                                    _LOGGER.info("    Value (text): '%s'", decoded)
+                                except UnicodeDecodeError:
+                                    # Fall back to hex
+                                    _LOGGER.info("    Value (hex): %s", value.hex())
+                            elif value:
+                                _LOGGER.info("    Value: <large data, %d bytes>", len(value))
                         except Exception as err:
                             _LOGGER.debug("    Could not read value: %s", err)
+                
+                _LOGGER.info("  Found %d characteristics in this service", char_count)
                             
             _LOGGER.info("=== End BLE Service Discovery ===")
             
+            # Log discovered LionChief characteristics
+            if self._discovered_lionchief_service:
+                _LOGGER.info("🎯 DISCOVERED LIONCHIEF SERVICE: %s", self._discovered_lionchief_service)
+            if self._discovered_write_char:
+                _LOGGER.info("🎯 DISCOVERED WRITE CHARACTERISTIC: %s", self._discovered_write_char)
+            if self._discovered_notify_char:
+                _LOGGER.info("🎯 DISCOVERED NOTIFY CHARACTERISTIC: %s", self._discovered_notify_char)
+                
+            # Update constants if we found better characteristics
+            if self._discovered_write_char and self._discovered_write_char != WRITE_CHARACTERISTIC_UUID:
+                _LOGGER.info("💡 Consider updating WRITE_CHARACTERISTIC_UUID to: %s", self._discovered_write_char)
+            if self._discovered_notify_char and self._discovered_notify_char != NOTIFY_CHARACTERISTIC_UUID:
+                _LOGGER.info("💡 Consider updating NOTIFY_CHARACTERISTIC_UUID to: %s", self._discovered_notify_char)
+            
         except Exception as err:
             _LOGGER.error("Error during BLE service discovery: %s", err)
+            import traceback
+            _LOGGER.error("Full traceback: %s", traceback.format_exc())
 
     async def async_send_command(self, command_data: list[int]) -> bool:
         """Send a command to the train."""
@@ -480,19 +555,23 @@ class LionelTrainCoordinator:
                     _LOGGER.error("Failed to connect before sending command: %s", err)
                     return False
 
+            # Use discovered write characteristic if available, otherwise use default
+            write_char_uuid = self._discovered_write_char or WRITE_CHARACTERISTIC_UUID
+            
             # Retry command sending with better error handling
             max_retries = 3
             for attempt in range(max_retries):
                 try:
                     await self._client.write_gatt_char(
-                        WRITE_CHARACTERISTIC_UUID, bytearray(command_data)
+                        write_char_uuid, bytearray(command_data)
                     )
-                    _LOGGER.info("✅ Sent command successfully: %s (hex: %s)", 
-                               command_data, ' '.join(f'{b:02x}' for b in command_data))
+                    _LOGGER.info("✅ Sent command successfully to %s: %s (hex: %s)", 
+                               write_char_uuid, command_data, ' '.join(f'{b:02x}' for b in command_data))
                     return True
 
                 except BleakError as err:
-                    _LOGGER.warning("Failed to send command (attempt %d/%d): %s", attempt + 1, max_retries, err)
+                    _LOGGER.warning("Failed to send command to %s (attempt %d/%d): %s", 
+                                  write_char_uuid, attempt + 1, max_retries, err)
                     self._connected = False
                     
                     # Try to reconnect on subsequent attempts
