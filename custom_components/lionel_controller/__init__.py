@@ -44,6 +44,7 @@ from .const import (
     SOUND_SOURCE_SPEECH,
     WRITE_CHARACTERISTIC_UUID,
     build_command,
+    build_simple_command,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -338,14 +339,8 @@ class LionelTrainCoordinator:
                 # Read device information if available
                 await self._read_device_info()
                 
-                self._connected = True
-                self._retry_count = 0
-                _LOGGER.info("Connected to Lionel train at %s", self.mac_address)
-
-            except BleakError as err:
-                _LOGGER.error("Failed to connect to train: %s", err)
-                self._connected = False
-                raise
+                # Log all BLE services and characteristics for debugging
+                await self._log_ble_characteristics()
                 
                 self._connected = True
                 self._retry_count = 0
@@ -433,6 +428,45 @@ class LionelTrainCoordinator:
             except BleakError:
                 _LOGGER.debug("Could not read characteristic %s", char_uuid)
 
+    async def _log_ble_characteristics(self) -> None:
+        """Log all BLE services and characteristics for debugging."""
+        try:
+            _LOGGER.info("=== BLE Service Discovery for %s ===", self.mac_address)
+            
+            services = self._client.services
+            _LOGGER.info("Found %d services", len(services))
+            
+            for service in services:
+                _LOGGER.info("Service: %s (UUID: %s)", service.description, service.uuid)
+                
+                for char in service.characteristics:
+                    properties = []
+                    if "read" in char.properties:
+                        properties.append("READ")
+                    if "write" in char.properties or "write-without-response" in char.properties:
+                        properties.append("WRITE")
+                    if "notify" in char.properties:
+                        properties.append("NOTIFY")
+                    if "indicate" in char.properties:
+                        properties.append("INDICATE")
+                    
+                    _LOGGER.info("  Characteristic: %s (UUID: %s) [%s]", 
+                               char.description, char.uuid, ", ".join(properties))
+                    
+                    # Try to read characteristics that support reading
+                    if "read" in char.properties:
+                        try:
+                            value = await self._client.read_gatt_char(char.uuid)
+                            if len(value) <= 20:  # Only log short values
+                                _LOGGER.info("    Value: %s", value.hex() if value else "None")
+                        except Exception as err:
+                            _LOGGER.debug("    Could not read value: %s", err)
+                            
+            _LOGGER.info("=== End BLE Service Discovery ===")
+            
+        except Exception as err:
+            _LOGGER.error("Error during BLE service discovery: %s", err)
+
     async def async_send_command(self, command_data: list[int]) -> bool:
         """Send a command to the train."""
         async with self._lock:
@@ -451,7 +485,8 @@ class LionelTrainCoordinator:
                     await self._client.write_gatt_char(
                         WRITE_CHARACTERISTIC_UUID, bytearray(command_data)
                     )
-                    _LOGGER.debug("Sent command: %s", command_data)
+                    _LOGGER.info("✅ Sent command successfully: %s (hex: %s)", 
+                               command_data, ' '.join(f'{b:02x}' for b in command_data))
                     return True
 
                 except BleakError as err:
@@ -478,7 +513,7 @@ class LionelTrainCoordinator:
         
         # Convert 0-100 to 0-31 (0x00-0x1F) hex scale
         hex_speed = int((speed / 100) * 31)
-        command = build_command(0x45, [hex_speed])
+        command = build_simple_command(0x45, [hex_speed])
         
         success = await self.async_send_command(command)
         if success:
@@ -489,7 +524,7 @@ class LionelTrainCoordinator:
     async def async_set_direction(self, forward: bool) -> bool:
         """Set train direction."""
         direction_value = 0x01 if forward else 0x02
-        command = build_command(0x46, [direction_value])
+        command = build_simple_command(0x46, [direction_value])
         
         success = await self.async_send_command(command)
         if success:
@@ -498,7 +533,7 @@ class LionelTrainCoordinator:
 
     async def async_set_lights(self, on: bool) -> bool:
         """Set train lights."""
-        command = build_command(0x51, [0x01 if on else 0x00])
+        command = build_simple_command(0x51, [0x01 if on else 0x00])
         success = await self.async_send_command(command)
         if success:
             self._lights_on = on
@@ -506,7 +541,7 @@ class LionelTrainCoordinator:
 
     async def async_set_horn(self, on: bool) -> bool:
         """Set train horn."""
-        command = build_command(0x48, [0x01 if on else 0x00])
+        command = build_simple_command(0x48, [0x01 if on else 0x00])
         success = await self.async_send_command(command)
         if success:
             self._horn_on = on
@@ -514,7 +549,7 @@ class LionelTrainCoordinator:
 
     async def async_set_bell(self, on: bool) -> bool:
         """Set train bell."""
-        command = build_command(0x47, [0x01 if on else 0x00])
+        command = build_simple_command(0x47, [0x01 if on else 0x00])
         success = await self.async_send_command(command)
         if success:
             self._bell_on = on
@@ -522,12 +557,12 @@ class LionelTrainCoordinator:
 
     async def async_play_announcement(self, announcement_code: int) -> bool:
         """Play announcement sound."""
-        command = build_command(0x4D, [announcement_code, 0x00])
+        command = build_simple_command(0x4D, [announcement_code, 0x00])
         return await self.async_send_command(command)
 
     async def async_disconnect(self) -> bool:
         """Disconnect from train."""
-        command = build_command(0x4B, [0x00, 0x00])
+        command = build_simple_command(0x4B, [0x00, 0x00])
         return await self.async_send_command(command)
 
     async def async_force_reconnect(self) -> bool:
@@ -617,7 +652,7 @@ class LionelTrainCoordinator:
         if not 0 <= volume <= 7:
             raise ValueError("Volume must be between 0 and 7")
         
-        command = build_command(CMD_MASTER_VOLUME, [volume])
+        command = build_simple_command(CMD_MASTER_VOLUME, [volume])
         success = await self.async_send_command(command)
         if success:
             self._master_volume = volume
@@ -631,8 +666,12 @@ class LionelTrainCoordinator:
         if pitch is not None and not -2 <= pitch <= 2:
             raise ValueError("Pitch must be between -2 and 2")
         
-        from .const import build_volume_command
-        command = build_volume_command(sound_source, volume, pitch)
+        # Use simple command for better compatibility
+        if pitch is not None:
+            command = build_simple_command(CMD_SOUND_VOLUME, [sound_source, volume, pitch & 0xFF])
+        else:
+            command = build_simple_command(CMD_SOUND_VOLUME, [sound_source, volume])
+        
         success = await self.async_send_command(command)
         
         if success:
@@ -659,7 +698,7 @@ class LionelTrainCoordinator:
 
     async def async_set_smoke(self, on: bool) -> bool:
         """Set smoke unit on/off."""
-        command = build_command(CMD_SMOKE, [0x01 if on else 0x00])
+        command = build_simple_command(CMD_SMOKE, [0x01 if on else 0x00])
         success = await self.async_send_command(command)
         if success:
             self._smoke_on = on
@@ -668,12 +707,12 @@ class LionelTrainCoordinator:
 
     async def async_fire_coupler(self) -> bool:
         """Fire the coupler (one-shot action)."""
-        command = build_command(CMD_COUPLER, [0x01])
+        command = build_simple_command(CMD_COUPLER, [0x01])
         return await self.async_send_command(command)
 
     async def async_set_cab_lights(self, on: bool) -> bool:
         """Set cab lights on/off."""
-        command = build_command(CMD_CAB_LIGHTS, [0x01 if on else 0x00])
+        command = build_simple_command(CMD_CAB_LIGHTS, [0x01 if on else 0x00])
         success = await self.async_send_command(command)
         if success:
             self._cab_lights_on = on
@@ -682,7 +721,7 @@ class LionelTrainCoordinator:
 
     async def async_set_number_boards(self, on: bool) -> bool:
         """Set number board lights on/off."""
-        command = build_command(CMD_NUMBER_BOARDS, [0x01 if on else 0x00])
+        command = build_simple_command(CMD_NUMBER_BOARDS, [0x01 if on else 0x00])
         success = await self.async_send_command(command)
         if success:
             self._number_boards_on = on
@@ -691,20 +730,24 @@ class LionelTrainCoordinator:
 
     async def async_request_status(self) -> bool:
         """Request locomotive status update."""
-        command = build_command(CMD_STATUS_REQUEST, [])
-        return await self.async_send_command(command)
+        # Disable for now as it may cause disconnections
+        _LOGGER.debug("Status request disabled for compatibility")
+        return True
 
     async def async_request_battery_status(self) -> bool:
         """Request battery level status."""
-        command = build_command(CMD_BATTERY_STATUS, [])
-        return await self.async_send_command(command)
+        # Disable for now as it may cause disconnections
+        _LOGGER.debug("Battery status request disabled for compatibility")
+        return True
 
     async def async_request_temperature(self) -> bool:
         """Request temperature reading."""
-        command = build_command(CMD_TEMPERATURE, [])
-        return await self.async_send_command(command)
+        # Disable for now as it may cause disconnections
+        _LOGGER.debug("Temperature request disabled for compatibility")
+        return True
 
     async def async_request_voltage(self) -> bool:
         """Request voltage reading."""
-        command = build_command(CMD_VOLTAGE, [])
-        return await self.async_send_command(command)
+        # Disable for now as it may cause disconnections
+        _LOGGER.debug("Voltage request disabled for compatibility")
+        return True

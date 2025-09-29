@@ -119,6 +119,17 @@ def build_command(command_code: int, parameters: list[int] = None) -> list[int]:
     
     return command
 
+def build_simple_command(command_code: int, parameters: list[int] = None) -> list[int]:
+    """Build a simple Lionel command without checksum for basic compatibility."""
+    if parameters is None:
+        parameters = []
+    
+    # Simple command structure: [0x00, command, param1, param2, ...]
+    # No checksum for maximum compatibility
+    command = [CMD_ZERO_BYTE, command_code] + parameters
+    
+    return command
+
 def build_volume_command(sound_source: int, volume: int, pitch: int = None) -> list[int]:
     """Build volume/pitch command for specific sound source."""
     if pitch is not None:
