@@ -434,9 +434,11 @@ class LionelTrainCoordinator:
             _LOGGER.info("=== BLE Service Discovery for %s ===", self.mac_address)
             
             services = self._client.services
-            _LOGGER.info("Found %d services", len(services))
+            # Convert to list to get length safely
+            service_list = list(services)
+            _LOGGER.info("Found %d services", len(service_list))
             
-            for service in services:
+            for service in service_list:
                 _LOGGER.info("Service: %s (UUID: %s)", service.description, service.uuid)
                 
                 for char in service.characteristics:
