@@ -26,7 +26,10 @@ async def async_setup_entry(
     
     buttons = [
         LionelTrainDisconnectButton(coordinator, name),
+        LionelTrainReconnectButton(coordinator, name),
         LionelTrainStopButton(coordinator, name),
+        LionelTrainForwardButton(coordinator, name),
+        LionelTrainReverseButton(coordinator, name),
     ]
     
     # Add announcement buttons
@@ -74,6 +77,22 @@ class LionelTrainDisconnectButton(LionelTrainButtonBase):
         await self._coordinator.async_disconnect()
 
 
+class LionelTrainReconnectButton(LionelTrainButtonBase):
+    """Button for reconnecting to the train."""
+
+    _attr_name = "Reconnect"
+    _attr_icon = "mdi:bluetooth-connect"
+
+    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
+        """Initialize the reconnect button."""
+        super().__init__(coordinator, device_name)
+        self._attr_unique_id = f"{coordinator.mac_address}_reconnect"
+
+    async def async_press(self) -> None:
+        """Press the button."""
+        await self._coordinator.async_force_reconnect()
+
+
 class LionelTrainStopButton(LionelTrainButtonBase):
     """Button for stopping the train."""
 
@@ -88,6 +107,38 @@ class LionelTrainStopButton(LionelTrainButtonBase):
     async def async_press(self) -> None:
         """Press the button."""
         await self._coordinator.async_set_speed(0)
+
+
+class LionelTrainForwardButton(LionelTrainButtonBase):
+    """Button for setting forward direction."""
+
+    _attr_name = "Forward"
+    _attr_icon = "mdi:arrow-right"
+
+    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
+        """Initialize the forward button."""
+        super().__init__(coordinator, device_name)
+        self._attr_unique_id = f"{coordinator.mac_address}_forward"
+
+    async def async_press(self) -> None:
+        """Press the button."""
+        await self._coordinator.async_set_direction(True)
+
+
+class LionelTrainReverseButton(LionelTrainButtonBase):
+    """Button for setting reverse direction."""
+
+    _attr_name = "Reverse"
+    _attr_icon = "mdi:arrow-left"
+
+    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
+        """Initialize the reverse button."""
+        super().__init__(coordinator, device_name)
+        self._attr_unique_id = f"{coordinator.mac_address}_reverse"
+
+    async def async_press(self) -> None:
+        """Press the button."""
+        await self._coordinator.async_set_direction(False)
 
 
 class LionelTrainAnnouncementButton(LionelTrainButtonBase):

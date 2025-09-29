@@ -29,7 +29,6 @@ async def async_setup_entry(
         LionelTrainLightsSwitch(coordinator, name),
         LionelTrainHornSwitch(coordinator, name),
         LionelTrainBellSwitch(coordinator, name),
-        LionelTrainDirectionSwitch(coordinator, name),
     ]
     
     async_add_entities(switches, True)
@@ -133,31 +132,4 @@ class LionelTrainBellSwitch(LionelTrainSwitchBase):
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off the bell."""
         await self._coordinator.async_set_bell(False)
-        self.async_write_ha_state()
-
-
-class LionelTrainDirectionSwitch(LionelTrainSwitchBase):
-    """Switch for controlling train direction."""
-
-    _attr_name = "Direction (Forward/Reverse)"
-    _attr_icon = "mdi:train"
-
-    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
-        """Initialize the direction switch."""
-        super().__init__(coordinator, device_name)
-        self._attr_unique_id = f"{coordinator.mac_address}_direction"
-
-    @property
-    def is_on(self) -> bool:
-        """Return True if the direction is forward."""
-        return self._coordinator.direction_forward
-
-    async def async_turn_on(self, **kwargs: Any) -> None:
-        """Set direction to forward."""
-        await self._coordinator.async_set_direction(True)
-        self.async_write_ha_state()
-
-    async def async_turn_off(self, **kwargs: Any) -> None:
-        """Set direction to reverse."""
-        await self._coordinator.async_set_direction(False)
         self.async_write_ha_state()

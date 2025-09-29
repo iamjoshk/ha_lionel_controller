@@ -103,11 +103,12 @@ class LionelTrainCoordinator:
         self._connected = False
         self._lock = asyncio.Lock()
         self._retry_count = 0
+        self._update_callbacks = set()
         
         # State tracking
         self._speed = 0
         self._direction_forward = True
-        self._lights_on = False
+        self._lights_on = True  # Default to on since locomotive lights are on when reconnected
         self._horn_on = False
         self._bell_on = False
         
@@ -159,6 +160,22 @@ class LionelTrainCoordinator:
             "hw_version": self._hardware_revision or "Unknown", 
             "serial_number": self._serial_number,
         }
+
+    def add_update_callback(self, callback):
+        """Add a callback to be called when the state changes."""
+        self._update_callbacks.add(callback)
+
+    def remove_update_callback(self, callback):
+        """Remove a callback."""
+        self._update_callbacks.discard(callback)
+
+    def _notify_state_change(self):
+        """Notify all registered callbacks of state changes."""
+        for callback in self._update_callbacks:
+            try:
+                callback()
+            except Exception as err:
+                _LOGGER.error("Error calling update callback: %s", err)
 
     async def async_setup(self) -> None:
         """Set up the coordinator."""
@@ -287,6 +304,7 @@ class LionelTrainCoordinator:
         success = await self.async_send_command(command)
         if success:
             self._speed = speed
+            self._notify_state_change()
         return success
 
     async def async_set_direction(self, forward: bool) -> bool:
@@ -332,3 +350,24 @@ class LionelTrainCoordinator:
         """Disconnect from train."""
         command = build_command(0x4B, [0x00, 0x00])
         return await self.async_send_command(command)
+
+    async def async_force_reconnect(self) -> bool:
+        """Force reconnection to the train."""
+        async with self._lock:
+            # Disconnect if currently connected
+            if self._client and self._client.is_connected:
+                try:
+                    await self._client.disconnect()
+                except BleakError:
+                    pass
+            
+            self._connected = False
+            self._client = None
+            
+            # Force a new connection
+            try:
+                await self._async_connect()
+                return True
+            except BleakError as err:
+                _LOGGER.error("Failed to force reconnect: %s", err)
+                return False

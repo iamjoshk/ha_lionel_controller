@@ -18,14 +18,16 @@ A Home Assistant custom integration for controlling Lionel LionChief Bluetooth l
 - **Throttle**: Variable speed control slider from 0-100%
 
 ### Switch Entities  
-- **Lights**: Control locomotive lighting
+- **Lights**: Control locomotive lighting (defaults to on)
 - **Horn**: Turn horn sound on/off
 - **Bell**: Turn bell sound on/off
-- **Direction**: Switch between forward (on) and reverse (off)
 
 ### Button Entities
-- **Stop**: Emergency stop button
+- **Stop**: Emergency stop button (sets throttle to 0)
+- **Forward**: Set locomotive direction to forward
+- **Reverse**: Set locomotive direction to reverse
 - **Disconnect**: Disconnect from locomotive
+- **Reconnect**: Force reconnection to locomotive
 - **Announcements**: Various conductor announcements
   - Random, Ready to Roll, Hey There, Squeaky
   - Water and Fire, Fastest Freight, Penna Flyer
@@ -106,10 +108,13 @@ automation:
 type: entities
 entities:
   - entity: number.lionel_train_throttle
-  - entity: switch.lionel_train_direction_forward_reverse
+  - entity: button.lionel_train_forward
+  - entity: button.lionel_train_reverse
   - entity: switch.lionel_train_lights
   - entity: switch.lionel_train_horn
   - entity: switch.lionel_train_bell
+  - entity: button.lionel_train_stop
+  - entity: button.lionel_train_reconnect
   - entity: binary_sensor.lionel_train_connection
 ```
 

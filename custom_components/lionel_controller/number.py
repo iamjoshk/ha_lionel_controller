@@ -49,6 +49,12 @@ class LionelTrainThrottle(NumberEntity):
             "name": name,
             **coordinator.device_info,
         }
+        # Register for state updates
+        self._coordinator.add_update_callback(self.async_write_ha_state)
+
+    async def async_will_remove_from_hass(self) -> None:
+        """Entity being removed from hass."""
+        self._coordinator.remove_update_callback(self.async_write_ha_state)
 
     @property
     def available(self) -> bool:
