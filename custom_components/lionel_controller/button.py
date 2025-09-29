@@ -30,6 +30,11 @@ async def async_setup_entry(
         LionelTrainStopButton(coordinator, name),
         LionelTrainForwardButton(coordinator, name),
         LionelTrainReverseButton(coordinator, name),
+        LionelTrainCouplerButton(coordinator, name),
+        LionelTrainStatusRequestButton(coordinator, name),
+        LionelTrainBatteryStatusButton(coordinator, name),
+        LionelTrainTemperatureButton(coordinator, name),
+        LionelTrainVoltageButton(coordinator, name),
     ]
     
     # Add announcement buttons
@@ -170,3 +175,83 @@ class LionelTrainAnnouncementButton(LionelTrainButtonBase):
         announcement_config = ANNOUNCEMENTS[self._announcement_name]
         announcement_code = announcement_config["code"]
         await self._coordinator.async_play_announcement(announcement_code)
+
+
+class LionelTrainCouplerButton(LionelTrainButtonBase):
+    """Button for firing the coupler."""
+
+    _attr_name = "Fire Coupler"
+    _attr_icon = "mdi:link-variant"
+
+    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
+        """Initialize the coupler button."""
+        super().__init__(coordinator, device_name)
+        self._attr_unique_id = f"{coordinator.mac_address}_coupler"
+
+    async def async_press(self) -> None:
+        """Press the button."""
+        await self._coordinator.async_fire_coupler()
+
+
+class LionelTrainStatusRequestButton(LionelTrainButtonBase):
+    """Button for requesting locomotive status."""
+
+    _attr_name = "Request Status"
+    _attr_icon = "mdi:information-outline"
+
+    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
+        """Initialize the status request button."""
+        super().__init__(coordinator, device_name)
+        self._attr_unique_id = f"{coordinator.mac_address}_status_request"
+
+    async def async_press(self) -> None:
+        """Press the button."""
+        await self._coordinator.async_request_status()
+
+
+class LionelTrainBatteryStatusButton(LionelTrainButtonBase):
+    """Button for requesting battery status."""
+
+    _attr_name = "Check Battery"
+    _attr_icon = "mdi:battery"
+
+    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
+        """Initialize the battery status button."""
+        super().__init__(coordinator, device_name)
+        self._attr_unique_id = f"{coordinator.mac_address}_battery_status"
+
+    async def async_press(self) -> None:
+        """Press the button."""
+        await self._coordinator.async_request_battery_status()
+
+
+class LionelTrainTemperatureButton(LionelTrainButtonBase):
+    """Button for requesting temperature reading."""
+
+    _attr_name = "Check Temperature"
+    _attr_icon = "mdi:thermometer"
+
+    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
+        """Initialize the temperature button."""
+        super().__init__(coordinator, device_name)
+        self._attr_unique_id = f"{coordinator.mac_address}_temperature"
+
+    async def async_press(self) -> None:
+        """Press the button."""
+        await self._coordinator.async_request_temperature()
+
+
+class LionelTrainVoltageButton(LionelTrainButtonBase):
+    """Button for requesting voltage reading."""
+
+    _attr_name = "Check Voltage"
+    _attr_icon = "mdi:flash"
+
+    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
+        """Initialize the voltage button."""
+        super().__init__(coordinator, device_name)
+        self._attr_unique_id = f"{coordinator.mac_address}_voltage"
+
+    async def async_press(self) -> None:
+        """Press the button."""
+        await self._coordinator.async_request_voltage()

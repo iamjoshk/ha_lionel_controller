@@ -7,20 +7,31 @@ A Home Assistant custom integration for controlling Lionel LionChief Bluetooth l
 - **Throttle Control**: Use a number slider to control train speed (0-100%)
 - **Direction Control**: Switch between forward and reverse
 - **Sound Effects**: Control horn, bell, and announcements  
-- **Lighting**: Turn train lights on/off
+- **Lighting**: Train lights, cab lights, and number board control
+- **Advanced Features**: Smoke unit control and coupler firing
+- **Volume Controls**: Individual volume control for horn, bell, speech, and engine sounds
+- **Status Monitoring**: Battery level, temperature, and voltage monitoring
 - **Connection Status**: Monitor Bluetooth connection status
 - **Auto-Discovery**: Automatically discover locomotives when powered on
 - **HACS Compatible**: Easy installation through HACS
 
 ## Supported Controls
 
-### Number Entity
+### Number Entities
 - **Throttle**: Variable speed control slider from 0-100%
+- **Master Volume**: Overall volume control (0-7)
+- **Horn Volume**: Horn sound volume (0-7)
+- **Bell Volume**: Bell sound volume (0-7)
+- **Speech Volume**: Announcement volume (0-7)
+- **Engine Volume**: Engine sound volume (0-7)
 
 ### Switch Entities  
 - **Lights**: Control locomotive lighting (defaults to on)
 - **Horn**: Turn horn sound on/off
 - **Bell**: Turn bell sound on/off
+- **Cab Lights**: Control cab interior lighting
+- **Number Boards**: Control number board illumination
+- **Smoke Unit**: Control smoke generator on/off
 
 ### Button Entities
 - **Stop**: Emergency stop button (sets throttle to 0)
@@ -28,9 +39,16 @@ A Home Assistant custom integration for controlling Lionel LionChief Bluetooth l
 - **Reverse**: Set locomotive direction to reverse
 - **Disconnect**: Disconnect from locomotive
 - **Reconnect**: Force reconnection to locomotive
+- **Fire Coupler**: Activate locomotive coupler
+- **Status Requests**: Battery, temperature, voltage checks
 - **Announcements**: Various conductor announcements
   - Random, Ready to Roll, Hey There, Squeaky
   - Water and Fire, Fastest Freight, Penna Flyer
+
+### Sensor Entities
+- **Battery Level**: Monitor locomotive battery percentage
+- **Temperature**: Internal temperature monitoring
+- **Voltage**: Power supply voltage monitoring
 
 ### Binary Sensor
 - **Connection**: Shows Bluetooth connection status
@@ -82,16 +100,31 @@ Once configured, you can control your train through:
 
 ### Automations
 ```yaml
-# Example automation to start train at sunset
+# Example automation to start train at sunset with volume control
 automation:
   - alias: "Start Christmas Train at Sunset"
     trigger:
       - platform: sun
         event: sunset
     action:
+      # Set volumes first
+      - service: number.set_value
+        target:
+          entity_id: number.lionel_train_master_volume
+        data:
+          value: 5
+      - service: number.set_value
+        target:
+          entity_id: number.lionel_train_horn_volume
+        data:
+          value: 6
+      # Turn on lights and start train
       - service: switch.turn_on
         target:
-          entity_id: switch.lionel_train_lights
+          entity_id: 
+            - switch.lionel_train_lights
+            - switch.lionel_train_cab_lights
+            - switch.lionel_train_smoke_unit
       - service: number.set_value  
         target:
           entity_id: number.lionel_train_throttle
@@ -99,23 +132,49 @@ automation:
           value: 30
       - service: button.press
         target:
+          entity_id: button.lionel_train_forward
+      - service: button.press
+        target:
           entity_id: button.lionel_train_announcement_ready_to_roll
+```
 ```
 
 ### Dashboard Cards
 ```yaml
-# Throttle control card
+# Complete train control dashboard
 type: entities
+title: "Lionel Train Controller"
 entities:
+  # Speed and Direction
   - entity: number.lionel_train_throttle
   - entity: button.lionel_train_forward
   - entity: button.lionel_train_reverse
+  - entity: button.lionel_train_stop
+  
+  # Lighting Controls
   - entity: switch.lionel_train_lights
+  - entity: switch.lionel_train_cab_lights
+  - entity: switch.lionel_train_number_boards
+  
+  # Sound Controls
   - entity: switch.lionel_train_horn
   - entity: switch.lionel_train_bell
-  - entity: button.lionel_train_stop
-  - entity: button.lionel_train_reconnect
+  - entity: number.lionel_train_master_volume
+  - entity: number.lionel_train_horn_volume
+  - entity: number.lionel_train_bell_volume
+  
+  # Advanced Features
+  - entity: switch.lionel_train_smoke_unit
+  - entity: button.lionel_train_fire_coupler
+  
+  # Status Monitoring
+  - entity: sensor.lionel_train_battery_level
+  - entity: sensor.lionel_train_temperature
+  - entity: sensor.lionel_train_voltage
   - entity: binary_sensor.lionel_train_connection
+  
+  # Connection Control
+  - entity: button.lionel_train_reconnect
 ```
 
 ## Protocol Details

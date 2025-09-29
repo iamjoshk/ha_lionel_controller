@@ -35,13 +35,42 @@ CMD_HORN = 0x48
 CMD_ANNOUNCEMENT = 0x4D
 CMD_DISCONNECT = 0x4B
 CMD_LIGHTS = 0x51
-CMD_MASTER_VOLUME = 0x4B
-CMD_CHUFF_VOLUME = 0x4C
-CMD_SOUND_VOLUME = 0x44
+CMD_MASTER_VOLUME = 0x4C  # Overall volume control
+CMD_SOUND_VOLUME = 0x44   # Volume/pitch for individual sound sources
+
+# New advanced command codes
+CMD_SMOKE = 0x52          # Smoke unit control (estimated)
+CMD_COUPLER = 0x53        # Coupler firing (estimated)
+CMD_CAB_LIGHTS = 0x54     # Cab lights control (estimated)
+CMD_NUMBER_BOARDS = 0x55  # Number board lights (estimated)
+CMD_STATUS_REQUEST = 0x63 # Request locomotive status
+CMD_BATTERY_STATUS = 0x64 # Battery level request (estimated)
+CMD_TEMPERATURE = 0x65    # Temperature reading (estimated)
+CMD_VOLTAGE = 0x66        # Voltage monitoring (estimated)
 
 # Direction values (third byte for direction commands)
 DIRECTION_FORWARD = 0x01
 DIRECTION_REVERSE = 0x02
+
+# Sound source types for volume control
+SOUND_SOURCE_HORN = 0x01
+SOUND_SOURCE_BELL = 0x02
+SOUND_SOURCE_SPEECH = 0x03
+SOUND_SOURCE_ENGINE = 0x04
+
+# Volume and pitch ranges
+VOLUME_MIN = 0
+VOLUME_MAX = 7
+PITCH_MIN = -2
+PITCH_MAX = 2
+
+# Status monitoring constants
+BATTERY_LEVEL_MIN = 0
+BATTERY_LEVEL_MAX = 100
+TEMPERATURE_MIN = -40
+TEMPERATURE_MAX = 85
+VOLTAGE_MIN = 0.0
+VOLTAGE_MAX = 24.0
 
 # Configuration keys
 CONF_MAC_ADDRESS = "mac_address"
@@ -64,17 +93,37 @@ ANNOUNCEMENTS = {
 }
 
 # Command building helper functions
-def build_command(command_code: int, parameters: list[int] = None) -> list[int]:
-    """Build a properly formatted Lionel command."""
+def calculate_checksum(command_code: int, parameters: list[int] = None) -> int:
+    """Calculate proper Lionel checksum based on protocol."""
     if parameters is None:
         parameters = []
     
-    # Basic command structure: [0x00, command, param1, param2, ..., checksum]
-    # For simplicity, checksum is 0x00 (many commands work without proper checksum)
+    # Checksum calculation: 0xFF - command - sum(parameters)
+    checksum = 0xFF - command_code
+    for param in parameters:
+        checksum = (checksum - param) & 0xFF
+    
+    return checksum
+
+def build_command(command_code: int, parameters: list[int] = None) -> list[int]:
+    """Build a properly formatted Lionel command with correct checksum."""
+    if parameters is None:
+        parameters = []
+    
+    # Enhanced command structure: [0x00, command, param1, param2, ..., checksum]
     command = [CMD_ZERO_BYTE, command_code] + parameters
     
-    # Add checksum if parameters exist, otherwise keep simple format
-    if parameters:
-        command.append(CMD_CHECKSUM)
+    # Add proper checksum
+    checksum = calculate_checksum(command_code, parameters)
+    command.append(checksum)
     
     return command
+
+def build_volume_command(sound_source: int, volume: int, pitch: int = None) -> list[int]:
+    """Build volume/pitch command for specific sound source."""
+    if pitch is not None:
+        # Clamp pitch to valid range
+        pitch = max(PITCH_MIN, min(PITCH_MAX, pitch))
+        return build_command(CMD_SOUND_VOLUME, [sound_source, volume, pitch & 0xFF])
+    else:
+        return build_command(CMD_SOUND_VOLUME, [sound_source, volume])

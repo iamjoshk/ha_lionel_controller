@@ -29,6 +29,9 @@ async def async_setup_entry(
         LionelTrainLightsSwitch(coordinator, name),
         LionelTrainHornSwitch(coordinator, name),
         LionelTrainBellSwitch(coordinator, name),
+        LionelTrainSmokeSwitch(coordinator, name),
+        LionelTrainCabLightsSwitch(coordinator, name),
+        LionelTrainNumberBoardsSwitch(coordinator, name),
     ]
     
     async_add_entities(switches, True)
@@ -132,4 +135,85 @@ class LionelTrainBellSwitch(LionelTrainSwitchBase):
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off the bell."""
         await self._coordinator.async_set_bell(False)
+        self.async_write_ha_state()
+
+
+class LionelTrainSmokeSwitch(LionelTrainSwitchBase):
+    """Switch for controlling smoke unit."""
+
+    _attr_name = "Smoke Unit"
+    _attr_icon = "mdi:smoke"
+
+    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
+        """Initialize the smoke switch."""
+        super().__init__(coordinator, device_name)
+        self._attr_unique_id = f"{coordinator.mac_address}_smoke"
+
+    @property
+    def is_on(self) -> bool:
+        """Return True if the smoke unit is on."""
+        return self._coordinator.smoke_on
+
+    async def async_turn_on(self, **kwargs: Any) -> None:
+        """Turn on the smoke unit."""
+        await self._coordinator.async_set_smoke(True)
+        self.async_write_ha_state()
+
+    async def async_turn_off(self, **kwargs: Any) -> None:
+        """Turn off the smoke unit."""
+        await self._coordinator.async_set_smoke(False)
+        self.async_write_ha_state()
+
+
+class LionelTrainCabLightsSwitch(LionelTrainSwitchBase):
+    """Switch for controlling cab lights."""
+
+    _attr_name = "Cab Lights"
+    _attr_icon = "mdi:lightbulb-outline"
+
+    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
+        """Initialize the cab lights switch."""
+        super().__init__(coordinator, device_name)
+        self._attr_unique_id = f"{coordinator.mac_address}_cab_lights"
+
+    @property
+    def is_on(self) -> bool:
+        """Return True if the cab lights are on."""
+        return self._coordinator.cab_lights_on
+
+    async def async_turn_on(self, **kwargs: Any) -> None:
+        """Turn on the cab lights."""
+        await self._coordinator.async_set_cab_lights(True)
+        self.async_write_ha_state()
+
+    async def async_turn_off(self, **kwargs: Any) -> None:
+        """Turn off the cab lights."""
+        await self._coordinator.async_set_cab_lights(False)
+        self.async_write_ha_state()
+
+
+class LionelTrainNumberBoardsSwitch(LionelTrainSwitchBase):
+    """Switch for controlling number board lights."""
+
+    _attr_name = "Number Boards"
+    _attr_icon = "mdi:numeric"
+
+    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
+        """Initialize the number boards switch."""
+        super().__init__(coordinator, device_name)
+        self._attr_unique_id = f"{coordinator.mac_address}_number_boards"
+
+    @property
+    def is_on(self) -> bool:
+        """Return True if the number boards are on."""
+        return self._coordinator.number_boards_on
+
+    async def async_turn_on(self, **kwargs: Any) -> None:
+        """Turn on the number boards."""
+        await self._coordinator.async_set_number_boards(True)
+        self.async_write_ha_state()
+
+    async def async_turn_off(self, **kwargs: Any) -> None:
+        """Turn off the number boards."""
+        await self._coordinator.async_set_number_boards(False)
         self.async_write_ha_state()

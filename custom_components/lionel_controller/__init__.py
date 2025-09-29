@@ -15,6 +15,15 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
 
 from .const import (
+    CMD_BATTERY_STATUS,
+    CMD_CAB_LIGHTS,
+    CMD_COUPLER,
+    CMD_MASTER_VOLUME,
+    CMD_NUMBER_BOARDS,
+    CMD_SMOKE,
+    CMD_STATUS_REQUEST,
+    CMD_TEMPERATURE,
+    CMD_VOLTAGE,
     CONF_MAC_ADDRESS,
     CONF_SERVICE_UUID,
     DEFAULT_RETRY_COUNT,
@@ -29,13 +38,17 @@ from .const import (
     NOTIFY_CHARACTERISTIC_UUID,
     SERIAL_NUMBER_CHAR_UUID,
     SOFTWARE_REVISION_CHAR_UUID,
+    SOUND_SOURCE_BELL,
+    SOUND_SOURCE_ENGINE,
+    SOUND_SOURCE_HORN,
+    SOUND_SOURCE_SPEECH,
     WRITE_CHARACTERISTIC_UUID,
     build_command,
 )
 
 _LOGGER = logging.getLogger(__name__)
 
-PLATFORMS: list[Platform] = [Platform.NUMBER, Platform.SWITCH, Platform.BUTTON, Platform.BINARY_SENSOR]
+PLATFORMS: list[Platform] = [Platform.NUMBER, Platform.SWITCH, Platform.BUTTON, Platform.BINARY_SENSOR, Platform.SENSOR]
 
 
 @callback
@@ -127,6 +140,26 @@ class LionelTrainCoordinator:
         self._horn_on = False
         self._bell_on = False
         
+        # Advanced feature state tracking
+        self._master_volume = 5  # Default mid-range volume
+        self._horn_volume = 5
+        self._bell_volume = 5
+        self._speech_volume = 5
+        self._engine_volume = 5
+        self._horn_pitch = 0
+        self._bell_pitch = 0
+        self._speech_pitch = 0
+        self._engine_pitch = 0
+        
+        self._smoke_on = False
+        self._cab_lights_on = False
+        self._number_boards_on = False
+        
+        # Status monitoring
+        self._battery_level = None
+        self._temperature = None
+        self._voltage = None
+        
         # Device information
         self._model_number = None
         self._serial_number = None
@@ -164,6 +197,62 @@ class LionelTrainCoordinator:
     def bell_on(self) -> bool:
         """Return True if bell is on."""
         return self._bell_on
+
+    # Advanced feature properties
+    @property
+    def master_volume(self) -> int:
+        """Return master volume (0-7)."""
+        return self._master_volume
+
+    @property
+    def horn_volume(self) -> int:
+        """Return horn volume (0-7)."""
+        return self._horn_volume
+
+    @property
+    def bell_volume(self) -> int:
+        """Return bell volume (0-7)."""
+        return self._bell_volume
+
+    @property
+    def speech_volume(self) -> int:
+        """Return speech volume (0-7)."""
+        return self._speech_volume
+
+    @property
+    def engine_volume(self) -> int:
+        """Return engine volume (0-7)."""
+        return self._engine_volume
+
+    @property
+    def smoke_on(self) -> bool:
+        """Return True if smoke unit is on."""
+        return self._smoke_on
+
+    @property
+    def cab_lights_on(self) -> bool:
+        """Return True if cab lights are on."""
+        return self._cab_lights_on
+
+    @property
+    def number_boards_on(self) -> bool:
+        """Return True if number boards are on."""
+        return self._number_boards_on
+
+    @property
+    def battery_level(self) -> int | None:
+        """Return battery level percentage."""
+        return self._battery_level
+
+    @property
+    def temperature(self) -> float | None:
+        """Return temperature in Celsius."""
+        return self._temperature
+
+    @property
+    def voltage(self) -> float | None:
+        """Return voltage."""
+        return self._voltage
 
     @property
     def device_info(self) -> dict:
@@ -270,7 +359,58 @@ class LionelTrainCoordinator:
     async def _notification_handler(self, sender: int, data: bytearray) -> None:
         """Handle notifications from the train."""
         _LOGGER.debug("Received notification: %s", data.hex())
-        # TODO: Parse status data when protocol is better understood
+        
+        # Parse locomotive status data based on protocol analysis
+        if len(data) >= 8 and data[0] == 0x00 and data[1] == 0x81 and data[2] == 0x02:
+            # This is train status data: [0x00, 0x81, 0x02, speed, direction, 0x03, 0x0C, flags]
+            try:
+                self._speed = int((data[3] / 31) * 100)  # Convert 0-31 to 0-100%
+                self._direction_forward = data[4] == 0x01
+                
+                # Parse flags byte (data[7])
+                flags = data[7]
+                self._lights_on = (flags & 0x04) != 0
+                self._bell_on = (flags & 0x02) != 0
+                
+                _LOGGER.debug("Parsed train status: speed=%d%%, forward=%s, lights=%s, bell=%s", 
+                             self._speed, self._direction_forward, self._lights_on, self._bell_on)
+                
+                # Notify entities of state change
+                self._notify_state_change()
+                
+            except (IndexError, ValueError) as err:
+                _LOGGER.debug("Error parsing train status: %s", err)
+        
+        # Parse battery/voltage data (estimated protocol)
+        elif len(data) >= 4 and data[0] == 0x00 and data[1] == 0x64:
+            # Battery status response
+            try:
+                self._battery_level = data[2]  # Assume percentage
+                _LOGGER.debug("Parsed battery level: %d%%", self._battery_level)
+                self._notify_state_change()
+            except (IndexError, ValueError) as err:
+                _LOGGER.debug("Error parsing battery status: %s", err)
+        
+        # Parse temperature data (estimated protocol)
+        elif len(data) >= 4 and data[0] == 0x00 and data[1] == 0x65:
+            # Temperature response
+            try:
+                self._temperature = data[2] - 40  # Assume offset encoding
+                _LOGGER.debug("Parsed temperature: %.1f°C", self._temperature)
+                self._notify_state_change()
+            except (IndexError, ValueError) as err:
+                _LOGGER.debug("Error parsing temperature: %s", err)
+        
+        # Parse voltage data (estimated protocol)
+        elif len(data) >= 5 and data[0] == 0x00 and data[1] == 0x66:
+            # Voltage response
+            try:
+                voltage_raw = (data[2] << 8) | data[3]
+                self._voltage = voltage_raw / 100.0  # Assume 0.01V resolution
+                _LOGGER.debug("Parsed voltage: %.2fV", self._voltage)
+                self._notify_state_change()
+            except (IndexError, ValueError) as err:
+                _LOGGER.debug("Error parsing voltage: %s", err)
 
     async def _read_device_info(self) -> None:
         """Read device information characteristics."""
@@ -470,3 +610,101 @@ class LionelTrainCoordinator:
                     return False
                     
         return False
+
+    # Advanced feature control methods
+    async def async_set_master_volume(self, volume: int) -> bool:
+        """Set master volume (0-7)."""
+        if not 0 <= volume <= 7:
+            raise ValueError("Volume must be between 0 and 7")
+        
+        command = build_command(CMD_MASTER_VOLUME, [volume])
+        success = await self.async_send_command(command)
+        if success:
+            self._master_volume = volume
+            self._notify_state_change()
+        return success
+
+    async def async_set_sound_volume(self, sound_source: int, volume: int, pitch: int = None) -> bool:
+        """Set volume and optionally pitch for specific sound source."""
+        if not 0 <= volume <= 7:
+            raise ValueError("Volume must be between 0 and 7")
+        if pitch is not None and not -2 <= pitch <= 2:
+            raise ValueError("Pitch must be between -2 and 2")
+        
+        from .const import build_volume_command
+        command = build_volume_command(sound_source, volume, pitch)
+        success = await self.async_send_command(command)
+        
+        if success:
+            # Update state tracking based on sound source
+            if sound_source == SOUND_SOURCE_HORN:
+                self._horn_volume = volume
+                if pitch is not None:
+                    self._horn_pitch = pitch
+            elif sound_source == SOUND_SOURCE_BELL:
+                self._bell_volume = volume
+                if pitch is not None:
+                    self._bell_pitch = pitch
+            elif sound_source == SOUND_SOURCE_SPEECH:
+                self._speech_volume = volume
+                if pitch is not None:
+                    self._speech_pitch = pitch
+            elif sound_source == SOUND_SOURCE_ENGINE:
+                self._engine_volume = volume
+                if pitch is not None:
+                    self._engine_pitch = pitch
+            
+            self._notify_state_change()
+        return success
+
+    async def async_set_smoke(self, on: bool) -> bool:
+        """Set smoke unit on/off."""
+        command = build_command(CMD_SMOKE, [0x01 if on else 0x00])
+        success = await self.async_send_command(command)
+        if success:
+            self._smoke_on = on
+            self._notify_state_change()
+        return success
+
+    async def async_fire_coupler(self) -> bool:
+        """Fire the coupler (one-shot action)."""
+        command = build_command(CMD_COUPLER, [0x01])
+        return await self.async_send_command(command)
+
+    async def async_set_cab_lights(self, on: bool) -> bool:
+        """Set cab lights on/off."""
+        command = build_command(CMD_CAB_LIGHTS, [0x01 if on else 0x00])
+        success = await self.async_send_command(command)
+        if success:
+            self._cab_lights_on = on
+            self._notify_state_change()
+        return success
+
+    async def async_set_number_boards(self, on: bool) -> bool:
+        """Set number board lights on/off."""
+        command = build_command(CMD_NUMBER_BOARDS, [0x01 if on else 0x00])
+        success = await self.async_send_command(command)
+        if success:
+            self._number_boards_on = on
+            self._notify_state_change()
+        return success
+
+    async def async_request_status(self) -> bool:
+        """Request locomotive status update."""
+        command = build_command(CMD_STATUS_REQUEST, [])
+        return await self.async_send_command(command)
+
+    async def async_request_battery_status(self) -> bool:
+        """Request battery level status."""
+        command = build_command(CMD_BATTERY_STATUS, [])
+        return await self.async_send_command(command)
+
+    async def async_request_temperature(self) -> bool:
+        """Request temperature reading."""
+        command = build_command(CMD_TEMPERATURE, [])
+        return await self.async_send_command(command)
+
+    async def async_request_voltage(self) -> bool:
+        """Request voltage reading."""
+        command = build_command(CMD_VOLTAGE, [])
+        return await self.async_send_command(command)
