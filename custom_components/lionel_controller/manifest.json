@@ -7,7 +7,7 @@
   "dependencies": [],
   "config_flow": true,
   "codeowners": ["@iamjoshk"],
-  "requirements": ["bleak>=0.20.0"],
+  "requirements": ["bleak>=0.20.0", "bleak-retry-connector>=3.4.0"],
   "bluetooth": [
     {
       "service_uuid": "e20a39f4-73f5-4bc4-a12f-17d1ad07a961",

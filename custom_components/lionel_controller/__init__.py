@@ -6,6 +6,7 @@ import logging
 from typing import Any
 
 from bleak import BleakClient, BleakError
+from bleak_retry_connector import establish_connection, BleakClientWithServiceCache
 from homeassistant.components import bluetooth
 from homeassistant.components.bluetooth import BluetoothServiceInfoBleak, BluetoothChange
 from homeassistant.config_entries import ConfigEntry
@@ -98,7 +99,7 @@ class LionelTrainCoordinator:
         self.mac_address = mac_address
         self.name = name
         self.service_uuid = service_uuid
-        self._client: BleakClient | None = None
+        self._client: BleakClientWithServiceCache | None = None
         self._connected = False
         self._lock = asyncio.Lock()
         self._retry_count = 0
@@ -183,8 +184,12 @@ class LionelTrainCoordinator:
                 raise BleakError(f"Could not find Bluetooth device with address {self.mac_address}")
 
             try:
-                self._client = BleakClient(ble_device)
-                await self._client.connect(timeout=DEFAULT_TIMEOUT)
+                self._client = await establish_connection(
+                    BleakClientWithServiceCache,
+                    ble_device,
+                    self.mac_address,
+                    max_attempts=3,
+                )
                 
                 # Set up notification handler for status updates
                 try:
@@ -235,23 +240,40 @@ class LionelTrainCoordinator:
     async def async_send_command(self, command_data: list[int]) -> bool:
         """Send a command to the train."""
         async with self._lock:
+            # Try to connect if not connected
             if not self.connected:
                 try:
                     await self._async_connect()
-                except BleakError:
+                except BleakError as err:
+                    _LOGGER.error("Failed to connect before sending command: %s", err)
                     return False
 
-            try:
-                await self._client.write_gatt_char(
-                    WRITE_CHARACTERISTIC_UUID, bytearray(command_data)
-                )
-                _LOGGER.debug("Sent command: %s", command_data)
-                return True
+            # Retry command sending with better error handling
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    await self._client.write_gatt_char(
+                        WRITE_CHARACTERISTIC_UUID, bytearray(command_data)
+                    )
+                    _LOGGER.debug("Sent command: %s", command_data)
+                    return True
 
-            except BleakError as err:
-                _LOGGER.error("Failed to send command %s: %s", command_data, err)
-                self._connected = False
-                return False
+                except BleakError as err:
+                    _LOGGER.warning("Failed to send command (attempt %d/%d): %s", attempt + 1, max_retries, err)
+                    self._connected = False
+                    
+                    # Try to reconnect on subsequent attempts
+                    if attempt < max_retries - 1:
+                        try:
+                            await asyncio.sleep(0.5 * (attempt + 1))  # Exponential backoff
+                            await self._async_connect()
+                        except BleakError:
+                            _LOGGER.debug("Reconnection attempt %d failed", attempt + 1)
+                            continue
+                    else:
+                        _LOGGER.error("Failed to send command after %d attempts: %s", max_retries, err)
+                        
+            return False
 
     async def async_set_speed(self, speed: int) -> bool:
         """Set train speed (0-100)."""

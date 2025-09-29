@@ -153,9 +153,16 @@ This information is displayed in Home Assistant's device registry for better ide
 
 ### Connection Issues
 - Ensure locomotive is powered on and in Bluetooth pairing mode
-- Check that locomotive is within Bluetooth range
+- Check that locomotive is within Bluetooth range (typically 10-30 feet)
 - Verify MAC address is correct
-- Try restarting Home Assistant
+- Try restarting Home Assistant if connection issues persist
+
+### Improved Connection Reliability
+The integration uses `bleak-retry-connector` for enhanced connection stability:
+- **Automatic Retries**: Failed connections are automatically retried up to 3 times
+- **Exponential Backoff**: Increasing delays between retry attempts to avoid overwhelming the device
+- **Service Caching**: Bluetooth service information is cached for faster subsequent connections
+- **Better Error Handling**: More informative error messages for connection troubleshooting
 
 ### Service UUID Issues
 Different locomotive models may use different service UUIDs. If the default doesn't work:
