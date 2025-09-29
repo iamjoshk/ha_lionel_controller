@@ -62,11 +62,14 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
 
     coordinator = LionelTrainCoordinator(hass, mac_address, name, service_uuid)
     
+    # Don't require initial connection - allow integration to load even if locomotive is off
     try:
         await coordinator.async_setup()
+        _LOGGER.info("Successfully connected to Lionel train at %s", mac_address)
     except (BleakError, asyncio.TimeoutError) as err:
-        _LOGGER.error("Failed to connect to Lionel train at %s: %s", mac_address, err)
-        raise ConfigEntryNotReady from err
+        _LOGGER.warning("Could not connect to Lionel train at %s during setup: %s", mac_address, err)
+        _LOGGER.info("Integration will load anyway - train will connect when powered on")
+        # Don't raise ConfigEntryNotReady - let the integration load anyway
 
     hass.data.setdefault(DOMAIN, {})
     hass.data[DOMAIN][entry.entry_id] = coordinator
@@ -191,7 +194,12 @@ class LionelTrainCoordinator:
 
     async def async_setup(self) -> None:
         """Set up the coordinator."""
-        await self._async_connect()
+        try:
+            await self._async_connect()
+        except (BleakError, asyncio.TimeoutError) as err:
+            _LOGGER.debug("Initial connection failed during setup: %s", err)
+            # Don't raise - let the integration load anyway
+            # Connection will be attempted when entities try to communicate
 
     async def async_shutdown(self) -> None:
         """Shut down the coordinator."""
@@ -386,76 +394,79 @@ class LionelTrainCoordinator:
         """Force reconnection to the train."""
         _LOGGER.info("Force reconnecting to Lionel train at %s", self.mac_address)
         
-        # First, try to disconnect cleanly
-        if self._client and self._client.is_connected:
-            try:
-                await self._client.disconnect()
-                _LOGGER.debug("Disconnected from train")
-            except BleakError as err:
-                _LOGGER.debug("Error during disconnect: %s", err)
-        
-        # Clear all connection state outside the lock first
+        # Clear connection state first - don't try to send disconnect commands
+        # since the locomotive might already be disconnected/powered off
         self._connected = False
-        self._client = None
+        if self._client:
+            try:
+                if self._client.is_connected:
+                    await self._client.disconnect()
+                    _LOGGER.debug("Disconnected existing client")
+            except Exception as err:
+                _LOGGER.debug("Error disconnecting client (expected if already disconnected): %s", err)
+            finally:
+                self._client = None
         
-        # Wait for device to stabilize
-        await asyncio.sleep(2.0)
+        # Wait for any existing connections to clear
+        await asyncio.sleep(1.0)
         
-        # Now try to reconnect with fresh device lookup
-        try:
-            # Clear any cached device references
-            ble_device = None
-            
-            # Try to get device multiple times with increasing delays
-            for attempt in range(3):
-                _LOGGER.debug("Attempt %d: Looking up device %s", attempt + 1, self.mac_address)
+        # Now try to establish a fresh connection
+        max_attempts = 5
+        for attempt in range(max_attempts):
+            try:
+                _LOGGER.debug("Connection attempt %d/%d", attempt + 1, max_attempts)
+                
+                # Get fresh device reference
                 ble_device = bluetooth.async_ble_device_from_address(
                     self.hass, self.mac_address, connectable=True
                 )
                 
-                if ble_device:
-                    _LOGGER.debug("Found device on attempt %d", attempt + 1)
-                    break
-                    
-                if attempt < 2:  # Don't wait after the last attempt
-                    wait_time = (attempt + 1) * 1.0  # 1s, 2s delays
-                    _LOGGER.debug("Device not found, waiting %s seconds", wait_time)
-                    await asyncio.sleep(wait_time)
-            
-            if not ble_device:
-                raise BleakError(f"Could not find Bluetooth device with address {self.mac_address} after multiple attempts")
-            
-            # Now establish connection
-            async with self._lock:
-                _LOGGER.debug("Establishing fresh connection to %s", self.mac_address)
-                self._client = await establish_connection(
-                    BleakClientWithServiceCache,
-                    ble_device,
-                    self.mac_address,
-                    max_attempts=3,
-                )
+                if not ble_device:
+                    if attempt < max_attempts - 1:
+                        wait_time = (attempt + 1) * 1.0  # 1s, 2s, 3s, 4s delays
+                        _LOGGER.debug("Device not found, waiting %s seconds before retry", wait_time)
+                        await asyncio.sleep(wait_time)
+                        continue
+                    else:
+                        raise BleakError(f"Could not find Bluetooth device {self.mac_address}")
                 
-                # Set up notification handler for status updates
-                try:
-                    await self._client.start_notify(
-                        NOTIFY_CHARACTERISTIC_UUID, self._notification_handler
+                # Establish fresh connection
+                async with self._lock:
+                    _LOGGER.debug("Establishing connection to %s", self.mac_address)
+                    self._client = await establish_connection(
+                        BleakClientWithServiceCache,
+                        ble_device,
+                        self.mac_address,
+                        max_attempts=3,
                     )
-                except BleakError:
-                    _LOGGER.debug("Could not set up notifications (train may not support them)")
-                
-                # Read device information if available
-                await self._read_device_info()
-                
-                self._connected = True
-                self._retry_count = 0
-                _LOGGER.info("Successfully force reconnected to train")
-                
-                # Notify all entities of the state change
-                self._notify_state_change()
-                return True
-                
-        except BleakError as err:
-            _LOGGER.error("Failed to force reconnect: %s", err)
-            self._connected = False
-            self._client = None
-            return False
+                    
+                    # Set up notification handler
+                    try:
+                        await self._client.start_notify(
+                            NOTIFY_CHARACTERISTIC_UUID, self._notification_handler
+                        )
+                    except BleakError:
+                        _LOGGER.debug("Could not set up notifications")
+                    
+                    # Read device information
+                    await self._read_device_info()
+                    
+                    self._connected = True
+                    self._retry_count = 0
+                    _LOGGER.info("Successfully reconnected to train")
+                    
+                    # Notify all entities of the reconnection
+                    self._notify_state_change()
+                    return True
+                    
+            except BleakError as err:
+                _LOGGER.debug("Connection attempt %d failed: %s", attempt + 1, err)
+                if attempt < max_attempts - 1:
+                    wait_time = (attempt + 1) * 2.0  # 2s, 4s, 6s, 8s delays
+                    _LOGGER.debug("Waiting %s seconds before retry", wait_time)
+                    await asyncio.sleep(wait_time)
+                else:
+                    _LOGGER.error("Failed to reconnect after %d attempts: %s", max_attempts, err)
+                    return False
+                    
+        return False

@@ -90,25 +90,14 @@ class LionelTrainReconnectButton(LionelTrainButtonBase):
 
     async def async_press(self) -> None:
         """Press the button."""
-        _LOGGER.info("Reconnect button pressed - attempting force reconnect first")
+        _LOGGER.info("Reconnect button pressed - initiating fresh connection")
         
-        # First try the force reconnect
         success = await self._coordinator.async_force_reconnect()
         
         if success:
-            _LOGGER.info("Force reconnect successful")
+            _LOGGER.info("Reconnect successful")
         else:
-            _LOGGER.warning("Force reconnect failed, falling back to integration reload")
-            # If force reconnect fails, try to reload the integration
-            try:
-                # Get the config entry for this device
-                for entry_id, coordinator in self._coordinator.hass.data.get("lionel_controller", {}).items():
-                    if coordinator == self._coordinator:
-                        _LOGGER.info("Reloading integration entry %s", entry_id)
-                        await self._coordinator.hass.config_entries.async_reload(entry_id)
-                        break
-            except Exception as err:
-                _LOGGER.error("Failed to reload integration: %s", err)
+            _LOGGER.error("Reconnect failed - ensure locomotive is powered on and in range")
         
         # Always trigger a state update to refresh entity availability
         self.async_write_ha_state()
