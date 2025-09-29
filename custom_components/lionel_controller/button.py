@@ -90,7 +90,14 @@ class LionelTrainReconnectButton(LionelTrainButtonBase):
 
     async def async_press(self) -> None:
         """Press the button."""
-        await self._coordinator.async_force_reconnect()
+        _LOGGER.info("Reconnect button pressed")
+        success = await self._coordinator.async_force_reconnect()
+        if success:
+            _LOGGER.info("Reconnect successful")
+        else:
+            _LOGGER.error("Reconnect failed")
+        # Always trigger a state update to refresh entity availability
+        self.async_write_ha_state()
 
 
 class LionelTrainStopButton(LionelTrainButtonBase):

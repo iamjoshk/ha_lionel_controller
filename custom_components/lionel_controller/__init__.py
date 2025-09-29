@@ -193,14 +193,24 @@ class LionelTrainCoordinator:
             if self._connected:
                 return
 
+            # Get a fresh BLE device reference
             ble_device = bluetooth.async_ble_device_from_address(
                 self.hass, self.mac_address, connectable=True
             )
             
             if not ble_device:
+                # Try to scan for the device if not found in cache
+                _LOGGER.debug("Device not found in cache, attempting fresh lookup")
+                await asyncio.sleep(0.5)  # Brief delay before retry
+                ble_device = bluetooth.async_ble_device_from_address(
+                    self.hass, self.mac_address, connectable=True
+                )
+                
+            if not ble_device:
                 raise BleakError(f"Could not find Bluetooth device with address {self.mac_address}")
 
             try:
+                _LOGGER.debug("Establishing connection to %s", self.mac_address)
                 self._client = await establish_connection(
                     BleakClientWithServiceCache,
                     ble_device,
@@ -353,20 +363,29 @@ class LionelTrainCoordinator:
 
     async def async_force_reconnect(self) -> bool:
         """Force reconnection to the train."""
+        _LOGGER.info("Force reconnecting to Lionel train at %s", self.mac_address)
         async with self._lock:
             # Disconnect if currently connected
             if self._client and self._client.is_connected:
                 try:
                     await self._client.disconnect()
-                except BleakError:
-                    pass
+                    _LOGGER.debug("Disconnected from train")
+                except BleakError as err:
+                    _LOGGER.debug("Error during disconnect: %s", err)
             
+            # Clear connection state
             self._connected = False
             self._client = None
+            
+            # Wait a moment for the device to be ready
+            await asyncio.sleep(1.0)
             
             # Force a new connection
             try:
                 await self._async_connect()
+                _LOGGER.info("Successfully reconnected to train")
+                # Notify all entities of the state change
+                self._notify_state_change()
                 return True
             except BleakError as err:
                 _LOGGER.error("Failed to force reconnect: %s", err)
