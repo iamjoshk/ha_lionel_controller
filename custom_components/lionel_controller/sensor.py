@@ -53,7 +53,10 @@ class LionelTrainStatusSensor(SensorEntity):
     @property
     def native_value(self) -> str | None:
         """Return the state of the sensor."""
-        return self._coordinator.last_notification_hex
+        hex_value = self._coordinator.last_notification_hex
+        if hex_value is None:
+            return "No data"
+        return hex_value
 
     @property
     def available(self) -> bool:
