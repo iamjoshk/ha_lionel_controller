@@ -1,3 +1,7 @@
+## This was an exercise in Github Copilot AI coding. The entire integration was created and coded by Copilot using prompts. 
+### This integration will be made public and archived, so that someone else may fork and expand on this.
+
+---
 # Lionel Train Controller
 
 A Home Assistant custom integration for controlling Lionel LionChief Bluetooth locomotives.
@@ -8,9 +12,7 @@ A Home Assistant custom integration for controlling Lionel LionChief Bluetooth l
 - **Direction Control**: Switch between forward and reverse
 - **Sound Effects**: Control horn, bell, and announcements  
 - **Lighting**: Train lights control
-- **Advanced Features**: Smoke unit control
 - **Volume Controls**: Individual volume control for horn, bell, speech, and engine sounds
-- **Status Monitoring**: Battery level, temperature, and voltage monitoring
 - **Connection Status**: Monitor Bluetooth connection status
 - **Auto-Discovery**: Automatically discover locomotives when powered on
 - **HACS Compatible**: Easy installation through HACS
@@ -29,23 +31,15 @@ A Home Assistant custom integration for controlling Lionel LionChief Bluetooth l
 - **Lights**: Control locomotive lighting (defaults to on)
 - **Horn**: Turn horn sound on/off
 - **Bell**: Turn bell sound on/off
-- **Smoke Unit**: Control smoke generator on/off
 
 ### Button Entities
 - **Stop**: Emergency stop button (sets throttle to 0)
 - **Forward**: Set locomotive direction to forward
 - **Reverse**: Set locomotive direction to reverse
 - **Disconnect**: Disconnect from locomotive
-- **Reconnect**: Force reconnection to locomotive
-- **Status Requests**: Battery, temperature, voltage checks
 - **Announcements**: Various conductor announcements
   - Random, Ready to Roll, Hey There, Squeaky
   - Water and Fire, Fastest Freight, Penna Flyer
-
-### Sensor Entities
-- **Battery Level**: Monitor locomotive battery percentage
-- **Temperature**: Internal temperature monitoring
-- **Voltage**: Power supply voltage monitoring
 
 ### Binary Sensor
 - **Connection**: Shows Bluetooth connection status
@@ -90,84 +84,6 @@ You can find your locomotive's MAC address by:
 
 ### Example MAC Address Format
 `FC:1F:C3:9F:A5:4A` (format: XX:XX:XX:XX:XX:XX)
-
-## Usage Examples
-
-Once configured, you can control your train through:
-
-### Automations
-```yaml
-# Example automation to start train at sunset with volume control
-automation:
-  - alias: "Start Christmas Train at Sunset"
-    trigger:
-      - platform: sun
-        event: sunset
-    action:
-      # Set volumes first
-      - service: number.set_value
-        target:
-          entity_id: number.lionel_train_master_volume
-        data:
-          value: 5
-      - service: number.set_value
-        target:
-          entity_id: number.lionel_train_horn_volume
-        data:
-          value: 6
-      # Turn on lights and start train
-      - service: switch.turn_on
-        target:
-          entity_id: 
-            - switch.lionel_train_lights
-            - switch.lionel_train_smoke_unit
-      - service: number.set_value  
-        target:
-          entity_id: number.lionel_train_throttle
-        data:
-          value: 30
-      - service: button.press
-        target:
-          entity_id: button.lionel_train_forward
-      - service: button.press
-        target:
-          entity_id: button.lionel_train_announcement_ready_to_roll
-```
-
-### Dashboard Cards
-```yaml
-# Complete train control dashboard
-type: entities
-title: "Lionel Train Controller"
-entities:
-  # Speed and Direction
-  - entity: number.lionel_train_throttle
-  - entity: button.lionel_train_forward
-  - entity: button.lionel_train_reverse
-  - entity: button.lionel_train_stop
-  
-  # Lighting Controls
-  - entity: switch.lionel_train_lights
-  
-  # Sound Controls
-  - entity: switch.lionel_train_horn
-  - entity: switch.lionel_train_bell
-  - entity: number.lionel_train_master_volume
-  - entity: number.lionel_train_horn_volume
-  - entity: number.lionel_train_bell_volume
-  
-  # Advanced Features
-  - entity: switch.lionel_train_smoke_unit
-  
-  # Status Monitoring
-  - entity: sensor.lionel_train_battery_level
-  - entity: sensor.lionel_train_temperature
-  - entity: sensor.lionel_train_voltage
-  - entity: binary_sensor.lionel_train_connection
-  
-  # Connection Control
-  - entity: button.lionel_train_reconnect
-```
 
 ## Protocol Details
 
@@ -230,7 +146,3 @@ Different locomotive models may use different service UUIDs. If the default does
 - Protocol reverse engineering by [Property404](https://github.com/Property404/lionchief-controller)
 - ESPHome reference implementation by [@iamjoshk](https://github.com/iamjoshk/home-assistant-collection/tree/main/ESPHome/LionelController)
 - Additional protocol details from [pedasmith's BluetoothDeviceController](https://github.com/pedasmith/BluetoothDeviceController/blob/main/BluetoothProtocolsDevices/Lionel_LionChief.cs)
-
-## Contributing
-
-Issues and pull requests welcome! Please see the GitHub repository for more information.
