@@ -7,8 +7,8 @@ A Home Assistant custom integration for controlling Lionel LionChief Bluetooth l
 - **Throttle Control**: Use a number slider to control train speed (0-100%)
 - **Direction Control**: Switch between forward and reverse
 - **Sound Effects**: Control horn, bell, and announcements  
-- **Lighting**: Train lights, cab lights, and number board control
-- **Advanced Features**: Smoke unit control and coupler firing
+- **Lighting**: Train lights control
+- **Advanced Features**: Smoke unit control
 - **Volume Controls**: Individual volume control for horn, bell, speech, and engine sounds
 - **Status Monitoring**: Battery level, temperature, and voltage monitoring
 - **Connection Status**: Monitor Bluetooth connection status
@@ -29,8 +29,6 @@ A Home Assistant custom integration for controlling Lionel LionChief Bluetooth l
 - **Lights**: Control locomotive lighting (defaults to on)
 - **Horn**: Turn horn sound on/off
 - **Bell**: Turn bell sound on/off
-- **Cab Lights**: Control cab interior lighting
-- **Number Boards**: Control number board illumination
 - **Smoke Unit**: Control smoke generator on/off
 
 ### Button Entities
@@ -38,8 +36,6 @@ A Home Assistant custom integration for controlling Lionel LionChief Bluetooth l
 - **Forward**: Set locomotive direction to forward
 - **Reverse**: Set locomotive direction to reverse
 - **Disconnect**: Disconnect from locomotive
-- **Reconnect**: Force reconnection to locomotive
-- **Fire Coupler**: Activate locomotive coupler
 - **Status Requests**: Battery, temperature, voltage checks
 - **Announcements**: Various conductor announcements
   - Random, Ready to Roll, Hey There, Squeaky
@@ -123,7 +119,6 @@ automation:
         target:
           entity_id: 
             - switch.lionel_train_lights
-            - switch.lionel_train_cab_lights
             - switch.lionel_train_smoke_unit
       - service: number.set_value  
         target:
@@ -153,8 +148,6 @@ entities:
   
   # Lighting Controls
   - entity: switch.lionel_train_lights
-  - entity: switch.lionel_train_cab_lights
-  - entity: switch.lionel_train_number_boards
   
   # Sound Controls
   - entity: switch.lionel_train_horn
@@ -165,16 +158,12 @@ entities:
   
   # Advanced Features
   - entity: switch.lionel_train_smoke_unit
-  - entity: button.lionel_train_fire_coupler
   
   # Status Monitoring
   - entity: sensor.lionel_train_battery_level
   - entity: sensor.lionel_train_temperature
   - entity: sensor.lionel_train_voltage
   - entity: binary_sensor.lionel_train_connection
-  
-  # Connection Control
-  - entity: button.lionel_train_reconnect
 ```
 
 ## Protocol Details

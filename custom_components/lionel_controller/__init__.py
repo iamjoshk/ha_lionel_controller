@@ -85,15 +85,26 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data.setdefault(DOMAIN, {})
     hass.data[DOMAIN][entry.entry_id] = coordinator
 
-    # Register services
+    # Register reload service once globally
     async def reload_integration_service(call):
         """Service to reload the integration for better reconnection."""
+        # Get entry_id from service call data, or use the first available entry
         entry_id = call.data.get("entry_id")
-        if entry_id and entry_id in hass.data[DOMAIN]:
-            _LOGGER.info("Reloading integration via service call")
+        
+        # If no entry_id provided, try to reload all entries
+        if not entry_id:
+            entries_to_reload = list(hass.data.get(DOMAIN, {}).keys())
+            if entries_to_reload:
+                entry_id = entries_to_reload[0]
+                _LOGGER.info("No entry_id provided, reloading first entry: %s", entry_id)
+        
+        if entry_id:
+            _LOGGER.info("Reloading integration via service call for entry: %s", entry_id)
             await hass.config_entries.async_reload(entry_id)
+        else:
+            _LOGGER.error("No integration entries found to reload")
     
-    # Register the service if not already registered
+    # Register the service only once (not per entry)
     if not hass.services.has_service(DOMAIN, "reload_integration"):
         hass.services.async_register(DOMAIN, "reload_integration", reload_integration_service)
 
@@ -150,8 +161,6 @@ class LionelTrainCoordinator:
         self._engine_pitch = 0
         
         self._smoke_on = False
-        self._cab_lights_on = False
-        self._number_boards_on = False
         
         # Device information
         self._model_number = None
@@ -229,16 +238,6 @@ class LionelTrainCoordinator:
     def smoke_on(self) -> bool:
         """Return True if smoke unit is on."""
         return self._smoke_on
-
-    @property
-    def cab_lights_on(self) -> bool:
-        """Return True if cab lights are on."""
-        return self._cab_lights_on
-
-    @property
-    def number_boards_on(self) -> bool:
-        """Return True if number boards are on."""
-        return self._number_boards_on
 
     @property
     def last_notification_hex(self) -> str | None:
@@ -749,28 +748,5 @@ class LionelTrainCoordinator:
         success = await self.async_send_command(command)
         if success:
             self._smoke_on = on
-            self._notify_state_change()
-        return success
-
-    async def async_fire_coupler(self) -> bool:
-        """Fire the coupler (one-shot action)."""
-        command = build_simple_command(CMD_COUPLER, [0x01])
-        return await self.async_send_command(command)
-
-    async def async_set_cab_lights(self, on: bool) -> bool:
-        """Set cab lights on/off."""
-        command = build_simple_command(CMD_CAB_LIGHTS, [0x01 if on else 0x00])
-        success = await self.async_send_command(command)
-        if success:
-            self._cab_lights_on = on
-            self._notify_state_change()
-        return success
-
-    async def async_set_number_boards(self, on: bool) -> bool:
-        """Set number board lights on/off."""
-        command = build_simple_command(CMD_NUMBER_BOARDS, [0x01 if on else 0x00])
-        success = await self.async_send_command(command)
-        if success:
-            self._number_boards_on = on
             self._notify_state_change()
         return success
