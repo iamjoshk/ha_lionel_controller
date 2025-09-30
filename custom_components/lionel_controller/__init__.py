@@ -382,12 +382,12 @@ class LionelTrainCoordinator:
     async def _log_ble_characteristics(self) -> None:
         """Log all BLE services and characteristics for debugging and discover dynamic characteristics."""
         try:
-            _LOGGER.info("=== BLE Service Discovery for %s ===", self.mac_address)
+            _LOGGER.debug("=== BLE Service Discovery for %s ===", self.mac_address)
             
             services = self._client.services
             # Convert to list to get length safely
             service_list = list(services)
-            _LOGGER.info("Found %d services", len(service_list))
+            _LOGGER.debug("Found %d services", len(service_list))
             
             # Store discovered characteristics for dynamic usage
             self._discovered_write_char = None
@@ -397,7 +397,7 @@ class LionelTrainCoordinator:
             service_count = 0
             for service in service_list:
                 service_count += 1
-                _LOGGER.info("Service %d: %s (UUID: %s)", service_count, service.description, service.uuid)
+                _LOGGER.debug("Service %d: %s (UUID: %s)", service_count, service.description, service.uuid)
                 
                 # Check if this might be the LionChief control service
                 # Look for services with writable characteristics that aren't standard BLE services
@@ -432,17 +432,17 @@ class LionelTrainCoordinator:
                         properties.append("INDICATE")
                         has_notify = True
                     
-                    _LOGGER.info("  Char %d: %s (UUID: %s) [%s]", 
+                    _LOGGER.debug("  Char %d: %s (UUID: %s) [%s]", 
                                char_count, char.description, char.uuid, ", ".join(properties))
                     
                     # Identify potential LionChief characteristics
                     if is_potential_lionchief:
                         if has_write and not self._discovered_write_char:
                             self._discovered_write_char = str(char.uuid)
-                            _LOGGER.info("    *** POTENTIAL LIONCHIEF WRITE CHARACTERISTIC ***")
+                            _LOGGER.debug("    *** POTENTIAL LIONCHIEF WRITE CHARACTERISTIC ***")
                         if has_notify and not self._discovered_notify_char:
                             self._discovered_notify_char = str(char.uuid)
-                            _LOGGER.info("    *** POTENTIAL LIONCHIEF NOTIFY CHARACTERISTIC ***")
+                            _LOGGER.debug("    *** POTENTIAL LIONCHIEF NOTIFY CHARACTERISTIC ***")
                         
                         if has_write or has_notify:
                             self._discovered_lionchief_service = str(service.uuid)
@@ -456,26 +456,26 @@ class LionelTrainCoordinator:
                                 try:
                                     # Try to decode as string first
                                     decoded = value.decode('utf-8').strip('\x00')
-                                    _LOGGER.info("    Value (text): '%s'", decoded)
+                                    _LOGGER.debug("    Value (text): '%s'", decoded)
                                 except UnicodeDecodeError:
                                     # Fall back to hex
-                                    _LOGGER.info("    Value (hex): %s", value.hex())
+                                    _LOGGER.debug("    Value (hex): %s", value.hex())
                             elif value:
-                                _LOGGER.info("    Value: <large data, %d bytes>", len(value))
+                                _LOGGER.debug("    Value: <large data, %d bytes>", len(value))
                         except Exception as err:
                             _LOGGER.debug("    Could not read value: %s", err)
                 
-                _LOGGER.info("  Found %d characteristics in this service", char_count)
+                _LOGGER.debug("  Found %d characteristics in this service", char_count)
                             
-            _LOGGER.info("=== End BLE Service Discovery ===")
+            _LOGGER.debug("=== End BLE Service Discovery ===")
             
-            # Log discovered LionChief characteristics
+            # Log discovered LionChief characteristics at debug level
             if self._discovered_lionchief_service:
-                _LOGGER.info("🎯 DISCOVERED LIONCHIEF SERVICE: %s", self._discovered_lionchief_service)
+                _LOGGER.debug("🎯 DISCOVERED LIONCHIEF SERVICE: %s", self._discovered_lionchief_service)
             if self._discovered_write_char:
-                _LOGGER.info("🎯 DISCOVERED WRITE CHARACTERISTIC: %s", self._discovered_write_char)
+                _LOGGER.debug("🎯 DISCOVERED WRITE CHARACTERISTIC: %s", self._discovered_write_char)
             if self._discovered_notify_char:
-                _LOGGER.info("🎯 DISCOVERED NOTIFY CHARACTERISTIC: %s", self._discovered_notify_char)
+                _LOGGER.debug("🎯 DISCOVERED NOTIFY CHARACTERISTIC: %s", self._discovered_notify_char)
                 
             # Update constants if we found better characteristics
             if self._discovered_write_char and self._discovered_write_char != WRITE_CHARACTERISTIC_UUID:
