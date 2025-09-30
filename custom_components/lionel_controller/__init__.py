@@ -45,7 +45,7 @@ from .const import (
 
 _LOGGER = logging.getLogger(__name__)
 
-PLATFORMS: list[Platform] = [Platform.NUMBER, Platform.SWITCH, Platform.BUTTON, Platform.BINARY_SENSOR]
+PLATFORMS: list[Platform] = [Platform.NUMBER, Platform.SWITCH, Platform.BUTTON, Platform.BINARY_SENSOR, Platform.SENSOR]
 
 
 @callback
@@ -164,6 +164,9 @@ class LionelTrainCoordinator:
         self._discovered_write_char = None
         self._discovered_notify_char = None
         self._discovered_lionchief_service = None
+        
+        # Status information
+        self._last_notification_hex = None
 
     @property
     def connected(self) -> bool:
@@ -235,6 +238,11 @@ class LionelTrainCoordinator:
     def number_boards_on(self) -> bool:
         """Return True if number boards are on."""
         return self._number_boards_on
+
+    @property
+    def last_notification_hex(self) -> str | None:
+        """Return the last notification hex string."""
+        return self._last_notification_hex
 
     @property
     def device_info(self) -> dict:
@@ -338,6 +346,9 @@ class LionelTrainCoordinator:
         """Handle notifications from the train."""
         _LOGGER.debug("Received notification: %s", data.hex())
         
+        # Store the raw notification hex string
+        self._last_notification_hex = data.hex()
+        
         # Parse locomotive status data based on protocol analysis
         if len(data) >= 8 and data[0] == 0x00 and data[1] == 0x81 and data[2] == 0x02:
             # This is train status data: [0x00, 0x81, 0x02, speed, direction, 0x03, 0x0C, flags]
@@ -358,6 +369,9 @@ class LionelTrainCoordinator:
                 
             except (IndexError, ValueError) as err:
                 _LOGGER.debug("Error parsing train status: %s", err)
+        else:
+            # For any notification, notify state change to update the hex sensor
+            self._notify_state_change()
 
     async def _read_device_info(self) -> None:
         """Read device information characteristics."""
