@@ -40,9 +40,6 @@ CMD_SOUND_VOLUME = 0x44   # Volume/pitch for individual sound sources
 
 # New advanced command codes
 CMD_SMOKE = 0x52          # Smoke unit control (estimated)
-CMD_COUPLER = 0x53        # Coupler firing (estimated)
-CMD_CAB_LIGHTS = 0x54     # Cab lights control (estimated)
-CMD_NUMBER_BOARDS = 0x55  # Number board lights (estimated)
 
 # Direction values (third byte for direction commands)
 DIRECTION_FORWARD = 0x01

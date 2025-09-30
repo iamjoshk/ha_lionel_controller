@@ -30,7 +30,6 @@ async def async_setup_entry(
         LionelTrainStopButton(coordinator, name),
         LionelTrainForwardButton(coordinator, name),
         LionelTrainReverseButton(coordinator, name),
-        LionelTrainCouplerButton(coordinator, name),
     ]
     
     # Add announcement buttons
@@ -171,21 +170,3 @@ class LionelTrainAnnouncementButton(LionelTrainButtonBase):
         announcement_config = ANNOUNCEMENTS[self._announcement_name]
         announcement_code = announcement_config["code"]
         await self._coordinator.async_play_announcement(announcement_code)
-
-
-class LionelTrainCouplerButton(LionelTrainButtonBase):
-    """Button for firing the coupler."""
-
-    _attr_name = "Fire Coupler"
-    _attr_icon = "mdi:link-variant"
-
-    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
-        """Initialize the coupler button."""
-        super().__init__(coordinator, device_name)
-        self._attr_unique_id = f"{coordinator.mac_address}_coupler"
-
-    async def async_press(self) -> None:
-        """Press the button."""
-        await self._coordinator.async_fire_coupler()
-
-
