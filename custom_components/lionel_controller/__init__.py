@@ -15,15 +15,11 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
 
 from .const import (
-    CMD_BATTERY_STATUS,
     CMD_CAB_LIGHTS,
     CMD_COUPLER,
     CMD_MASTER_VOLUME,
     CMD_NUMBER_BOARDS,
     CMD_SMOKE,
-    CMD_STATUS_REQUEST,
-    CMD_TEMPERATURE,
-    CMD_VOLTAGE,
     CONF_MAC_ADDRESS,
     CONF_SERVICE_UUID,
     DEFAULT_RETRY_COUNT,
@@ -49,7 +45,7 @@ from .const import (
 
 _LOGGER = logging.getLogger(__name__)
 
-PLATFORMS: list[Platform] = [Platform.NUMBER, Platform.SWITCH, Platform.BUTTON, Platform.BINARY_SENSOR, Platform.SENSOR]
+PLATFORMS: list[Platform] = [Platform.NUMBER, Platform.SWITCH, Platform.BUTTON, Platform.BINARY_SENSOR]
 
 
 @callback
@@ -156,11 +152,6 @@ class LionelTrainCoordinator:
         self._cab_lights_on = False
         self._number_boards_on = False
         
-        # Status monitoring
-        self._battery_level = None
-        self._temperature = None
-        self._voltage = None
-        
         # Device information
         self._model_number = None
         self._serial_number = None
@@ -244,21 +235,6 @@ class LionelTrainCoordinator:
     def number_boards_on(self) -> bool:
         """Return True if number boards are on."""
         return self._number_boards_on
-
-    @property
-    def battery_level(self) -> int | None:
-        """Return battery level percentage."""
-        return self._battery_level
-
-    @property
-    def temperature(self) -> float | None:
-        """Return temperature in Celsius."""
-        return self._temperature
-
-    @property
-    def voltage(self) -> float | None:
-        """Return voltage."""
-        return self._voltage
 
     @property
     def device_info(self) -> dict:
@@ -382,37 +358,6 @@ class LionelTrainCoordinator:
                 
             except (IndexError, ValueError) as err:
                 _LOGGER.debug("Error parsing train status: %s", err)
-        
-        # Parse battery/voltage data (estimated protocol)
-        elif len(data) >= 4 and data[0] == 0x00 and data[1] == 0x64:
-            # Battery status response
-            try:
-                self._battery_level = data[2]  # Assume percentage
-                _LOGGER.debug("Parsed battery level: %d%%", self._battery_level)
-                self._notify_state_change()
-            except (IndexError, ValueError) as err:
-                _LOGGER.debug("Error parsing battery status: %s", err)
-        
-        # Parse temperature data (estimated protocol)
-        elif len(data) >= 4 and data[0] == 0x00 and data[1] == 0x65:
-            # Temperature response
-            try:
-                self._temperature = data[2] - 40  # Assume offset encoding
-                _LOGGER.debug("Parsed temperature: %.1f°C", self._temperature)
-                self._notify_state_change()
-            except (IndexError, ValueError) as err:
-                _LOGGER.debug("Error parsing temperature: %s", err)
-        
-        # Parse voltage data (estimated protocol)
-        elif len(data) >= 5 and data[0] == 0x00 and data[1] == 0x66:
-            # Voltage response
-            try:
-                voltage_raw = (data[2] << 8) | data[3]
-                self._voltage = voltage_raw / 100.0  # Assume 0.01V resolution
-                _LOGGER.debug("Parsed voltage: %.2fV", self._voltage)
-                self._notify_state_change()
-            except (IndexError, ValueError) as err:
-                _LOGGER.debug("Error parsing voltage: %s", err)
 
     async def _read_device_info(self) -> None:
         """Read device information characteristics."""
@@ -808,27 +753,3 @@ class LionelTrainCoordinator:
             self._number_boards_on = on
             self._notify_state_change()
         return success
-
-    async def async_request_status(self) -> bool:
-        """Request locomotive status update."""
-        # Disable for now as it may cause disconnections
-        _LOGGER.debug("Status request disabled for compatibility")
-        return True
-
-    async def async_request_battery_status(self) -> bool:
-        """Request battery level status."""
-        # Disable for now as it may cause disconnections
-        _LOGGER.debug("Battery status request disabled for compatibility")
-        return True
-
-    async def async_request_temperature(self) -> bool:
-        """Request temperature reading."""
-        # Disable for now as it may cause disconnections
-        _LOGGER.debug("Temperature request disabled for compatibility")
-        return True
-
-    async def async_request_voltage(self) -> bool:
-        """Request voltage reading."""
-        # Disable for now as it may cause disconnections
-        _LOGGER.debug("Voltage request disabled for compatibility")
-        return True

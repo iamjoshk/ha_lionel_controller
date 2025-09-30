@@ -43,10 +43,6 @@ CMD_SMOKE = 0x52          # Smoke unit control (estimated)
 CMD_COUPLER = 0x53        # Coupler firing (estimated)
 CMD_CAB_LIGHTS = 0x54     # Cab lights control (estimated)
 CMD_NUMBER_BOARDS = 0x55  # Number board lights (estimated)
-CMD_STATUS_REQUEST = 0x63 # Request locomotive status
-CMD_BATTERY_STATUS = 0x64 # Battery level request (estimated)
-CMD_TEMPERATURE = 0x65    # Temperature reading (estimated)
-CMD_VOLTAGE = 0x66        # Voltage monitoring (estimated)
 
 # Direction values (third byte for direction commands)
 DIRECTION_FORWARD = 0x01
@@ -63,14 +59,6 @@ VOLUME_MIN = 0
 VOLUME_MAX = 7
 PITCH_MIN = -2
 PITCH_MAX = 2
-
-# Status monitoring constants
-BATTERY_LEVEL_MIN = 0
-BATTERY_LEVEL_MAX = 100
-TEMPERATURE_MIN = -40
-TEMPERATURE_MAX = 85
-VOLTAGE_MIN = 0.0
-VOLTAGE_MAX = 24.0
 
 # Configuration keys
 CONF_MAC_ADDRESS = "mac_address"
