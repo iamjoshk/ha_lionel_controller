@@ -15,10 +15,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
 
 from .const import (
-    CMD_CAB_LIGHTS,
-    CMD_COUPLER,
     CMD_MASTER_VOLUME,
-    CMD_NUMBER_BOARDS,
     CMD_SMOKE,
     CMD_SOUND_VOLUME,
     CONF_MAC_ADDRESS,
@@ -150,8 +147,6 @@ class LionelTrainCoordinator:
         self._engine_pitch = 0
         
         self._smoke_on = False
-        self._cab_lights_on = False
-        self._number_boards_on = False
         
         # Device information
         self._model_number = None
@@ -229,16 +224,6 @@ class LionelTrainCoordinator:
     def smoke_on(self) -> bool:
         """Return True if smoke unit is on."""
         return self._smoke_on
-
-    @property
-    def cab_lights_on(self) -> bool:
-        """Return True if cab lights are on."""
-        return self._cab_lights_on
-
-    @property
-    def number_boards_on(self) -> bool:
-        """Return True if number boards are on."""
-        return self._number_boards_on
 
     @property
     def last_notification_hex(self) -> str | None:
@@ -749,28 +734,5 @@ class LionelTrainCoordinator:
         success = await self.async_send_command(command)
         if success:
             self._smoke_on = on
-            self._notify_state_change()
-        return success
-
-    async def async_fire_coupler(self) -> bool:
-        """Fire the coupler (one-shot action)."""
-        command = build_simple_command(CMD_COUPLER, [0x01])
-        return await self.async_send_command(command)
-
-    async def async_set_cab_lights(self, on: bool) -> bool:
-        """Set cab lights on/off."""
-        command = build_simple_command(CMD_CAB_LIGHTS, [0x01 if on else 0x00])
-        success = await self.async_send_command(command)
-        if success:
-            self._cab_lights_on = on
-            self._notify_state_change()
-        return success
-
-    async def async_set_number_boards(self, on: bool) -> bool:
-        """Set number board lights on/off."""
-        command = build_simple_command(CMD_NUMBER_BOARDS, [0x01 if on else 0x00])
-        success = await self.async_send_command(command)
-        if success:
-            self._number_boards_on = on
             self._notify_state_change()
         return success
