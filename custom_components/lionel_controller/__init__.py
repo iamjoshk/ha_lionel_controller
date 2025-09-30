@@ -85,10 +85,8 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     # Register services
     async def reload_integration_service(call):
         """Service to reload the integration for better reconnection."""
-        entry_id = call.data.get("entry_id")
-        if entry_id and entry_id in hass.data[DOMAIN]:
-            _LOGGER.info("Reloading integration via service call")
-            await hass.config_entries.async_reload(entry_id)
+        _LOGGER.info("Reloading integration via service call")
+        await hass.config_entries.async_reload(entry.entry_id)
     
     # Register the service if not already registered
     if not hass.services.has_service(DOMAIN, "reload_integration"):
