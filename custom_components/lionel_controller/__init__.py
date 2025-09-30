@@ -525,8 +525,14 @@ class LionelTrainCoordinator:
                     await self._client.write_gatt_char(
                         write_char_uuid, bytearray(command_data)
                     )
+                    hex_string = ''.join(f'{b:02x}' for b in command_data)
                     _LOGGER.info("✅ Sent command successfully to %s: %s (hex: %s)", 
-                               write_char_uuid, command_data, ' '.join(f'{b:02x}' for b in command_data))
+                               write_char_uuid, command_data, hex_string)
+                    
+                    # Update the status sensor with the sent command
+                    self._last_notification_hex = hex_string
+                    self._notify_state_change()
+                    
                     return True
 
                 except BleakError as err:
