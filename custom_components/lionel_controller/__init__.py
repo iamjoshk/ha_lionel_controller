@@ -15,10 +15,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.exceptions import ConfigEntryNotReady
 
 from .const import (
-    CMD_CAB_LIGHTS,
-    CMD_COUPLER,
     CMD_MASTER_VOLUME,
-    CMD_NUMBER_BOARDS,
     CMD_SMOKE,
     CMD_SOUND_VOLUME,
     CONF_MAC_ADDRESS,
