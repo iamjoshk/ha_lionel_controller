@@ -309,9 +309,10 @@ class LionelTrainCoordinator:
                 # Log all BLE services and characteristics for debugging
                 await self._log_ble_characteristics()
                 
-                # Set up notification handler for status updates (after discovery)
+                # Set up notification handler for status updates
                 try:
-                    notify_char_uuid = self._discovered_notify_char or NOTIFY_CHARACTERISTIC_UUID
+                    # Always use the known-good notify characteristic UUID
+                    notify_char_uuid = NOTIFY_CHARACTERISTIC_UUID
                     await self._client.start_notify(
                         notify_char_uuid, self._notification_handler
                     )
@@ -500,8 +501,8 @@ class LionelTrainCoordinator:
                     _LOGGER.error("Failed to connect before sending command: %s", err)
                     return False
 
-            # Use discovered write characteristic if available, otherwise use default
-            write_char_uuid = self._discovered_write_char or WRITE_CHARACTERISTIC_UUID
+            # Always use the known-good write characteristic UUID
+            write_char_uuid = WRITE_CHARACTERISTIC_UUID
             
             # Retry command sending with better error handling
             max_retries = 3
