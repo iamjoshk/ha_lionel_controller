@@ -29,7 +29,6 @@ async def async_setup_entry(
         LionelTrainLightsSwitch(coordinator, name),
         LionelTrainHornSwitch(coordinator, name),
         LionelTrainBellSwitch(coordinator, name),
-        LionelTrainSmokeSwitch(coordinator, name),
     ]
     
     async_add_entities(switches, True)
@@ -133,31 +132,4 @@ class LionelTrainBellSwitch(LionelTrainSwitchBase):
     async def async_turn_off(self, **kwargs: Any) -> None:
         """Turn off the bell."""
         await self._coordinator.async_set_bell(False)
-        self.async_write_ha_state()
-
-
-class LionelTrainSmokeSwitch(LionelTrainSwitchBase):
-    """Switch for controlling smoke unit."""
-
-    _attr_name = "Smoke Unit"
-    _attr_icon = "mdi:smoke"
-
-    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
-        """Initialize the smoke switch."""
-        super().__init__(coordinator, device_name)
-        self._attr_unique_id = f"{coordinator.mac_address}_smoke"
-
-    @property
-    def is_on(self) -> bool:
-        """Return True if the smoke unit is on."""
-        return self._coordinator.smoke_on
-
-    async def async_turn_on(self, **kwargs: Any) -> None:
-        """Turn on the smoke unit."""
-        await self._coordinator.async_set_smoke(True)
-        self.async_write_ha_state()
-
-    async def async_turn_off(self, **kwargs: Any) -> None:
-        """Turn off the smoke unit."""
-        await self._coordinator.async_set_smoke(False)
         self.async_write_ha_state()

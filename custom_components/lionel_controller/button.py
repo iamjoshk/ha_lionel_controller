@@ -26,7 +26,6 @@ async def async_setup_entry(
     
     buttons = [
         LionelTrainDisconnectButton(coordinator, name),
-        LionelTrainReconnectButton(coordinator, name),
         LionelTrainStopButton(coordinator, name),
         LionelTrainForwardButton(coordinator, name),
         LionelTrainReverseButton(coordinator, name),
@@ -75,32 +74,6 @@ class LionelTrainDisconnectButton(LionelTrainButtonBase):
     async def async_press(self) -> None:
         """Press the button."""
         await self._coordinator.async_disconnect()
-
-
-class LionelTrainReconnectButton(LionelTrainButtonBase):
-    """Button for reconnecting to the train."""
-
-    _attr_name = "Reconnect"
-    _attr_icon = "mdi:bluetooth-connect"
-
-    def __init__(self, coordinator: LionelTrainCoordinator, device_name: str) -> None:
-        """Initialize the reconnect button."""
-        super().__init__(coordinator, device_name)
-        self._attr_unique_id = f"{coordinator.mac_address}_reconnect"
-
-    async def async_press(self) -> None:
-        """Press the button."""
-        _LOGGER.info("Reconnect button pressed - initiating fresh connection")
-        
-        success = await self._coordinator.async_force_reconnect()
-        
-        if success:
-            _LOGGER.info("Reconnect successful")
-        else:
-            _LOGGER.error("Reconnect failed - ensure locomotive is powered on and in range")
-        
-        # Always trigger a state update to refresh entity availability
-        self.async_write_ha_state()
 
 
 class LionelTrainStopButton(LionelTrainButtonBase):
