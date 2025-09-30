@@ -1,0 +1,1194 @@
+2025-09-30 09:58:14.815 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.815 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration zha_toolkit which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.816 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration spook which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.817 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration flightradar24 which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.817 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration spook_inverse which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.818 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration llmvision which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.818 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration spotcast which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.819 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration lunar_phase which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.819 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration openplantbook which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.820 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration discogs_sync which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.820 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration plant which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.821 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration webrtc which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.821 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration teamtracker which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.822 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration frigate which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.823 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration pirateweather which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.823 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration zha_device_info which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.824 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration wican which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.824 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration spotifyplus which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.825 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration bermuda which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:14.825 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration lionel_controller which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2025-09-30 09:58:15.904 INFO (MainThread) [homeassistant.setup] Setup of domain http took 0.09 seconds
+2025-09-30 09:58:15.904 INFO (MainThread) [homeassistant.setup] Setup of domain logger took 0.09 seconds
+2025-09-30 09:58:15.905 INFO (MainThread) [homeassistant.setup] Setting up websocket_api
+2025-09-30 09:58:15.905 INFO (MainThread) [homeassistant.setup] Setup of domain websocket_api took 0.00 seconds
+2025-09-30 09:58:15.905 INFO (MainThread) [homeassistant.setup] Setup of domain system_log took 0.09 seconds
+2025-09-30 09:58:15.908 INFO (MainThread) [homeassistant.setup] Setting up network
+2025-09-30 09:58:15.910 INFO (MainThread) [homeassistant.setup] Setup of domain network took 0.00 seconds
+2025-09-30 09:58:15.911 INFO (MainThread) [homeassistant.bootstrap] Setting up stage frontend: {'frontend'}; already set up: {}
+Dependencies: {'onboarding', 'lovelace', 'search', 'diagnostics', 'file_upload', 'auth', 'config', 'device_automation', 'repairs', 'api'}; already set up: {'system_log', 'websocket_api', 'http'}
+2025-09-30 09:58:15.911 INFO (MainThread) [homeassistant.setup] Setting up auth
+2025-09-30 09:58:15.912 INFO (MainThread) [homeassistant.setup] Setup of domain auth took 0.00 seconds
+2025-09-30 09:58:15.912 INFO (MainThread) [homeassistant.setup] Setting up onboarding
+2025-09-30 09:58:15.912 INFO (MainThread) [homeassistant.setup] Setup of domain onboarding took 0.00 seconds
+2025-09-30 09:58:15.912 INFO (MainThread) [homeassistant.setup] Setting up lovelace
+2025-09-30 09:58:15.913 INFO (MainThread) [homeassistant.setup] Setting up search
+2025-09-30 09:58:15.913 INFO (MainThread) [homeassistant.setup] Setup of domain search took 0.00 seconds
+2025-09-30 09:58:15.914 INFO (MainThread) [homeassistant.setup] Setting up diagnostics
+2025-09-30 09:58:15.915 INFO (MainThread) [homeassistant.setup] Setup of domain diagnostics took 0.00 seconds
+2025-09-30 09:58:15.915 INFO (MainThread) [homeassistant.setup] Setting up file_upload
+2025-09-30 09:58:15.915 INFO (MainThread) [homeassistant.setup] Setup of domain file_upload took 0.00 seconds
+2025-09-30 09:58:15.915 INFO (MainThread) [homeassistant.setup] Setting up api
+2025-09-30 09:58:15.917 INFO (MainThread) [homeassistant.setup] Setup of domain api took 0.00 seconds
+2025-09-30 09:58:15.917 INFO (MainThread) [homeassistant.setup] Setting up config
+2025-09-30 09:58:15.919 INFO (MainThread) [homeassistant.setup] Setup of domain config took 0.00 seconds
+2025-09-30 09:58:15.919 INFO (MainThread) [homeassistant.setup] Setting up device_automation
+2025-09-30 09:58:15.919 INFO (MainThread) [homeassistant.setup] Setup of domain device_automation took 0.00 seconds
+2025-09-30 09:58:15.919 INFO (MainThread) [homeassistant.setup] Setting up repairs
+2025-09-30 09:58:15.919 INFO (MainThread) [homeassistant.setup] Setup of domain repairs took 0.00 seconds
+2025-09-30 09:58:15.921 INFO (MainThread) [homeassistant.setup] Setup of domain lovelace took 0.01 seconds
+2025-09-30 09:58:15.927 INFO (MainThread) [homeassistant.setup] Setting up frontend
+2025-09-30 09:58:15.933 INFO (MainThread) [homeassistant.setup] Setup of domain frontend took 0.01 seconds
+2025-09-30 09:58:15.933 INFO (MainThread) [homeassistant.bootstrap] Setting up stage recorder: {'recorder'}; already set up: {}
+Dependencies: {}; already set up: {}
+2025-09-30 09:58:15.936 INFO (MainThread) [homeassistant.components.http] Now listening on port 8123
+2025-09-30 09:58:15.936 INFO (MainThread) [homeassistant.setup] Setup of domain http took 0.00 seconds
+2025-09-30 09:58:15.941 INFO (MainThread) [homeassistant.setup] Setting up recorder
+2025-09-30 09:58:15.982 INFO (MainThread) [homeassistant.setup] Setup of domain recorder took 0.04 seconds
+2025-09-30 09:58:15.982 INFO (MainThread) [homeassistant.bootstrap] Nothing to set up in stage debugger: {'debugpy'}
+2025-09-30 09:58:15.982 INFO (MainThread) [homeassistant.bootstrap] Setting up stage zeroconf: {'zeroconf'}; already set up: {}
+Dependencies: {}; already set up: {'network', 'http', 'websocket_api', 'api'}
+2025-09-30 09:58:15.982 INFO (MainThread) [homeassistant.setup] Setting up zeroconf
+2025-09-30 09:58:15.987 INFO (MainThread) [homeassistant.components.zeroconf] Starting Zeroconf broadcast
+2025-09-30 09:58:15.987 INFO (MainThread) [homeassistant.setup] Setup of domain zeroconf took 0.00 seconds
+2025-09-30 09:58:15.987 INFO (MainThread) [homeassistant.bootstrap] Setting up stage 1: {'dhcp', 'cloud', 'hassio', 'ssdp', 'usb', 'bluetooth'}; already set up: {}
+Dependencies: {'intent', 'conversation', 'webhook', 'wake_word', 'stt', 'tts', 'ffmpeg', 'assist_pipeline', 'backup'}; already set up: {'http', 'websocket_api', 'network', 'auth', 'repairs'}
+2025-09-30 09:58:15.987 INFO (MainThread) [homeassistant.setup] Setting up webhook
+2025-09-30 09:58:15.988 INFO (MainThread) [homeassistant.setup] Setup of domain webhook took 0.00 seconds
+2025-09-30 09:58:15.988 INFO (MainThread) [homeassistant.setup] Setting up hassio
+2025-09-30 09:58:16.017 INFO (MainThread) [homeassistant.setup] Setting up intent
+2025-09-30 09:58:16.017 INFO (MainThread) [homeassistant.setup] Setup of domain intent took 0.00 seconds
+2025-09-30 09:58:16.023 INFO (MainThread) [homeassistant.setup] Setting up wake_word
+2025-09-30 09:58:16.023 INFO (MainThread) [homeassistant.setup] Setup of domain wake_word took 0.00 seconds
+2025-09-30 09:58:16.030 INFO (MainThread) [homeassistant.setup] Setting up stt
+2025-09-30 09:58:16.030 INFO (MainThread) [homeassistant.setup] Setup of domain stt took 0.00 seconds
+2025-09-30 09:58:16.040 INFO (MainThread) [homeassistant.setup] Setting up ffmpeg
+2025-09-30 09:58:16.040 INFO (MainThread) [homeassistant.setup] Setup of domain ffmpeg took 0.00 seconds
+2025-09-30 09:58:16.100 INFO (MainThread) [homeassistant.setup] Setup of domain hassio took 0.11 seconds
+2025-09-30 09:58:16.124 INFO (MainThread) [homeassistant.setup] Setting up binary_sensor
+2025-09-30 09:58:16.124 INFO (MainThread) [homeassistant.setup] Setup of domain binary_sensor took 0.00 seconds
+2025-09-30 09:58:16.124 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up hassio.binary_sensor
+2025-09-30 09:58:16.126 INFO (MainThread) [homeassistant.setup] Setting up update
+2025-09-30 09:58:16.127 INFO (MainThread) [homeassistant.setup] Setup of domain update took 0.00 seconds
+2025-09-30 09:58:16.127 INFO (MainThread) [homeassistant.components.update] Setting up hassio.update
+2025-09-30 09:58:16.711 INFO (MainThread) [homeassistant.setup] Setting up dhcp
+2025-09-30 09:58:16.712 INFO (MainThread) [homeassistant.setup] Setup of domain dhcp took 0.00 seconds
+2025-09-30 09:58:16.735 INFO (MainThread) [homeassistant.setup] Setting up ssdp
+2025-09-30 09:58:16.737 INFO (MainThread) [homeassistant.setup] Setup of domain ssdp took 0.00 seconds
+2025-09-30 09:58:16.747 INFO (MainThread) [homeassistant.setup] Setting up usb
+2025-09-30 09:58:16.748 INFO (MainThread) [homeassistant.setup] Setup of domain usb took 0.00 seconds
+2025-09-30 09:58:16.811 INFO (MainThread) [homeassistant.setup] Setting up conversation
+2025-09-30 09:58:16.812 INFO (MainThread) [homeassistant.setup] Setup of domain conversation took 0.00 seconds
+2025-09-30 09:58:16.832 INFO (MainThread) [homeassistant.setup] Setting up sensor
+2025-09-30 09:58:16.832 INFO (MainThread) [homeassistant.setup] Setup of domain sensor took 0.00 seconds
+2025-09-30 09:58:16.833 INFO (MainThread) [homeassistant.components.sensor] Setting up hassio.sensor
+2025-09-30 09:58:16.837 INFO (MainThread) [homeassistant.setup] Setting up backup
+2025-09-30 09:58:16.838 INFO (MainThread) [homeassistant.setup] Setup of domain backup took 0.00 seconds
+2025-09-30 09:58:16.850 INFO (MainThread) [homeassistant.setup] Setting up bluetooth
+2025-09-30 09:58:16.878 INFO (MainThread) [homeassistant.setup] Setup of domain bluetooth took 0.03 seconds
+2025-09-30 09:58:16.885 INFO (MainThread) [homeassistant.setup] Setting up tts
+2025-09-30 09:58:16.887 INFO (MainThread) [homeassistant.components.sensor] Setting up time_date.sensor
+2025-09-30 09:58:16.890 INFO (MainThread) [homeassistant.setup] Setup of domain tts took 0.00 seconds
+2025-09-30 09:58:16.912 INFO (MainThread) [homeassistant.setup] Setting up assist_pipeline
+2025-09-30 09:58:16.913 INFO (MainThread) [homeassistant.setup] Setup of domain assist_pipeline took 0.00 seconds
+2025-09-30 09:58:16.917 INFO (MainThread) [homeassistant.setup] Setting up event
+2025-09-30 09:58:16.917 INFO (MainThread) [homeassistant.setup] Setup of domain event took 0.00 seconds
+2025-09-30 09:58:16.917 INFO (MainThread) [homeassistant.components.event] Setting up backup.event
+2025-09-30 09:58:16.918 INFO (MainThread) [homeassistant.components.sensor] Setting up backup.sensor
+2025-09-30 09:58:17.069 INFO (MainThread) [homeassistant.setup] Setting up cloud
+2025-09-30 09:58:17.072 INFO (MainThread) [homeassistant.setup] Setup of domain cloud took 0.00 seconds
+2025-09-30 09:58:17.087 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up cloud.binary_sensor
+2025-09-30 09:58:17.088 INFO (MainThread) [homeassistant.components.stt] Setting up cloud.stt
+2025-09-30 09:58:17.088 INFO (MainThread) [homeassistant.components.tts] Setting up cloud.tts
+2025-09-30 09:58:17.108 INFO (MainThread) [homeassistant.bootstrap] Setting up stage 2: {'systemmonitor', 'cast', 'shell_command', 'teamtracker', 'radio_browser', 'sun', 'system_health', 'bermuda', 'llmvision', 'local_calendar', 'statistics', 'esphome', 'command_line', 'fully_kiosk', 'lunar_phase', 'input_datetime', 'androidtv_remote', 'schlage', 'schedule', 'private_ble_device', 'shelly', 'ibeacon', 'nut', 'google_mail', 'switchbot', 'spotify', 'mobile_app', 'person', 'script', 'fan', 'zha', 'python_script', 'frigate', 'lionel_controller', 'google_generative_ai_conversation', 'counter', 'roomba', 'discogs_sync', 'tag', 'ecobee', 'moon', 'zha_device_info', 'light', 'google_assistant_sdk', 'harmony', 'airnow', 'homekit_controller', 'plant', 'group', 'utility_meter', 'thread', 'scene', 'input_number', 'input_text', 'integration', 'ambient_network', 'input_boolean', 'input_button', 'openplantbook', 'default_config', 'rest', 'go2rtc', 'hardware', 'input_select', 'filter', 'zone', 'hacs', 'derivative', 'flightradar24', 'pirateweather', 'tplink', 'spotcast', 'switch_as_x', 'proximity', 'vlc_telnet', 'threshold', 'zha_toolkit', 'mqtt', 'history_stats', 'application_credentials', 'template', 'uptime', 'panel_custom', 'automation', 'notify', 'onkyo', 'analytics', 'timer', 'spook', 'downloader'}; already set up: {'cloud', 'hassio', 'recorder', 'bluetooth', 'conversation', 'http', 'websocket_api', 'logger', 'frontend', 'tts', 'network', 'homeassistant', 'backup', 'sensor'}
+Dependencies: {'logbook', 'my', 'homeassistant_alerts', 'remote', 'blueprint', 'number', 'media_source', 'camera', 'history', 'energy', 'device_tracker', 'select', 'homeassistant_hardware', 'stream', 'bluetooth_adapters', 'image_upload', 'trace'}; already set up: {'system_log', 'intent', 'conversation', 'diagnostics', 'websocket_api', 'backup', 'repairs', 'zeroconf', 'onboarding', 'recorder', 'wake_word', 'usb', 'stt', 'ffmpeg', 'webhook', 'bluetooth', 'dhcp', 'file_upload', 'assist_pipeline', 'auth', 'config', 'search', 'lovelace', 'cloud', 'persistent_notification', 'hassio', 'ssdp', 'http', 'frontend', 'tts', 'network', 'homeassistant', 'device_automation', 'api'}
+2025-09-30 09:58:17.108 INFO (MainThread) [homeassistant.setup] Setting up remote
+2025-09-30 09:58:17.109 INFO (MainThread) [homeassistant.setup] Setup of domain remote took 0.00 seconds
+2025-09-30 09:58:17.110 INFO (MainThread) [homeassistant.setup] Setting up number
+2025-09-30 09:58:17.110 INFO (MainThread) [homeassistant.setup] Setup of domain number took 0.00 seconds
+2025-09-30 09:58:17.110 INFO (MainThread) [homeassistant.setup] Setting up scene
+2025-09-30 09:58:17.111 INFO (MainThread) [homeassistant.components.scene] Setting up homeassistant.scene
+2025-09-30 09:58:17.111 INFO (MainThread) [homeassistant.setup] Setup of domain scene took 0.00 seconds
+2025-09-30 09:58:17.112 INFO (MainThread) [homeassistant.setup] Setting up camera
+2025-09-30 09:58:17.113 INFO (MainThread) [homeassistant.setup] Setup of domain camera took 0.00 seconds
+2025-09-30 09:58:17.114 INFO (MainThread) [homeassistant.setup] Setting up select
+2025-09-30 09:58:17.115 INFO (MainThread) [homeassistant.setup] Setup of domain select took 0.00 seconds
+2025-09-30 09:58:17.115 INFO (MainThread) [homeassistant.setup] Setting up notify
+2025-09-30 09:58:17.115 INFO (MainThread) [homeassistant.setup] Setting up group
+2025-09-30 09:58:17.116 INFO (MainThread) [homeassistant.setup] Setup of domain group took 0.00 seconds
+2025-09-30 09:58:17.117 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up group.binary_sensor
+2025-09-30 09:58:17.117 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up group.binary_sensor
+2025-09-30 09:58:17.118 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up group.binary_sensor
+2025-09-30 09:58:17.118 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up group.binary_sensor
+2025-09-30 09:58:17.119 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up group.binary_sensor
+2025-09-30 09:58:17.119 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up group.binary_sensor
+2025-09-30 09:58:17.121 INFO (MainThread) [homeassistant.setup] Setup of domain notify took 0.01 seconds
+2025-09-30 09:58:17.121 INFO (MainThread) [homeassistant.setup] Setting up zone
+2025-09-30 09:58:17.121 INFO (MainThread) [homeassistant.setup] Setting up media_source
+2025-09-30 09:58:17.122 INFO (MainThread) [homeassistant.setup] Setup of domain media_source took 0.00 seconds
+2025-09-30 09:58:17.123 INFO (MainThread) [homeassistant.setup] Setting up history
+2025-09-30 09:58:17.123 INFO (MainThread) [homeassistant.setup] Setup of domain history took 0.00 seconds
+2025-09-30 09:58:17.123 INFO (MainThread) [homeassistant.setup] Setting up system_health
+2025-09-30 09:58:17.124 INFO (MainThread) [homeassistant.setup] Setup of domain system_health took 0.00 seconds
+2025-09-30 09:58:17.124 INFO (MainThread) [homeassistant.setup] Setting up image_upload
+2025-09-30 09:58:17.124 INFO (MainThread) [homeassistant.setup] Setting up input_number
+2025-09-30 09:58:17.125 INFO (MainThread) [homeassistant.setup] Setting up input_boolean
+2025-09-30 09:58:17.126 INFO (MainThread) [homeassistant.setup] Setting up input_button
+2025-09-30 09:58:17.126 INFO (MainThread) [homeassistant.setup] Setting up logbook
+2025-09-30 09:58:17.128 INFO (MainThread) [homeassistant.setup] Setup of domain logbook took 0.00 seconds
+2025-09-30 09:58:17.128 INFO (MainThread) [homeassistant.setup] Setting up stream
+2025-09-30 09:58:17.129 INFO (MainThread) [homeassistant.setup] Setting up blueprint
+2025-09-30 09:58:17.129 INFO (MainThread) [homeassistant.setup] Setup of domain blueprint took 0.00 seconds
+2025-09-30 09:58:17.129 INFO (MainThread) [homeassistant.setup] Setting up input_select
+2025-09-30 09:58:17.130 INFO (MainThread) [homeassistant.setup] Setting up trace
+2025-09-30 09:58:17.130 INFO (MainThread) [homeassistant.setup] Setup of domain trace took 0.00 seconds
+2025-09-30 09:58:17.135 INFO (MainThread) [homeassistant.setup] Setting up panel_custom
+2025-09-30 09:58:17.135 INFO (MainThread) [homeassistant.setup] Setup of domain panel_custom took 0.00 seconds
+2025-09-30 09:58:17.144 INFO (SyncWorker_0) [homeassistant.util.package] Attempting install of pycountry==24.6.1
+2025-09-30 09:58:17.148 INFO (MainThread) [homeassistant.setup] Setting up timer
+2025-09-30 09:58:17.165 INFO (MainThread) [homeassistant.setup] Setup of domain zone took 0.04 seconds
+2025-09-30 09:58:17.166 INFO (MainThread) [homeassistant.setup] Setup of domain image_upload took 0.04 seconds
+2025-09-30 09:58:17.172 INFO (MainThread) [homeassistant.setup] Setup of domain input_number took 0.05 seconds
+2025-09-30 09:58:17.173 INFO (MainThread) [homeassistant.setup] Setup of domain input_boolean took 0.05 seconds
+2025-09-30 09:58:17.173 INFO (MainThread) [homeassistant.setup] Setup of domain input_button took 0.05 seconds
+2025-09-30 09:58:17.174 INFO (MainThread) [homeassistant.setup] Setup of domain input_select took 0.04 seconds
+2025-09-30 09:58:17.197 INFO (MainThread) [homeassistant.setup] Setup of domain timer took 0.05 seconds
+2025-09-30 09:58:17.200 INFO (MainThread) [homeassistant.setup] Setting up device_tracker
+2025-09-30 09:58:17.200 INFO (MainThread) [homeassistant.setup] Setup of domain device_tracker took 0.00 seconds
+2025-09-30 09:58:17.200 INFO (MainThread) [homeassistant.setup] Setting up person
+2025-09-30 09:58:17.275 INFO (MainThread) [homeassistant.setup] Setup of domain person took 0.07 seconds
+2025-09-30 09:58:17.306 INFO (MainThread) [homeassistant.setup] Setting up fan
+2025-09-30 09:58:17.308 INFO (MainThread) [homeassistant.setup] Setup of domain fan took 0.00 seconds
+2025-09-30 09:58:17.317 INFO (MainThread) [homeassistant.setup] Setting up light
+2025-09-30 09:58:17.321 INFO (MainThread) [homeassistant.setup] Setup of domain light took 0.00 seconds
+2025-09-30 09:58:17.322 INFO (MainThread) [homeassistant.components.light] Setting up group.light
+2025-09-30 09:58:17.323 INFO (MainThread) [homeassistant.components.light] Setting up group.light
+2025-09-30 09:58:17.324 INFO (MainThread) [homeassistant.components.light] Setting up group.light
+2025-09-30 09:58:17.324 INFO (MainThread) [homeassistant.components.light] Setting up group.light
+2025-09-30 09:58:17.324 INFO (MainThread) [homeassistant.components.light] Setting up group.light
+2025-09-30 09:58:17.325 INFO (MainThread) [homeassistant.components.light] Setting up group.light
+2025-09-30 09:58:17.325 INFO (MainThread) [homeassistant.components.light] Setting up group.light
+2025-09-30 09:58:17.326 INFO (MainThread) [homeassistant.components.light] Setting up group.light
+2025-09-30 09:58:17.340 INFO (MainThread) [homeassistant.setup] Setting up switch_as_x
+2025-09-30 09:58:17.340 INFO (MainThread) [homeassistant.setup] Setup of domain switch_as_x took 0.00 seconds
+2025-09-30 09:58:17.343 INFO (MainThread) [homeassistant.setup] Setup of domain stream took 0.21 seconds
+2025-09-30 09:58:17.354 INFO (MainThread) [homeassistant.setup] Setting up harmony
+2025-09-30 09:58:17.354 INFO (MainThread) [homeassistant.setup] Setup of domain harmony took 0.00 seconds
+2025-09-30 09:58:17.361 INFO (MainThread) [homeassistant.setup] Setting up airnow
+2025-09-30 09:58:17.361 INFO (MainThread) [homeassistant.setup] Setup of domain airnow took 0.00 seconds
+2025-09-30 09:58:17.405 INFO (MainThread) [homeassistant.setup] Setting up systemmonitor
+2025-09-30 09:58:17.406 INFO (MainThread) [homeassistant.setup] Setup of domain systemmonitor took 0.00 seconds
+2025-09-30 09:58:17.458 INFO (MainThread) [homeassistant.setup] Setting up cast
+2025-09-30 09:58:17.458 INFO (MainThread) [homeassistant.setup] Setup of domain cast took 0.00 seconds
+2025-09-30 09:58:17.458 INFO (MainThread) [homeassistant.setup] Setting up shell_command
+2025-09-30 09:58:17.458 INFO (MainThread) [homeassistant.setup] Setup of domain shell_command took 0.00 seconds
+2025-09-30 09:58:17.486 INFO (MainThread) [homeassistant.setup] Setting up teamtracker
+2025-09-30 09:58:17.486 INFO (MainThread) [homeassistant.setup] Setup of domain teamtracker took 0.00 seconds
+2025-09-30 09:58:17.486 INFO (MainThread) [custom_components.teamtracker] team_tracker_eagles: Setting up sensor from UI configuration using TeamTracker v0.14.9, if you have any issues please report them here: https://github.com/vasqued2/ha-teamtracker
+2025-09-30 09:58:17.488 INFO (MainThread) [custom_components.teamtracker] team_tracker_phillies: Setting up sensor from UI configuration using TeamTracker v0.14.9, if you have any issues please report them here: https://github.com/vasqued2/ha-teamtracker
+2025-09-30 09:58:17.492 INFO (MainThread) [custom_components.teamtracker] team_tracker_sixers: Setting up sensor from UI configuration using TeamTracker v0.14.9, if you have any issues please report them here: https://github.com/vasqued2/ha-teamtracker
+2025-09-30 09:58:17.495 INFO (MainThread) [custom_components.teamtracker] team_tracker_flyers: Setting up sensor from UI configuration using TeamTracker v0.14.9, if you have any issues please report them here: https://github.com/vasqued2/ha-teamtracker
+2025-09-30 09:58:17.499 INFO (MainThread) [homeassistant.setup] Setting up tag
+2025-09-30 09:58:17.500 INFO (MainThread) [homeassistant.setup] Setup of domain tag took 0.00 seconds
+2025-09-30 09:58:17.523 INFO (MainThread) [homeassistant.setup] Setting up shelly
+2025-09-30 09:58:17.523 INFO (MainThread) [homeassistant.setup] Setup of domain shelly took 0.00 seconds
+2025-09-30 09:58:17.540 INFO (MainThread) [homeassistant.setup] Setting up thread
+2025-09-30 09:58:17.540 INFO (MainThread) [homeassistant.setup] Setup of domain thread took 0.00 seconds
+2025-09-30 09:58:17.559 INFO (MainThread) [homeassistant.setup] Setting up openplantbook
+2025-09-30 09:58:17.559 INFO (MainThread) [homeassistant.setup] Setup of domain openplantbook took 0.00 seconds
+2025-09-30 09:58:17.559 INFO (MainThread) [custom_components.openplantbook.uploader] Plant-sensors data upload schedule is active
+2025-09-30 09:58:17.561 INFO (MainThread) [homeassistant.setup] Setting up counter
+2025-09-30 09:58:17.563 INFO (MainThread) [homeassistant.setup] Setup of domain counter took 0.00 seconds
+2025-09-30 09:58:17.569 INFO (MainThread) [homeassistant.setup] Setting up utility_meter
+2025-09-30 09:58:17.569 INFO (MainThread) [homeassistant.setup] Setup of domain utility_meter took 0.00 seconds
+2025-09-30 09:58:17.573 INFO (MainThread) [homeassistant.setup] Setting up sun
+2025-09-30 09:58:17.573 INFO (MainThread) [homeassistant.setup] Setup of domain sun took 0.00 seconds
+2025-09-30 09:58:17.574 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up sun.binary_sensor
+2025-09-30 09:58:17.575 INFO (MainThread) [homeassistant.components.sensor] Setting up sun.sensor
+2025-09-30 09:58:17.587 INFO (MainThread) [aioshelly.rpc_device.wsrpc] Connected to 192.168.16.133
+2025-09-30 09:58:17.590 INFO (MainThread) [aioshelly.rpc_device.wsrpc] Connected to 192.168.16.152
+2025-09-30 09:58:17.598 INFO (MainThread) [aioshelly.rpc_device.wsrpc] Connected to 192.168.16.183
+2025-09-30 09:58:17.638 INFO (MainThread) [homeassistant.setup] Setting up llmvision
+2025-09-30 09:58:17.640 INFO (MainThread) [homeassistant.setup] Setup of domain llmvision took 0.00 seconds
+2025-09-30 09:58:18.412 INFO (MainThread) [homeassistant.setup] Setting up local_calendar
+2025-09-30 09:58:18.412 INFO (MainThread) [homeassistant.setup] Setup of domain local_calendar took 0.00 seconds
+2025-09-30 09:58:18.416 INFO (MainThread) [homeassistant.setup] Setting up statistics
+2025-09-30 09:58:18.416 INFO (MainThread) [homeassistant.setup] Setup of domain statistics took 0.00 seconds
+2025-09-30 09:58:18.416 INFO (MainThread) [homeassistant.components.sensor] Setting up statistics.sensor
+2025-09-30 09:58:18.427 INFO (MainThread) [homeassistant.setup] Setting up input_text
+2025-09-30 09:58:18.438 INFO (MainThread) [homeassistant.setup] Setup of domain input_text took 0.01 seconds
+2025-09-30 09:58:18.444 INFO (MainThread) [homeassistant.setup] Setting up energy
+2025-09-30 09:58:18.444 INFO (MainThread) [homeassistant.setup] Setup of domain energy took 0.00 seconds
+2025-09-30 09:58:18.559 INFO (MainThread) [homeassistant.setup] Setting up ambient_network
+2025-09-30 09:58:18.560 INFO (MainThread) [homeassistant.setup] Setup of domain ambient_network took 0.00 seconds
+2025-09-30 09:58:18.568 INFO (MainThread) [homeassistant.setup] Setting up command_line
+2025-09-30 09:58:18.569 INFO (MainThread) [homeassistant.setup] Setup of domain command_line took 0.00 seconds
+2025-09-30 09:58:18.572 INFO (MainThread) [homeassistant.setup] Setting up my
+2025-09-30 09:58:18.572 INFO (MainThread) [homeassistant.setup] Setup of domain my took 0.00 seconds
+2025-09-30 09:58:18.609 INFO (MainThread) [homeassistant.setup] Setting up go2rtc
+2025-09-30 09:58:18.612 INFO (MainThread) [homeassistant.setup] Setting up homeassistant_alerts
+2025-09-30 09:58:18.613 INFO (MainThread) [homeassistant.setup] Setup of domain homeassistant_alerts took 0.00 seconds
+2025-09-30 09:58:18.642 INFO (MainThread) [homeassistant.setup] Setting up mqtt
+2025-09-30 09:58:18.642 INFO (MainThread) [homeassistant.setup] Setup of domain mqtt took 0.00 seconds
+2025-09-30 09:58:18.732 INFO (MainThread) [homeassistant.setup] Setting up rest
+2025-09-30 09:58:18.777 INFO (MainThread) [homeassistant.setup] Setup of domain go2rtc took 0.17 seconds
+2025-09-30 09:58:18.785 INFO (MainThread) [homeassistant.setup] Setting up lunar_phase
+2025-09-30 09:58:18.785 INFO (MainThread) [homeassistant.setup] Setup of domain lunar_phase took 0.00 seconds
+2025-09-30 09:58:18.798 INFO (MainThread) [homeassistant.setup] Setting up hardware
+2025-09-30 09:58:18.811 INFO (MainThread) [homeassistant.setup] Setting up input_datetime
+2025-09-30 09:58:18.821 INFO (MainThread) [homeassistant.setup] Setup of domain hardware took 0.02 seconds
+2025-09-30 09:58:18.829 INFO (MainThread) [homeassistant.setup] Setting up androidtv_remote
+2025-09-30 09:58:18.829 INFO (MainThread) [homeassistant.setup] Setup of domain androidtv_remote took 0.00 seconds
+2025-09-30 09:58:18.834 INFO (MainThread) [homeassistant.setup] Setup of domain input_datetime took 0.02 seconds
+2025-09-30 09:58:18.864 INFO (MainThread) [homeassistant.setup] Setting up schlage
+2025-09-30 09:58:18.864 INFO (MainThread) [homeassistant.setup] Setup of domain schlage took 0.00 seconds
+2025-09-30 09:58:18.883 INFO (MainThread) [homeassistant.setup] Setting up schedule
+2025-09-30 09:58:18.886 INFO (MainThread) [homeassistant.setup] Setup of domain schedule took 0.00 seconds
+2025-09-30 09:58:18.902 INFO (MainThread) [homeassistant.setup] Setting up filter
+2025-09-30 09:58:18.903 INFO (MainThread) [homeassistant.setup] Setup of domain filter took 0.00 seconds
+2025-09-30 09:58:18.916 INFO (MainThread) [homeassistant.setup] Setting up nut
+2025-09-30 09:58:18.916 INFO (MainThread) [homeassistant.setup] Setup of domain nut took 0.00 seconds
+2025-09-30 09:58:18.930 INFO (MainThread) [homeassistant.setup] Setting up python_script
+2025-09-30 09:58:18.937 INFO (MainThread) [homeassistant.setup] Setup of domain python_script took 0.01 seconds
+2025-09-30 09:58:18.942 INFO (MainThread) [hass_nabucasa.iot] Connected
+2025-09-30 09:58:18.982 INFO (MainThread) [homeassistant.setup] Setting up flightradar24
+2025-09-30 09:58:18.982 INFO (MainThread) [homeassistant.setup] Setup of domain flightradar24 took 0.00 seconds
+2025-09-30 09:58:18.994 INFO (MainThread) [homeassistant.setup] Setting up application_credentials
+2025-09-30 09:58:18.995 INFO (MainThread) [homeassistant.setup] Setup of domain application_credentials took 0.00 seconds
+2025-09-30 09:58:19.000 INFO (MainThread) [homeassistant.setup] Setting up pirateweather
+2025-09-30 09:58:19.000 INFO (MainThread) [homeassistant.setup] Setup of domain pirateweather took 0.00 seconds
+2025-09-30 09:58:19.002 INFO (MainThread) [custom_components.pirateweather] Using default Pirate Weather Endpoint
+2025-09-30 09:58:19.031 INFO (MainThread) [homeassistant.setup] Setting up vlc_telnet
+2025-09-30 09:58:19.031 INFO (MainThread) [homeassistant.setup] Setup of domain vlc_telnet took 0.00 seconds
+2025-09-30 09:58:19.050 INFO (MainThread) [homeassistant.setup] Setting up threshold
+2025-09-30 09:58:19.050 INFO (MainThread) [homeassistant.setup] Setup of domain threshold took 0.00 seconds
+2025-09-30 09:58:19.051 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up threshold.binary_sensor
+2025-09-30 09:58:19.052 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up threshold.binary_sensor
+2025-09-30 09:58:19.052 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up threshold.binary_sensor
+2025-09-30 09:58:19.055 INFO (MainThread) [snitun.utils.aiohttp_client] AioHTTP snitun client started on 127.0.0.1:41327
+2025-09-30 09:58:19.178 INFO (MainThread) [snitun.utils.aiohttp_client] AioHTTP snitun client connected to: us-east-1-5.ui.nabu.casa:443
+2025-09-30 09:58:19.253 INFO (MainThread) [homeassistant.setup] Setup of domain rest took 0.52 seconds
+2025-09-30 09:58:19.336 INFO (ImportExecutor_0) [zigpy.serial] Using pyserial-asyncio-fast in place of pyserial-asyncio
+2025-09-30 09:58:19.450 INFO (MainThread) [homeassistant.setup] Setting up homeassistant_hardware
+2025-09-30 09:58:19.450 INFO (MainThread) [homeassistant.setup] Setup of domain homeassistant_hardware took 0.00 seconds
+2025-09-30 09:58:19.456 INFO (MainThread) [homeassistant.setup] Setting up history_stats
+2025-09-30 09:58:19.457 INFO (MainThread) [homeassistant.setup] Setup of domain history_stats took 0.00 seconds
+2025-09-30 09:58:19.479 INFO (MainThread) [homeassistant.components.sensor] Setting up history_stats.sensor
+2025-09-30 09:58:19.482 INFO (MainThread) [homeassistant.components.sensor] Setting up history_stats.sensor
+2025-09-30 09:58:19.484 INFO (MainThread) [homeassistant.components.sensor] Setting up history_stats.sensor
+2025-09-30 09:58:19.488 INFO (MainThread) [homeassistant.setup] Setting up lionel_controller
+2025-09-30 09:58:19.488 INFO (MainThread) [homeassistant.setup] Setup of domain lionel_controller took 0.00 seconds
+2025-09-30 09:58:19.488 DEBUG (MainThread) [custom_components.lionel_controller] Device not found in cache, attempting fresh lookup
+2025-09-30 09:58:19.491 INFO (MainThread) [homeassistant.components.sensor] Setting up history_stats.sensor
+2025-09-30 09:58:19.993 DEBUG (MainThread) [custom_components.lionel_controller] Initial connection failed during setup: Could not find Bluetooth device with address FC:1F:C3:9F:A5:4A
+2025-09-30 09:58:19.994 INFO (MainThread) [custom_components.lionel_controller] Successfully connected to Lionel train at FC:1F:C3:9F:A5:4A
+2025-09-30 09:58:20.282 INFO (MainThread) [homeassistant.setup] Setting up google_generative_ai_conversation
+2025-09-30 09:58:20.282 INFO (MainThread) [homeassistant.setup] Setup of domain google_generative_ai_conversation took 0.00 seconds
+2025-09-30 09:58:20.283 INFO (MainThread) [homeassistant.setup] Setting up uptime
+2025-09-30 09:58:20.283 INFO (MainThread) [homeassistant.setup] Setup of domain uptime took 0.00 seconds
+2025-09-30 09:58:20.388 INFO (MainThread) [homeassistant.setup] Setting up roomba
+2025-09-30 09:58:20.388 INFO (MainThread) [homeassistant.setup] Setup of domain roomba took 0.00 seconds
+2025-09-30 09:58:20.392 INFO (MainThread) [homeassistant.setup] Setting up discogs_sync
+2025-09-30 09:58:20.392 INFO (MainThread) [homeassistant.setup] Setup of domain discogs_sync took 0.00 seconds
+2025-09-30 09:58:20.402 INFO (SyncWorker_9) [roombapy.remote_client] Connecting to 192.168.16.25, attempt 1 of 3
+2025-09-30 09:58:20.432 WARNING (MainThread) [homeassistant.util.loop] Detected blocking call to open with args ('/root/.netrc',) inside the event loop by integration 'google_generative_ai_conversation' at homeassistant/components/google_generative_ai_conversation/__init__.py, line 165: await client.aio.models.get( (offender: /usr/local/lib/python3.13/netrc.py, line 87: with open(file, encoding="utf-8") as fp:), please create a bug report at https://github.com/home-assistant/core/issues?q=is%3Aopen+is%3Aissue+label%3A%22integration%3A+google_generative_ai_conversation%22
+For developers, please see https://developers.home-assistant.io/docs/asyncio_blocking_operations/#open
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/src/homeassistant/homeassistant/__main__.py", line 223, in <module>
+    sys.exit(main())
+  File "/usr/src/homeassistant/homeassistant/__main__.py", line 209, in main
+    exit_code = runner.run(runtime_conf)
+  File "/usr/src/homeassistant/homeassistant/runner.py", line 156, in run
+    return loop.run_until_complete(setup_and_run_hass(runtime_config))
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 712, in run_until_complete
+    self.run_forever()
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 683, in run_forever
+    self._run_once()
+  File "/usr/local/lib/python3.13/asyncio/base_events.py", line 2050, in _run_once
+    handle._run()
+  File "/usr/local/lib/python3.13/asyncio/events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 896, in async_setup_locked
+    await self.async_setup(hass, integration=integration)
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 662, in async_setup
+    await self.__async_setup_with_context(hass, integration)
+  File "/usr/src/homeassistant/homeassistant/config_entries.py", line 751, in __async_setup_with_context
+    result = await component.async_setup_entry(hass, self)
+  File "/usr/src/homeassistant/homeassistant/components/google_generative_ai_conversation/__init__.py", line 165, in async_setup_entry
+    await client.aio.models.get(
+
+2025-09-30 09:58:20.449 INFO (MainThread) [homeassistant.setup] Setting up onkyo
+2025-09-30 09:58:20.449 INFO (MainThread) [homeassistant.setup] Setup of domain onkyo took 0.00 seconds
+2025-09-30 09:58:20.454 INFO (MainThread) [homeassistant.setup] Setting up ecobee
+2025-09-30 09:58:20.454 INFO (MainThread) [homeassistant.setup] Setup of domain ecobee took 0.00 seconds
+2025-09-30 09:58:20.457 INFO (MainThread) [homeassistant.setup] Setting up moon
+2025-09-30 09:58:20.457 INFO (MainThread) [homeassistant.setup] Setup of domain moon took 0.00 seconds
+2025-09-30 09:58:20.460 INFO (MainThread) [homeassistant.setup] Setting up downloader
+2025-09-30 09:58:20.460 INFO (MainThread) [homeassistant.setup] Setup of domain downloader took 0.00 seconds
+2025-09-30 09:58:20.466 INFO (MainThread) [homeassistant.setup] Setting up proximity
+2025-09-30 09:58:20.466 INFO (MainThread) [homeassistant.setup] Setup of domain proximity took 0.00 seconds
+2025-09-30 09:58:20.471 INFO (MainThread) [homeassistant.components.light] Setting up switch_as_x.light
+2025-09-30 09:58:20.472 INFO (MainThread) [homeassistant.components.light] Setting up switch_as_x.light
+2025-09-30 09:58:20.478 INFO (MainThread) [homeassistant.setup] Setting up switch
+2025-09-30 09:58:20.479 INFO (MainThread) [homeassistant.setup] Setup of domain switch took 0.00 seconds
+2025-09-30 09:58:20.486 INFO (MainThread) [homeassistant.components.switch] Setting up group.switch
+2025-09-30 09:58:20.488 INFO (MainThread) [homeassistant.components.notify] Setting up notify.group
+2025-09-30 09:58:20.658 INFO (MainThread) [homeassistant.setup] Setting up tplink
+2025-09-30 09:58:20.658 INFO (MainThread) [homeassistant.setup] Setup of domain tplink took 0.00 seconds
+2025-09-30 09:58:20.758 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up systemmonitor.binary_sensor
+2025-09-30 09:58:20.758 INFO (MainThread) [homeassistant.components.sensor] Setting up systemmonitor.sensor
+2025-09-30 09:58:20.781 INFO (MainThread) [homeassistant.setup] Setting up media_player
+2025-09-30 09:58:20.787 INFO (MainThread) [homeassistant.setup] Setup of domain media_player took 0.00 seconds
+2025-09-30 09:58:20.787 INFO (MainThread) [homeassistant.components.media_player] Setting up cast.media_player
+2025-09-30 09:58:20.836 INFO (MainThread) [homeassistant.setup] Setting up mobile_app
+2025-09-30 09:58:20.837 INFO (MainThread) [homeassistant.setup] Setup of domain mobile_app took 0.00 seconds
+2025-09-30 09:58:20.837 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up mobile_app.binary_sensor
+2025-09-30 09:58:20.838 INFO (MainThread) [homeassistant.components.device_tracker] Setting up mobile_app.device_tracker
+2025-09-30 09:58:20.838 INFO (MainThread) [homeassistant.components.sensor] Setting up mobile_app.sensor
+2025-09-30 09:58:20.841 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up mobile_app.binary_sensor
+2025-09-30 09:58:20.842 INFO (MainThread) [homeassistant.components.device_tracker] Setting up mobile_app.device_tracker
+2025-09-30 09:58:20.843 INFO (MainThread) [homeassistant.components.sensor] Setting up mobile_app.sensor
+2025-09-30 09:58:20.847 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up mobile_app.binary_sensor
+2025-09-30 09:58:20.847 INFO (MainThread) [homeassistant.components.device_tracker] Setting up mobile_app.device_tracker
+2025-09-30 09:58:20.847 INFO (MainThread) [homeassistant.components.sensor] Setting up mobile_app.sensor
+2025-09-30 09:58:20.850 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up mobile_app.binary_sensor
+2025-09-30 09:58:20.851 INFO (MainThread) [homeassistant.components.device_tracker] Setting up mobile_app.device_tracker
+2025-09-30 09:58:20.852 INFO (MainThread) [homeassistant.components.sensor] Setting up mobile_app.sensor
+2025-09-30 09:58:20.854 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up mobile_app.binary_sensor
+2025-09-30 09:58:20.856 INFO (MainThread) [homeassistant.components.device_tracker] Setting up mobile_app.device_tracker
+2025-09-30 09:58:20.856 INFO (MainThread) [homeassistant.components.sensor] Setting up mobile_app.sensor
+2025-09-30 09:58:20.859 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up mobile_app.binary_sensor
+2025-09-30 09:58:20.860 INFO (MainThread) [homeassistant.components.device_tracker] Setting up mobile_app.device_tracker
+2025-09-30 09:58:20.861 INFO (MainThread) [homeassistant.components.sensor] Setting up mobile_app.sensor
+2025-09-30 09:58:20.867 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up mobile_app.binary_sensor
+2025-09-30 09:58:20.867 INFO (MainThread) [homeassistant.components.device_tracker] Setting up mobile_app.device_tracker
+2025-09-30 09:58:20.868 INFO (MainThread) [homeassistant.components.sensor] Setting up mobile_app.sensor
+2025-09-30 09:58:20.871 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up mobile_app.binary_sensor
+2025-09-30 09:58:20.871 INFO (MainThread) [homeassistant.components.device_tracker] Setting up mobile_app.device_tracker
+2025-09-30 09:58:20.872 INFO (MainThread) [homeassistant.components.sensor] Setting up mobile_app.sensor
+2025-09-30 09:58:20.874 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up mobile_app.binary_sensor
+2025-09-30 09:58:20.875 INFO (MainThread) [homeassistant.components.device_tracker] Setting up mobile_app.device_tracker
+2025-09-30 09:58:20.875 INFO (MainThread) [homeassistant.components.sensor] Setting up mobile_app.sensor
+2025-09-30 09:58:20.876 INFO (MainThread) [homeassistant.components.notify] Setting up notify.mobile_app
+2025-09-30 09:58:20.878 INFO (MainThread) [homeassistant.setup] Setting up default_config
+2025-09-30 09:58:20.878 INFO (MainThread) [homeassistant.setup] Setup of domain default_config took 0.00 seconds
+2025-09-30 09:58:21.052 INFO (MainThread) [homeassistant.setup] Setting up esphome
+2025-09-30 09:58:21.054 INFO (MainThread) [homeassistant.components.sensor] Setting up teamtracker.sensor
+2025-09-30 09:58:21.054 INFO (MainThread) [custom_components.teamtracker.sensor] team_tracker_phillies: Updating sensor from UI using TeamTracker v0.14.9, if you have any issues please report them here: https://github.com/vasqued2/ha-teamtracker
+2025-09-30 09:58:21.056 INFO (MainThread) [homeassistant.components.sensor] Setting up teamtracker.sensor
+2025-09-30 09:58:21.056 INFO (MainThread) [custom_components.teamtracker.sensor] team_tracker_eagles: Updating sensor from UI using TeamTracker v0.14.9, if you have any issues please report them here: https://github.com/vasqued2/ha-teamtracker
+2025-09-30 09:58:21.058 INFO (MainThread) [homeassistant.components.sensor] Setting up teamtracker.sensor
+2025-09-30 09:58:21.058 INFO (MainThread) [custom_components.teamtracker.sensor] team_tracker_sixers: Updating sensor from UI using TeamTracker v0.14.9, if you have any issues please report them here: https://github.com/vasqued2/ha-teamtracker
+2025-09-30 09:58:21.060 INFO (MainThread) [homeassistant.components.sensor] Setting up teamtracker.sensor
+2025-09-30 09:58:21.060 INFO (MainThread) [custom_components.teamtracker.sensor] team_tracker_flyers: Updating sensor from UI using TeamTracker v0.14.9, if you have any issues please report them here: https://github.com/vasqued2/ha-teamtracker
+2025-09-30 09:58:21.072 INFO (MainThread) [homeassistant.setup] Setup of domain esphome took 0.02 seconds
+2025-09-30 09:58:21.077 INFO (MainThread) [homeassistant.setup] Setting up derivative
+2025-09-30 09:58:21.077 INFO (MainThread) [homeassistant.setup] Setup of domain derivative took 0.00 seconds
+2025-09-30 09:58:21.081 INFO (MainThread) [homeassistant.setup] Setting up integration
+2025-09-30 09:58:21.082 INFO (MainThread) [homeassistant.setup] Setup of domain integration took 0.00 seconds
+2025-09-30 09:58:21.085 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.087 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.088 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.091 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.092 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.094 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.094 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.095 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.096 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.096 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.098 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.099 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.101 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.102 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.103 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.104 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.106 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.107 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.108 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.109 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.110 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.112 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.112 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.113 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.113 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.114 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.115 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.115 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.116 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.116 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.117 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.117 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.118 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.118 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.119 INFO (MainThread) [homeassistant.components.sensor] Setting up utility_meter.sensor
+2025-09-30 09:58:21.128 INFO (MainThread) [homeassistant.components.sensor] Setting up airnow.sensor
+2025-09-30 09:58:21.168 INFO (paho-mqtt-client-47270438B1954E0DA38660DC9A6EBE60) [roombapy.roomba] Connecting to Roomba 192.168.16.25
+2025-09-30 09:58:21.184 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up shelly.binary_sensor
+2025-09-30 09:58:21.185 INFO (MainThread) [homeassistant.setup] Setting up button
+2025-09-30 09:58:21.185 INFO (MainThread) [homeassistant.setup] Setup of domain button took 0.00 seconds
+2025-09-30 09:58:21.185 INFO (MainThread) [homeassistant.components.button] Setting up shelly.button
+2025-09-30 09:58:21.186 INFO (MainThread) [homeassistant.setup] Setting up climate
+2025-09-30 09:58:21.187 INFO (MainThread) [homeassistant.setup] Setup of domain climate took 0.00 seconds
+2025-09-30 09:58:21.187 INFO (MainThread) [homeassistant.components.climate] Setting up shelly.climate
+2025-09-30 09:58:21.188 INFO (MainThread) [homeassistant.setup] Setting up cover
+2025-09-30 09:58:21.188 INFO (MainThread) [homeassistant.setup] Setup of domain cover took 0.00 seconds
+2025-09-30 09:58:21.189 INFO (MainThread) [homeassistant.components.cover] Setting up shelly.cover
+2025-09-30 09:58:21.189 INFO (MainThread) [homeassistant.components.event] Setting up shelly.event
+2025-09-30 09:58:21.189 INFO (MainThread) [homeassistant.components.light] Setting up shelly.light
+2025-09-30 09:58:21.191 INFO (MainThread) [homeassistant.components.number] Setting up shelly.number
+2025-09-30 09:58:21.191 INFO (MainThread) [homeassistant.components.select] Setting up shelly.select
+2025-09-30 09:58:21.191 INFO (MainThread) [homeassistant.components.sensor] Setting up shelly.sensor
+2025-09-30 09:58:21.194 INFO (MainThread) [homeassistant.components.switch] Setting up shelly.switch
+2025-09-30 09:58:21.194 INFO (MainThread) [homeassistant.setup] Setting up text
+2025-09-30 09:58:21.194 INFO (MainThread) [homeassistant.setup] Setup of domain text took 0.00 seconds
+2025-09-30 09:58:21.194 INFO (MainThread) [homeassistant.components.text] Setting up shelly.text
+2025-09-30 09:58:21.194 INFO (MainThread) [homeassistant.components.update] Setting up shelly.update
+2025-09-30 09:58:21.195 INFO (MainThread) [homeassistant.setup] Setting up valve
+2025-09-30 09:58:21.196 INFO (MainThread) [homeassistant.setup] Setup of domain valve took 0.00 seconds
+2025-09-30 09:58:21.196 INFO (MainThread) [homeassistant.components.valve] Setting up shelly.valve
+2025-09-30 09:58:21.196 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up shelly.binary_sensor
+2025-09-30 09:58:21.197 INFO (MainThread) [homeassistant.components.button] Setting up shelly.button
+2025-09-30 09:58:21.197 INFO (MainThread) [homeassistant.components.climate] Setting up shelly.climate
+2025-09-30 09:58:21.198 INFO (MainThread) [homeassistant.components.cover] Setting up shelly.cover
+2025-09-30 09:58:21.198 INFO (MainThread) [homeassistant.components.event] Setting up shelly.event
+2025-09-30 09:58:21.198 INFO (MainThread) [homeassistant.components.light] Setting up shelly.light
+2025-09-30 09:58:21.198 INFO (MainThread) [homeassistant.components.number] Setting up shelly.number
+2025-09-30 09:58:21.198 INFO (MainThread) [homeassistant.components.select] Setting up shelly.select
+2025-09-30 09:58:21.198 INFO (MainThread) [homeassistant.components.sensor] Setting up shelly.sensor
+2025-09-30 09:58:21.200 INFO (MainThread) [homeassistant.components.switch] Setting up shelly.switch
+2025-09-30 09:58:21.200 INFO (MainThread) [homeassistant.components.text] Setting up shelly.text
+2025-09-30 09:58:21.200 INFO (MainThread) [homeassistant.components.update] Setting up shelly.update
+2025-09-30 09:58:21.201 INFO (MainThread) [homeassistant.components.valve] Setting up shelly.valve
+2025-09-30 09:58:21.201 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up shelly.binary_sensor
+2025-09-30 09:58:21.202 INFO (MainThread) [homeassistant.components.button] Setting up shelly.button
+2025-09-30 09:58:21.202 INFO (MainThread) [homeassistant.components.climate] Setting up shelly.climate
+2025-09-30 09:58:21.203 INFO (MainThread) [homeassistant.components.cover] Setting up shelly.cover
+2025-09-30 09:58:21.203 INFO (MainThread) [homeassistant.components.event] Setting up shelly.event
+2025-09-30 09:58:21.203 INFO (MainThread) [homeassistant.components.light] Setting up shelly.light
+2025-09-30 09:58:21.203 INFO (MainThread) [homeassistant.components.number] Setting up shelly.number
+2025-09-30 09:58:21.203 INFO (MainThread) [homeassistant.components.select] Setting up shelly.select
+2025-09-30 09:58:21.203 INFO (MainThread) [homeassistant.components.sensor] Setting up shelly.sensor
+2025-09-30 09:58:21.205 INFO (MainThread) [homeassistant.components.switch] Setting up shelly.switch
+2025-09-30 09:58:21.205 INFO (MainThread) [homeassistant.components.text] Setting up shelly.text
+2025-09-30 09:58:21.205 INFO (MainThread) [homeassistant.components.update] Setting up shelly.update
+2025-09-30 09:58:21.206 INFO (MainThread) [homeassistant.components.valve] Setting up shelly.valve
+2025-09-30 09:58:21.213 INFO (MainThread) [homeassistant.setup] Setting up calendar
+2025-09-30 09:58:21.214 INFO (MainThread) [homeassistant.setup] Setup of domain calendar took 0.00 seconds
+2025-09-30 09:58:21.214 INFO (MainThread) [homeassistant.components.calendar] Setting up local_calendar.calendar
+2025-09-30 09:58:21.217 INFO (MainThread) [homeassistant.components.sensor] Setting up energy.sensor
+2025-09-30 09:58:21.275 INFO (MainThread) [homeassistant.setup] Setting up radio_browser
+2025-09-30 09:58:21.275 INFO (MainThread) [homeassistant.setup] Setup of domain radio_browser took 0.00 seconds
+2025-09-30 09:58:21.278 INFO (MainThread) [homeassistant.setup] Setting up analytics
+2025-09-30 09:58:21.279 INFO (MainThread) [homeassistant.setup] Setup of domain analytics took 0.00 seconds
+2025-09-30 09:58:21.281 INFO (MainThread) [homeassistant.components.sensor] Setting up command_line.sensor
+2025-09-30 09:58:21.282 INFO (MainThread) [homeassistant.components.sensor] Setting up command_line.sensor
+2025-09-30 09:58:21.283 INFO (MainThread) [homeassistant.components.sensor] Setting up command_line.sensor
+2025-09-30 09:58:21.284 INFO (MainThread) [homeassistant.components.sensor] Setting up command_line.sensor
+2025-09-30 09:58:21.295 INFO (MainThread) [homeassistant.components.remote] Setting up harmony.remote
+2025-09-30 09:58:21.296 INFO (MainThread) [homeassistant.components.select] Setting up harmony.select
+2025-09-30 09:58:21.313 INFO (MainThread) [homeassistant.components.sensor] Setting up filter.sensor
+2025-09-30 09:58:21.329 INFO (MainThread) [homeassistant.components.media_player] Setting up androidtv_remote.media_player
+2025-09-30 09:58:21.329 INFO (MainThread) [homeassistant.components.remote] Setting up androidtv_remote.remote
+2025-09-30 09:58:21.433 INFO (MainThread) [homeassistant.setup] Setting up hacs
+2025-09-30 09:58:21.433 INFO (MainThread) [homeassistant.setup] Setup of domain hacs took 0.00 seconds
+2025-09-30 09:58:21.433 INFO (MainThread) [custom_components.hacs] 
+-------------------------------------------------------------------
+HACS (Home Assistant Community Store)
+
+Version: 2.0.5
+This is a custom integration
+If you have any issues with this you need to open an issue here:
+https://github.com/hacs/integration/issues
+-------------------------------------------------------------------
+
+2025-09-30 09:58:21.450 INFO (MainThread) [custom_components.hacs] <HacsData restore> Restore started
+2025-09-30 09:58:21.450 INFO (MainThread) [homeassistant.components.button] Setting up nut.button
+2025-09-30 09:58:21.450 INFO (MainThread) [homeassistant.components.sensor] Setting up nut.sensor
+2025-09-30 09:58:21.457 INFO (MainThread) [homeassistant.components.switch] Setting up nut.switch
+2025-09-30 09:58:21.536 INFO (MainThread) [custom_components.hacs] <HacsData restore> Restore done
+2025-09-30 09:58:21.537 INFO (MainThread) [custom_components.hacs] Enable category: integration
+2025-09-30 09:58:21.537 INFO (MainThread) [custom_components.hacs] Enable category: plugin
+2025-09-30 09:58:21.537 INFO (MainThread) [custom_components.hacs] Enable category: template
+2025-09-30 09:58:21.537 INFO (MainThread) [custom_components.hacs] Enable category: python_script
+2025-09-30 09:58:21.537 INFO (MainThread) [custom_components.hacs] Enable category: theme
+2025-09-30 09:58:21.537 INFO (MainThread) [custom_components.hacs] Enable category: appdaemon
+2025-09-30 09:58:21.719 INFO (MainThread) [custom_components.hacs] Setting up plugin endpoint
+2025-09-30 09:58:21.719 INFO (MainThread) [custom_components.hacs] <HacsFrontend> storage mode, cache for /hacsfiles/: True
+2025-09-30 09:58:22.001 INFO (MainThread) [homeassistant.setup] Setting up spotify
+2025-09-30 09:58:22.001 INFO (MainThread) [homeassistant.setup] Setup of domain spotify took 0.00 seconds
+2025-09-30 09:58:22.038 INFO (MainThread) [homeassistant.setup] Setting up google_assistant_sdk
+2025-09-30 09:58:22.039 INFO (MainThread) [homeassistant.setup] Setup of domain google_assistant_sdk took 0.00 seconds
+2025-09-30 09:58:22.189 INFO (MainThread) [homeassistant.setup] Setting up google_mail
+2025-09-30 09:58:22.190 INFO (MainThread) [homeassistant.setup] Setup of domain google_mail took 0.00 seconds
+2025-09-30 09:58:22.218 INFO (MainThread) [homeassistant.components.sensor] Setting up lunar_phase.sensor
+2025-09-30 09:58:22.223 INFO (MainThread) [homeassistant.components.media_player] Setting up vlc_telnet.media_player
+2025-09-30 09:58:22.234 INFO (MainThread) [homeassistant.components.sensor] Setting up pirateweather.sensor
+2025-09-30 09:58:22.466 INFO (MainThread) [homeassistant.setup] Setting up weather
+2025-09-30 09:58:22.467 INFO (MainThread) [homeassistant.setup] Setup of domain weather took 0.00 seconds
+2025-09-30 09:58:22.467 INFO (MainThread) [homeassistant.components.weather] Setting up pirateweather.weather
+2025-09-30 09:58:22.469 INFO (MainThread) [homeassistant.components.sensor] Setting up pirateweather.sensor
+2025-09-30 09:58:22.475 INFO (MainThread) [homeassistant.components.weather] Setting up pirateweather.weather
+2025-09-30 09:58:22.483 INFO (MainThread) [homeassistant.components.sensor] Setting up rest.sensor
+2025-09-30 09:58:22.485 INFO (MainThread) [homeassistant.components.sensor] Setting up rest.sensor
+2025-09-30 09:58:22.486 INFO (MainThread) [homeassistant.components.sensor] Setting up rest.sensor
+2025-09-30 09:58:22.487 INFO (MainThread) [homeassistant.components.sensor] Setting up rest.sensor
+2025-09-30 09:58:22.490 INFO (MainThread) [homeassistant.components.sensor] Setting up rest.sensor
+2025-09-30 09:58:22.803 INFO (MainThread) [homeassistant.setup] Setting up zha
+2025-09-30 09:58:22.803 INFO (MainThread) [homeassistant.setup] Setup of domain zha took 0.00 seconds
+2025-09-30 09:58:22.812 INFO (MainThread) [homeassistant.components.device_tracker] Setting up flightradar24.device_tracker
+2025-09-30 09:58:22.813 INFO (MainThread) [homeassistant.components.sensor] Setting up flightradar24.sensor
+2025-09-30 09:58:22.814 INFO (MainThread) [homeassistant.components.switch] Setting up flightradar24.switch
+2025-09-30 09:58:22.814 INFO (MainThread) [homeassistant.components.text] Setting up flightradar24.text
+2025-09-30 09:58:22.815 INFO (MainThread) [homeassistant.components.button] Setting up flightradar24.button
+2025-09-30 09:58:22.819 INFO (MainThread) [homeassistant.components.sensor] Setting up ambient_network.sensor
+2025-09-30 09:58:22.837 INFO (MainThread) [homeassistant.components.number] Setting up lionel_controller.number
+2025-09-30 09:58:22.839 INFO (MainThread) [homeassistant.components.switch] Setting up lionel_controller.switch
+2025-09-30 09:58:22.841 INFO (MainThread) [homeassistant.components.button] Setting up lionel_controller.button
+2025-09-30 09:58:22.845 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up lionel_controller.binary_sensor
+2025-09-30 09:58:22.848 INFO (MainThread) [homeassistant.components.sensor] Setting up uptime.sensor
+2025-09-30 09:58:22.859 INFO (MainThread) [homeassistant.components.media_player] Setting up onkyo.media_player
+2025-09-30 09:58:22.860 INFO (MainThread) [homeassistant.components.sensor] Setting up moon.sensor
+2025-09-30 09:58:22.863 INFO (MainThread) [homeassistant.components.sensor] Setting up proximity.sensor
+2025-09-30 09:58:22.965 INFO (MainThread) [homeassistant.setup] Setting up ai_task
+2025-09-30 09:58:22.967 INFO (MainThread) [homeassistant.setup] Setup of domain ai_task took 0.00 seconds
+2025-09-30 09:58:22.967 INFO (MainThread) [homeassistant.components.ai_task] Setting up google_generative_ai_conversation.ai_task
+2025-09-30 09:58:22.968 INFO (MainThread) [homeassistant.components.conversation] Setting up google_generative_ai_conversation.conversation
+2025-09-30 09:58:22.968 INFO (MainThread) [homeassistant.components.stt] Setting up google_generative_ai_conversation.stt
+2025-09-30 09:58:22.969 INFO (MainThread) [homeassistant.components.tts] Setting up google_generative_ai_conversation.tts
+2025-09-30 09:58:22.991 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up ecobee.binary_sensor
+2025-09-30 09:58:22.992 INFO (MainThread) [homeassistant.components.climate] Setting up ecobee.climate
+2025-09-30 09:58:22.995 INFO (MainThread) [homeassistant.setup] Setting up humidifier
+2025-09-30 09:58:22.995 INFO (MainThread) [homeassistant.setup] Setup of domain humidifier took 0.00 seconds
+2025-09-30 09:58:22.996 INFO (MainThread) [homeassistant.components.humidifier] Setting up ecobee.humidifier
+2025-09-30 09:58:22.996 INFO (MainThread) [homeassistant.components.notify] Setting up ecobee.notify
+2025-09-30 09:58:22.997 INFO (MainThread) [homeassistant.components.number] Setting up ecobee.number
+2025-09-30 09:58:22.997 INFO (MainThread) [homeassistant.components.sensor] Setting up ecobee.sensor
+2025-09-30 09:58:22.999 INFO (MainThread) [homeassistant.components.switch] Setting up ecobee.switch
+2025-09-30 09:58:22.999 INFO (MainThread) [homeassistant.components.weather] Setting up ecobee.weather
+2025-09-30 09:58:23.048 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up tplink.binary_sensor
+2025-09-30 09:58:23.049 INFO (MainThread) [homeassistant.components.button] Setting up tplink.button
+2025-09-30 09:58:23.049 INFO (MainThread) [homeassistant.components.camera] Setting up tplink.camera
+2025-09-30 09:58:23.049 INFO (MainThread) [homeassistant.components.climate] Setting up tplink.climate
+2025-09-30 09:58:23.050 INFO (MainThread) [homeassistant.components.fan] Setting up tplink.fan
+2025-09-30 09:58:23.050 INFO (MainThread) [homeassistant.components.light] Setting up tplink.light
+2025-09-30 09:58:23.050 INFO (MainThread) [homeassistant.components.number] Setting up tplink.number
+2025-09-30 09:58:23.050 INFO (MainThread) [homeassistant.components.select] Setting up tplink.select
+2025-09-30 09:58:23.050 INFO (MainThread) [homeassistant.components.sensor] Setting up tplink.sensor
+2025-09-30 09:58:23.051 INFO (MainThread) [homeassistant.setup] Setting up siren
+2025-09-30 09:58:23.052 INFO (MainThread) [homeassistant.setup] Setup of domain siren took 0.00 seconds
+2025-09-30 09:58:23.052 INFO (MainThread) [homeassistant.components.siren] Setting up tplink.siren
+2025-09-30 09:58:23.052 INFO (MainThread) [homeassistant.components.switch] Setting up tplink.switch
+2025-09-30 09:58:23.053 INFO (MainThread) [homeassistant.setup] Setting up vacuum
+2025-09-30 09:58:23.054 INFO (MainThread) [homeassistant.setup] Setup of domain vacuum took 0.00 seconds
+2025-09-30 09:58:23.054 INFO (MainThread) [homeassistant.components.vacuum] Setting up tplink.vacuum
+2025-09-30 09:58:23.055 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up tplink.binary_sensor
+2025-09-30 09:58:23.056 INFO (MainThread) [homeassistant.components.button] Setting up tplink.button
+2025-09-30 09:58:23.057 INFO (MainThread) [homeassistant.components.camera] Setting up tplink.camera
+2025-09-30 09:58:23.057 INFO (MainThread) [homeassistant.components.climate] Setting up tplink.climate
+2025-09-30 09:58:23.057 INFO (MainThread) [homeassistant.components.fan] Setting up tplink.fan
+2025-09-30 09:58:23.057 INFO (MainThread) [homeassistant.components.light] Setting up tplink.light
+2025-09-30 09:58:23.057 INFO (MainThread) [homeassistant.components.number] Setting up tplink.number
+2025-09-30 09:58:23.057 INFO (MainThread) [homeassistant.components.select] Setting up tplink.select
+2025-09-30 09:58:23.058 INFO (MainThread) [homeassistant.components.sensor] Setting up tplink.sensor
+2025-09-30 09:58:23.060 INFO (MainThread) [homeassistant.components.siren] Setting up tplink.siren
+2025-09-30 09:58:23.060 INFO (MainThread) [homeassistant.components.switch] Setting up tplink.switch
+2025-09-30 09:58:23.061 INFO (MainThread) [homeassistant.components.vacuum] Setting up tplink.vacuum
+2025-09-30 09:58:23.071 INFO (MainThread) [homeassistant.components.update] Setting up esphome.update
+2025-09-30 09:58:23.071 INFO (MainThread) [homeassistant.components.light] Setting up esphome.light
+2025-09-30 09:58:23.071 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up esphome.binary_sensor
+2025-09-30 09:58:23.072 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
+2025-09-30 09:58:23.074 INFO (MainThread) [homeassistant.components.update] Setting up esphome.update
+2025-09-30 09:58:23.074 INFO (MainThread) [homeassistant.components.light] Setting up esphome.light
+2025-09-30 09:58:23.074 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up esphome.binary_sensor
+2025-09-30 09:58:23.074 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
+2025-09-30 09:58:23.076 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully resolved weather-display @ 192.168.16.41 in 0.000s
+2025-09-30 09:58:23.077 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully resolved bobacat-display @ 192.168.16.32 in 0.000s
+2025-09-30 09:58:23.079 INFO (MainThread) [homeassistant.components.update] Setting up esphome.update
+2025-09-30 09:58:23.079 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
+2025-09-30 09:58:23.079 INFO (MainThread) [homeassistant.components.sensor] Setting up esphome.sensor
+2025-09-30 09:58:23.082 INFO (MainThread) [homeassistant.components.update] Setting up esphome.update
+2025-09-30 09:58:23.082 INFO (MainThread) [homeassistant.components.sensor] Setting up esphome.sensor
+2025-09-30 09:58:23.082 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up esphome.binary_sensor
+2025-09-30 09:58:23.083 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
+2025-09-30 09:58:23.089 INFO (MainThread) [homeassistant.components.update] Setting up esphome.update
+2025-09-30 09:58:23.089 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
+2025-09-30 09:58:23.089 INFO (MainThread) [homeassistant.components.sensor] Setting up esphome.sensor
+2025-09-30 09:58:23.091 INFO (MainThread) [homeassistant.components.update] Setting up esphome.update
+2025-09-30 09:58:23.091 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
+2025-09-30 09:58:23.091 INFO (MainThread) [homeassistant.components.sensor] Setting up esphome.sensor
+2025-09-30 09:58:23.096 INFO (MainThread) [homeassistant.components.update] Setting up esphome.update
+2025-09-30 09:58:23.097 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
+2025-09-30 09:58:23.097 INFO (MainThread) [homeassistant.components.sensor] Setting up esphome.sensor
+2025-09-30 09:58:23.098 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully resolved office @ 192.168.16.40 in 0.000s
+2025-09-30 09:58:23.099 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully resolved bleclient1 @ 192.168.16.221 in 0.000s
+2025-09-30 09:58:23.101 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully resolved btproxy1 @ 192.168.16.156 in 0.000s
+2025-09-30 09:58:23.102 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully resolved btproxy3 @ 192.168.16.145 in 0.000s
+2025-09-30 09:58:23.103 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully resolved btproxy2 @ 192.168.16.57 in 0.000s
+2025-09-30 09:58:23.108 INFO (MainThread) [homeassistant.components.update] Setting up esphome.update
+2025-09-30 09:58:23.108 INFO (MainThread) [homeassistant.components.select] Setting up esphome.select
+2025-09-30 09:58:23.108 INFO (MainThread) [homeassistant.components.button] Setting up esphome.button
+2025-09-30 09:58:23.108 INFO (MainThread) [homeassistant.components.sensor] Setting up esphome.sensor
+2025-09-30 09:58:23.108 INFO (MainThread) [homeassistant.components.number] Setting up esphome.number
+2025-09-30 09:58:23.108 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up esphome.binary_sensor
+2025-09-30 09:58:23.109 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
+2025-09-30 09:58:23.118 INFO (MainThread) [homeassistant.components.sensor] Setting up derivative.sensor
+2025-09-30 09:58:23.119 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully resolved trainble @ 192.168.16.194 in 0.000s
+2025-09-30 09:58:23.122 INFO (MainThread) [homeassistant.components.sensor] Setting up derivative.sensor
+2025-09-30 09:58:23.124 INFO (MainThread) [homeassistant.components.update] Setting up esphome.update
+2025-09-30 09:58:23.124 INFO (MainThread) [homeassistant.components.camera] Setting up esphome.camera
+2025-09-30 09:58:23.125 INFO (MainThread) [homeassistant.components.sensor] Setting up esphome.sensor
+2025-09-30 09:58:23.125 INFO (MainThread) [homeassistant.components.switch] Setting up esphome.switch
+2025-09-30 09:58:23.132 INFO (MainThread) [homeassistant.components.sensor] Setting up integration.sensor
+2025-09-30 09:58:23.135 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully resolved esp32cam @ 192.168.16.142 in 0.000s
+2025-09-30 09:58:23.136 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to bobacat-display @ 192.168.16.32 in 0.059s
+2025-09-30 09:58:23.137 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to weather-display @ 192.168.16.41 in 0.060s
+2025-09-30 09:58:23.137 INFO (MainThread) [homeassistant.components.sensor] Setting up integration.sensor
+2025-09-30 09:58:23.145 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to office @ 192.168.16.40 in 0.047s
+2025-09-30 09:58:23.148 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to btproxy1 @ 192.168.16.156 in 0.047s
+2025-09-30 09:58:23.160 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to btproxy2 @ 192.168.16.57 in 0.057s
+2025-09-30 09:58:23.165 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up mqtt.binary_sensor
+2025-09-30 09:58:23.176 INFO (MainThread) [homeassistant.components.sensor] Setting up mqtt.sensor
+2025-09-30 09:58:23.230 INFO (MainThread) [homeassistant.components.switch] Setting up hacs.switch
+2025-09-30 09:58:23.234 INFO (MainThread) [homeassistant.components.update] Setting up hacs.update
+2025-09-30 09:58:23.241 INFO (MainThread) [custom_components.hacs] Stage changed: setup
+2025-09-30 09:58:23.242 INFO (MainThread) [custom_components.hacs] Stage changed: waiting
+2025-09-30 09:58:23.242 INFO (MainThread) [custom_components.hacs] Setup complete, waiting for Home Assistant before startup tasks starts
+2025-09-30 09:58:23.243 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with btproxy2 @ 192.168.16.57 in 0.082s
+2025-09-30 09:58:23.254 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to btproxy3 @ 192.168.16.145 in 0.153s
+2025-09-30 09:58:23.255 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to bleclient1 @ 192.168.16.221 in 0.156s
+2025-09-30 09:58:23.260 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up roomba.binary_sensor
+2025-09-30 09:58:23.260 INFO (MainThread) [homeassistant.components.sensor] Setting up roomba.sensor
+2025-09-30 09:58:23.264 INFO (MainThread) [homeassistant.components.vacuum] Setting up roomba.vacuum
+2025-09-30 09:58:23.265 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to trainble @ 192.168.16.194 in 0.146s
+2025-09-30 09:58:23.265 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successfully connected to esp32cam @ 192.168.16.142 in 0.130s
+2025-09-30 09:58:23.266 INFO (MainThread) [homeassistant.components.notify] Setting up notify.google_assistant_sdk
+2025-09-30 09:58:23.272 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with office @ 192.168.16.40 in 0.127s
+2025-09-30 09:58:23.281 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with btproxy1 @ 192.168.16.156 in 0.133s
+2025-09-30 09:58:23.314 INFO (MainThread) [homeassistant.setup] Setting up script
+2025-09-30 09:58:23.321 INFO (MainThread) [homeassistant.setup] Setup of domain script took 0.01 seconds
+2025-09-30 09:58:23.416 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with esp32cam @ 192.168.16.142 in 0.151s
+2025-09-30 09:58:23.420 INFO (MainThread) [homeassistant.setup] Setting up spook
+2025-09-30 09:58:23.420 INFO (MainThread) [homeassistant.setup] Setup of domain spook took 0.00 seconds
+2025-09-30 09:58:23.433 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with btproxy3 @ 192.168.16.145 in 0.178s
+2025-09-30 09:58:23.439 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with weather-display @ 192.168.16.41 in 0.303s
+2025-09-30 09:58:23.442 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up schlage.binary_sensor
+2025-09-30 09:58:23.443 INFO (MainThread) [homeassistant.setup] Setting up lock
+2025-09-30 09:58:23.443 INFO (MainThread) [homeassistant.setup] Setup of domain lock took 0.00 seconds
+2025-09-30 09:58:23.443 INFO (MainThread) [homeassistant.components.lock] Setting up schlage.lock
+2025-09-30 09:58:23.444 INFO (MainThread) [homeassistant.components.select] Setting up schlage.select
+2025-09-30 09:58:23.444 INFO (MainThread) [homeassistant.components.sensor] Setting up schlage.sensor
+2025-09-30 09:58:23.445 INFO (MainThread) [homeassistant.components.switch] Setting up schlage.switch
+2025-09-30 09:58:23.449 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with bleclient1 @ 192.168.16.221 in 0.194s
+2025-09-30 09:58:23.450 INFO (MainThread) [homeassistant.setup] Setting up bluetooth_adapters
+2025-09-30 09:58:23.451 INFO (MainThread) [homeassistant.setup] Setup of domain bluetooth_adapters took 0.00 seconds
+2025-09-30 09:58:23.455 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with trainble @ 192.168.16.194 in 0.190s
+2025-09-30 09:58:23.465 INFO (MainThread) [homeassistant.setup] Setting up plant
+2025-09-30 09:58:23.465 INFO (MainThread) [homeassistant.setup] Setup of domain plant took 0.00 seconds
+2025-09-30 09:58:23.501 INFO (MainThread) [homeassistant.setup] Setting up frigate
+2025-09-30 09:58:23.501 INFO (MainThread) [custom_components.frigate] 
+-------------------------------------------------------------------
+Frigate
+Integration Version: 5.9.4
+This is a custom integration!
+If you have any issues with this you need to open an issue here:
+https://github.com/blakeblackshear/frigate-hass-integration/issues
+-------------------------------------------------------------------
+
+2025-09-30 09:58:23.507 INFO (MainThread) [homeassistant.setup] Setup of domain frigate took 0.01 seconds
+2025-09-30 09:58:23.514 INFO (MainThread) [aioesphomeapi.reconnect_logic] Successful handshake with bobacat-display @ 192.168.16.32 in 0.378s
+2025-09-30 09:58:23.526 INFO (MainThread) [homeassistant.setup] Setting up fully_kiosk
+2025-09-30 09:58:23.527 INFO (MainThread) [homeassistant.setup] Setup of domain fully_kiosk took 0.00 seconds
+2025-09-30 09:58:23.535 INFO (MainThread) [homeassistant.components.notify] Setting up notify.google_mail
+2025-09-30 09:58:23.537 INFO (MainThread) [homeassistant.components.sensor] Setting up google_mail.sensor
+2025-09-30 09:58:23.563 INFO (SyncWorker_5) [googleapiclient.discovery_cache] file_cache is only supported with oauth2client<4.0.0
+2025-09-30 09:58:23.579 INFO (MainThread) [homeassistant.setup] Setting up private_ble_device
+2025-09-30 09:58:23.579 INFO (MainThread) [homeassistant.setup] Setup of domain private_ble_device took 0.00 seconds
+2025-09-30 09:58:23.587 INFO (MainThread) [homeassistant.setup] Setting up ibeacon
+2025-09-30 09:58:23.588 INFO (MainThread) [homeassistant.setup] Setup of domain ibeacon took 0.00 seconds
+2025-09-30 09:58:23.692 INFO (MainThread) [homeassistant.setup] Setting up switchbot
+2025-09-30 09:58:23.692 INFO (MainThread) [homeassistant.setup] Setup of domain switchbot took 0.00 seconds
+2025-09-30 09:58:23.692 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device Forest Hills is online
+2025-09-30 09:58:23.693 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device Garage is online
+2025-09-30 09:58:23.693 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device HVAC Return is online
+2025-09-30 09:58:23.694 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device Bedroom is online
+2025-09-30 09:58:23.694 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device Hallway is online
+2025-09-30 09:58:23.694 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device HVAC Supply is online
+2025-09-30 09:58:23.694 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device Breezeway is online
+2025-09-30 09:58:23.952 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device Forest Hills is online
+2025-09-30 09:58:24.002 INFO (MainThread) [homeassistant.setup] Setting up homekit_controller
+2025-09-30 09:58:24.011 INFO (MainThread) [homeassistant.setup] Setup of domain homekit_controller took 0.01 seconds
+2025-09-30 09:58:24.013 INFO (MainThread) [homeassistant.components.number] Setting up plant.number
+2025-09-30 09:58:24.017 INFO (MainThread) [homeassistant.components.sensor] Setting up plant.sensor
+2025-09-30 09:58:24.019 INFO (MainThread) [custom_components.plant.sensor] Setting sensor.mike_wazowski_soil_moisture external sensor to sensor.third_reality_inc_3rsm0147z_soil_moisture_2
+2025-09-30 09:58:24.019 INFO (MainThread) [custom_components.plant.sensor] Setting sensor.mike_wazowski_temperature external sensor to sensor.third_reality_inc_3rsm0147z_temperature
+2025-09-30 09:58:24.019 INFO (MainThread) [custom_components.plant.sensor] Setting sensor.mike_wazowski_air_humidity external sensor to sensor.hestia_humidity
+2025-09-30 09:58:24.020 INFO (MainThread) [custom_components.plant.sensor] Setting sensor.mike_wazowski_ppfd_mol external sensor to sensor.mike_wazowski_illuminance
+2025-09-30 09:58:24.022 INFO (MainThread) [homeassistant.components.number] Setting up plant.number
+2025-09-30 09:58:24.027 INFO (MainThread) [homeassistant.components.sensor] Setting up plant.sensor
+2025-09-30 09:58:24.029 INFO (MainThread) [custom_components.plant.sensor] Setting sensor.planty_jr_soil_moisture external sensor to sensor.third_reality_inc_3rsm0147z_soil_moisture
+2025-09-30 09:58:24.029 INFO (MainThread) [custom_components.plant.sensor] Setting sensor.planty_jr_temperature external sensor to sensor.third_reality_inc_3rsm0147z_temperature_2
+2025-09-30 09:58:24.030 INFO (MainThread) [custom_components.plant.sensor] Setting sensor.planty_jr_air_humidity external sensor to sensor.meter_058b_humidity
+2025-09-30 09:58:24.030 INFO (MainThread) [custom_components.plant.sensor] Setting sensor.planty_jr_ppfd_mol external sensor to sensor.planty_jr_illuminance
+2025-09-30 09:58:24.160 INFO (MainThread) [homeassistant.components.sensor] Setting up frigate.sensor
+2025-09-30 09:58:24.185 INFO (MainThread) [homeassistant.components.camera] Setting up frigate.camera
+2025-09-30 09:58:24.188 INFO (MainThread) [homeassistant.setup] Setting up image
+2025-09-30 09:58:24.189 INFO (MainThread) [homeassistant.setup] Setup of domain image took 0.00 seconds
+2025-09-30 09:58:24.189 INFO (MainThread) [homeassistant.components.image] Setting up frigate.image
+2025-09-30 09:58:24.192 INFO (MainThread) [homeassistant.components.number] Setting up frigate.number
+2025-09-30 09:58:24.192 INFO (MainThread) [homeassistant.components.switch] Setting up frigate.switch
+2025-09-30 09:58:24.196 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up frigate.binary_sensor
+2025-09-30 09:58:24.206 INFO (MainThread) [homeassistant.components.update] Setting up frigate.update
+2025-09-30 09:58:24.273 INFO (MainThread) [homeassistant.setup] Setting up template
+2025-09-30 09:58:24.283 INFO (MainThread) [homeassistant.setup] Setup of domain template took 0.01 seconds
+2025-09-30 09:58:24.283 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.286 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up template.binary_sensor
+2025-09-30 09:58:24.287 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up template.binary_sensor
+2025-09-30 09:58:24.293 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.297 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.300 INFO (MainThread) [homeassistant.components.switch] Setting up template.switch
+2025-09-30 09:58:24.303 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.312 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.321 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.335 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.343 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.353 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.361 INFO (MainThread) [homeassistant.components.switch] Setting up template.switch
+2025-09-30 09:58:24.365 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.374 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.380 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.387 INFO (MainThread) [homeassistant.components.switch] Setting up template.switch
+2025-09-30 09:58:24.399 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.402 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.405 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.412 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.413 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up template.binary_sensor
+2025-09-30 09:58:24.415 INFO (MainThread) [homeassistant.components.button] Setting up template.button
+2025-09-30 09:58:24.416 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up template.binary_sensor
+2025-09-30 09:58:24.418 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.421 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.425 INFO (MainThread) [homeassistant.components.button] Setting up template.button
+2025-09-30 09:58:24.426 INFO (MainThread) [homeassistant.components.button] Setting up template.button
+2025-09-30 09:58:24.427 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up template.binary_sensor
+2025-09-30 09:58:24.430 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.447 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.449 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up template.binary_sensor
+2025-09-30 09:58:24.455 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up template.binary_sensor
+2025-09-30 09:58:24.458 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.460 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up template.binary_sensor
+2025-09-30 09:58:24.463 INFO (MainThread) [homeassistant.components.switch] Setting up template.switch
+2025-09-30 09:58:24.465 INFO (MainThread) [homeassistant.components.button] Setting up template.button
+2025-09-30 09:58:24.466 INFO (MainThread) [homeassistant.components.button] Setting up template.button
+2025-09-30 09:58:24.467 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.472 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.475 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.478 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.479 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.484 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up template.binary_sensor
+2025-09-30 09:58:24.487 INFO (MainThread) [homeassistant.components.button] Setting up template.button
+2025-09-30 09:58:24.488 INFO (MainThread) [homeassistant.components.device_tracker] Setting up private_ble_device.device_tracker
+2025-09-30 09:58:24.490 INFO (MainThread) [homeassistant.components.sensor] Setting up private_ble_device.sensor
+2025-09-30 09:58:24.493 INFO (MainThread) [homeassistant.components.fan] Setting up template.fan
+2025-09-30 09:58:24.494 INFO (MainThread) [homeassistant.components.light] Setting up template.light
+2025-09-30 09:58:24.495 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.499 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.499 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.500 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.500 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.501 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.501 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.502 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.502 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.503 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.503 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.504 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.504 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.505 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.505 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.505 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.506 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.506 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.507 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.507 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.508 INFO (MainThread) [homeassistant.components.sensor] Setting up template.sensor
+2025-09-30 09:58:24.510 INFO (MainThread) [homeassistant.components.device_tracker] Setting up private_ble_device.device_tracker
+2025-09-30 09:58:24.511 INFO (MainThread) [homeassistant.components.sensor] Setting up private_ble_device.sensor
+2025-09-30 09:58:24.513 INFO (MainThread) [homeassistant.components.device_tracker] Setting up private_ble_device.device_tracker
+2025-09-30 09:58:24.515 INFO (MainThread) [homeassistant.components.sensor] Setting up private_ble_device.sensor
+2025-09-30 09:58:24.521 INFO (MainThread) [homeassistant.components.device_tracker] Setting up private_ble_device.device_tracker
+2025-09-30 09:58:24.522 INFO (MainThread) [homeassistant.components.sensor] Setting up private_ble_device.sensor
+2025-09-30 09:58:24.525 INFO (MainThread) [homeassistant.components.device_tracker] Setting up ibeacon.device_tracker
+2025-09-30 09:58:24.525 INFO (MainThread) [homeassistant.components.sensor] Setting up ibeacon.sensor
+2025-09-30 09:58:24.691 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up fully_kiosk.binary_sensor
+2025-09-30 09:58:24.693 INFO (MainThread) [homeassistant.components.button] Setting up fully_kiosk.button
+2025-09-30 09:58:24.694 INFO (MainThread) [homeassistant.components.camera] Setting up fully_kiosk.camera
+2025-09-30 09:58:24.695 INFO (MainThread) [homeassistant.components.image] Setting up fully_kiosk.image
+2025-09-30 09:58:24.695 INFO (MainThread) [homeassistant.components.media_player] Setting up fully_kiosk.media_player
+2025-09-30 09:58:24.696 INFO (MainThread) [homeassistant.components.notify] Setting up fully_kiosk.notify
+2025-09-30 09:58:24.697 INFO (MainThread) [homeassistant.components.number] Setting up fully_kiosk.number
+2025-09-30 09:58:24.698 INFO (MainThread) [homeassistant.components.sensor] Setting up fully_kiosk.sensor
+2025-09-30 09:58:24.700 INFO (MainThread) [homeassistant.components.switch] Setting up fully_kiosk.switch
+2025-09-30 09:58:24.820 INFO (MainThread) [homeassistant.components.media_player] Setting up spotify.media_player
+2025-09-30 09:58:24.822 INFO (MainThread) [homeassistant.components.sensor] Setting up switchbot.sensor
+2025-09-30 09:58:24.850 INFO (MainThread) [homeassistant.components.sensor] Setting up switchbot.sensor
+2025-09-30 09:58:24.852 INFO (MainThread) [homeassistant.components.sensor] Setting up switchbot.sensor
+2025-09-30 09:58:24.854 INFO (MainThread) [homeassistant.components.sensor] Setting up switchbot.sensor
+2025-09-30 09:58:24.857 INFO (MainThread) [homeassistant.components.sensor] Setting up switchbot.sensor
+2025-09-30 09:58:24.870 INFO (MainThread) [homeassistant.components.sensor] Setting up switchbot.sensor
+2025-09-30 09:58:24.873 INFO (MainThread) [homeassistant.components.sensor] Setting up switchbot.sensor
+2025-09-30 09:58:26.126 INFO (MainThread) [homeassistant.setup] Setting up bermuda
+2025-09-30 09:58:26.126 INFO (MainThread) [homeassistant.setup] Setup of domain bermuda took 0.00 seconds
+2025-09-30 09:58:26.127 INFO (MainThread) [custom_components.bermuda] 
+-------------------------------------------------------------------
+Bermuda BLE Trilateration
+Version: 0.8.5
+This is a custom integration!
+If you have any issues with this you need to open an issue here:
+https://github.com/agittins/bermuda/issues
+-------------------------------------------------------------------
+
+2025-09-30 09:58:27.300 INFO (MainThread) [homeassistant.setup] Setting up spotcast
+2025-09-30 09:58:27.308 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up spook.binary_sensor
+2025-09-30 09:58:27.308 INFO (MainThread) [homeassistant.components.button] Setting up spook.button
+2025-09-30 09:58:27.308 INFO (MainThread) [homeassistant.components.event] Setting up spook.event
+2025-09-30 09:58:27.308 INFO (MainThread) [homeassistant.components.number] Setting up spook.number
+2025-09-30 09:58:27.308 INFO (MainThread) [homeassistant.components.select] Setting up spook.select
+2025-09-30 09:58:27.309 INFO (MainThread) [homeassistant.components.sensor] Setting up spook.sensor
+2025-09-30 09:58:27.309 INFO (MainThread) [homeassistant.components.switch] Setting up spook.switch
+2025-09-30 09:58:27.312 INFO (MainThread) [homeassistant.setup] Setup of domain spotcast took 0.01 seconds
+2025-09-30 09:58:27.322 INFO (MainThread) [homeassistant.components.sensor] Setting up bermuda.sensor
+2025-09-30 09:58:27.324 INFO (MainThread) [homeassistant.components.device_tracker] Setting up bermuda.device_tracker
+2025-09-30 09:58:27.324 INFO (MainThread) [homeassistant.components.number] Setting up bermuda.number
+2025-09-30 09:58:27.330 WARNING (SyncWorker_6) [zhaquirks] Loaded custom quirks. Please contribute them to https://github.com/zigpy/zha-device-handlers
+2025-09-30 09:58:27.483 INFO (MainThread) [homeassistant.setup] Setting up time
+2025-09-30 09:58:27.483 INFO (MainThread) [homeassistant.setup] Setup of domain time took 0.00 seconds
+2025-09-30 09:58:27.484 INFO (MainThread) [homeassistant.components.time] Setting up spook.time
+2025-09-30 09:58:28.314 INFO (MainThread) [homeassistant.components.number] Setting up homekit_controller.number
+2025-09-30 09:58:28.315 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up homekit_controller.binary_sensor
+2025-09-30 09:58:28.317 INFO (MainThread) [homeassistant.components.climate] Setting up homekit_controller.climate
+2025-09-30 09:58:28.318 INFO (MainThread) [homeassistant.components.button] Setting up homekit_controller.button
+2025-09-30 09:58:28.320 INFO (MainThread) [homeassistant.components.select] Setting up homekit_controller.select
+2025-09-30 09:58:28.321 INFO (MainThread) [homeassistant.components.sensor] Setting up homekit_controller.sensor
+2025-09-30 09:58:28.709 INFO (MainThread) [homeassistant.components.sensor] Setting up discogs_sync.sensor
+2025-09-30 09:58:28.714 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up discogs_sync.binary_sensor
+2025-09-30 09:58:28.715 INFO (MainThread) [homeassistant.components.button] Setting up discogs_sync.button
+2025-09-30 09:58:28.716 INFO (MainThread) [homeassistant.components.select] Setting up discogs_sync.select
+2025-09-30 09:58:29.831 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device HVAC Return is online
+2025-09-30 09:58:31.144 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device HVAC Return is online
+2025-09-30 09:58:36.679 INFO (MainThread) [zigpy.device] [0x0000] Requesting 'Node Descriptor'
+2025-09-30 09:58:36.703 INFO (MainThread) [zigpy.device] [0x0000] Got Node Descriptor: NodeDescriptor(logical_type=<LogicalType.Coordinator: 0>, complex_descriptor_available=0, user_descriptor_available=0, reserved=0, aps_flags=0, frequency_band=<FrequencyBand.Freq2400MHz: 8>, mac_capability_flags=<MACCapabilityFlags.AlternatePanCoordinator|FullFunctionDevice|MainsPowered|RxOnWhenIdle|AllocateAddress: 143>, manufacturer_code=0, maximum_buffer_size=80, maximum_incoming_transfer_size=160, server_mask=11265, maximum_outgoing_transfer_size=160, descriptor_capability_field=<DescriptorCapability.NONE: 0>, *allocate_address=True, *is_alternate_pan_coordinator=True, *is_coordinator=True, *is_end_device=False, *is_full_function_device=True, *is_mains_powered=True, *is_receiver_on_when_idle=True, *is_router=False, *is_security_capable=False)
+2025-09-30 09:58:36.703 INFO (MainThread) [zigpy.device] [0x0000] Discovering endpoints
+2025-09-30 09:58:36.716 INFO (MainThread) [zigpy.device] [0x0000] Discovered endpoints: [2, 1]
+2025-09-30 09:58:36.716 INFO (MainThread) [zigpy.device] [0x0000] Initializing endpoints [<Endpoint id=2 in=[] out=[] status=<Status.NEW: 0>>, <Endpoint id=1 in=[] out=[] status=<Status.NEW: 0>>]
+2025-09-30 09:58:36.716 INFO (MainThread) [zigpy.endpoint] [0x0000:2] Discovering endpoint information
+2025-09-30 09:58:36.732 INFO (MainThread) [zigpy.endpoint] [0x0000:2] Discovered endpoint information: SizePrefixedSimpleDescriptor(endpoint=2, profile=49246, device_type=2080, device_version=0, input_clusters=[0], output_clusters=[])
+2025-09-30 09:58:36.733 INFO (MainThread) [zigpy.endpoint] [0x0000:1] Discovering endpoint information
+2025-09-30 09:58:36.749 INFO (MainThread) [zigpy.endpoint] [0x0000:1] Discovered endpoint information: SizePrefixedSimpleDescriptor(endpoint=1, profile=260, device_type=1024, device_version=0, input_clusters=[0, 6, 10, 25, 1281], output_clusters=[1, 32, 1280, 1282])
+2025-09-30 09:58:36.749 INFO (MainThread) [zigpy.device] [0x0000] Already have model and manufacturer info
+2025-09-30 09:58:36.749 INFO (MainThread) [zigpy.device] [0x0000] Discovered basic device information for <ZNPCoordinator model='Coordinator' manuf='Texas Instruments' nwk=0x0000 ieee=00:12:4b:00:24:c3:d3:e6 is_initialized=True>
+2025-09-30 09:58:36.750 INFO (MainThread) [zigpy_znp.zigbee.application] Permitting joins for 0 seconds
+2025-09-30 09:58:36.885 INFO (MainThread) [zha.application.gateway] Loading group with id: 0x0002
+2025-09-30 09:58:36.885 INFO (MainThread) [zha.application.discovery] Creating entity : <class 'zha.application.platforms.light.LightGroup'> for group Everett's Overhead Light
+2025-09-30 09:58:36.887 INFO (MainThread) [zha.application.gateway] Loading group with id: 0xc9bc
+2025-09-30 09:58:36.967 INFO (MainThread) [homeassistant.setup] Setting up alarm_control_panel
+2025-09-30 09:58:36.967 INFO (MainThread) [homeassistant.setup] Setup of domain alarm_control_panel took 0.00 seconds
+2025-09-30 09:58:36.968 INFO (MainThread) [homeassistant.components.alarm_control_panel] Setting up zha.alarm_control_panel
+2025-09-30 09:58:36.968 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up zha.binary_sensor
+2025-09-30 09:58:36.968 INFO (MainThread) [homeassistant.components.button] Setting up zha.button
+2025-09-30 09:58:36.968 INFO (MainThread) [homeassistant.components.climate] Setting up zha.climate
+2025-09-30 09:58:36.968 INFO (MainThread) [homeassistant.components.cover] Setting up zha.cover
+2025-09-30 09:58:36.968 INFO (MainThread) [homeassistant.components.device_tracker] Setting up zha.device_tracker
+2025-09-30 09:58:36.969 INFO (MainThread) [homeassistant.components.fan] Setting up zha.fan
+2025-09-30 09:58:36.969 INFO (MainThread) [homeassistant.components.light] Setting up zha.light
+2025-09-30 09:58:36.969 INFO (MainThread) [homeassistant.components.lock] Setting up zha.lock
+2025-09-30 09:58:36.970 INFO (MainThread) [homeassistant.components.number] Setting up zha.number
+2025-09-30 09:58:36.970 INFO (MainThread) [homeassistant.components.select] Setting up zha.select
+2025-09-30 09:58:36.970 INFO (MainThread) [homeassistant.components.sensor] Setting up zha.sensor
+2025-09-30 09:58:36.970 INFO (MainThread) [homeassistant.components.siren] Setting up zha.siren
+2025-09-30 09:58:36.970 INFO (MainThread) [homeassistant.components.switch] Setting up zha.switch
+2025-09-30 09:58:36.970 INFO (MainThread) [homeassistant.components.update] Setting up zha.update
+2025-09-30 09:58:37.097 INFO (MainThread) [homeassistant.setup] Setting up zha_toolkit
+2025-09-30 09:58:37.097 DEBUG (MainThread) [custom_components.zha_toolkit] Setup services from async_setup
+2025-09-30 09:58:37.097 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.execute
+2025-09-30 09:58:37.097 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.add_group
+2025-09-30 09:58:37.098 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.add_to_group
+2025-09-30 09:58:37.098 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.all_routes_and_neighbours
+2025-09-30 09:58:37.098 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.attr_read
+2025-09-30 09:58:37.099 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.attr_write
+2025-09-30 09:58:37.099 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.backup
+2025-09-30 09:58:37.099 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.bind_group
+2025-09-30 09:58:37.099 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.bind_ieee
+2025-09-30 09:58:37.100 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.binds_get
+2025-09-30 09:58:37.100 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.binds_remove_all
+2025-09-30 09:58:37.100 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.conf_report
+2025-09-30 09:58:37.100 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.conf_report_read
+2025-09-30 09:58:37.101 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ezsp_add_key
+2025-09-30 09:58:37.101 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ezsp_backup
+2025-09-30 09:58:37.101 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ezsp_clear_keys
+2025-09-30 09:58:37.101 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ezsp_get_config_value
+2025-09-30 09:58:37.101 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ezsp_get_ieee_by_nwk
+2025-09-30 09:58:37.101 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ezsp_get_keys
+2025-09-30 09:58:37.102 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ezsp_get_policy
+2025-09-30 09:58:37.102 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ezsp_get_token
+2025-09-30 09:58:37.102 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ezsp_get_value
+2025-09-30 09:58:37.102 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ezsp_set_channel
+2025-09-30 09:58:37.103 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ezsp_start_mfg
+2025-09-30 09:58:37.103 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.get_groups
+2025-09-30 09:58:37.103 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.get_routes_and_neighbours
+2025-09-30 09:58:37.103 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.get_zll_groups
+2025-09-30 09:58:37.104 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ha_set_state
+2025-09-30 09:58:37.104 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.zha_devices
+2025-09-30 09:58:37.104 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.handle_join
+2025-09-30 09:58:37.104 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ieee_ping
+2025-09-30 09:58:37.104 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.leave
+2025-09-30 09:58:37.105 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.misc_reinitialize
+2025-09-30 09:58:37.105 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.misc_settime
+2025-09-30 09:58:37.105 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.ota_notify
+2025-09-30 09:58:37.105 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.rejoin
+2025-09-30 09:58:37.105 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.register_services
+2025-09-30 09:58:37.106 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.remove_all_groups
+2025-09-30 09:58:37.106 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.remove_from_group
+2025-09-30 09:58:37.106 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.remove_group
+2025-09-30 09:58:37.106 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.scan_device
+2025-09-30 09:58:37.107 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.tuya_magic
+2025-09-30 09:58:37.107 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.unbind_coordinator
+2025-09-30 09:58:37.107 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.unbind_group
+2025-09-30 09:58:37.108 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.zcl_cmd
+2025-09-30 09:58:37.108 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.zdo_flood_parent_annce
+2025-09-30 09:58:37.108 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.zdo_join_with_code
+2025-09-30 09:58:37.108 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.zdo_scan_now
+2025-09-30 09:58:37.108 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.zdo_update_nwk_id
+2025-09-30 09:58:37.108 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.znp_backup
+2025-09-30 09:58:37.108 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.znp_nvram_backup
+2025-09-30 09:58:37.108 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.znp_nvram_reset
+2025-09-30 09:58:37.109 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.znp_nvram_restore
+2025-09-30 09:58:37.109 DEBUG (MainThread) [custom_components.zha_toolkit] Add service zha_toolkit.znp_restore
+2025-09-30 09:58:37.109 DEBUG (MainThread) [custom_components.zha_toolkit.utils] Read version from /config/custom_components/zha_toolkit/manifest.json 1757593412.167356<>0.0
+2025-09-30 09:58:37.119 INFO (MainThread) [homeassistant.setup] Setup of domain zha_toolkit took 0.02 seconds
+2025-09-30 09:58:37.122 INFO (MainThread) [homeassistant.setup] Setting up zha_device_info
+2025-09-30 09:58:37.122 INFO (MainThread) [homeassistant.setup] Setup of domain zha_device_info took 0.00 seconds
+2025-09-30 09:58:37.147 INFO (MainThread) [homeassistant.components.sensor] Setting up zha_device_info.sensor
+2025-09-30 09:58:37.189 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up zha_device_info.binary_sensor
+2025-09-30 09:58:37.530 INFO (MainThread) [homeassistant.setup] Setting up automation
+2025-09-30 09:58:37.540 INFO (MainThread) [homeassistant.setup] Setup of domain automation took 0.01 seconds
+2025-09-30 09:58:37.557 INFO (MainThread) [homeassistant.bootstrap] Home Assistant initialized in 22.75s
+2025-09-30 09:58:37.557 INFO (MainThread) [homeassistant.core] Starting Home Assistant 2025.9.4
+2025-09-30 09:58:37.576 INFO (MainThread) [homeassistant.setup] Setting up google_assistant
+2025-09-30 09:58:37.577 INFO (MainThread) [custom_components.hacs] Stage changed: startup
+2025-09-30 09:58:37.577 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.577 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.578 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.578 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.578 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.578 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.579 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.579 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.580 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.580 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.581 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.581 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.581 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.581 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.581 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.581 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.581 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.581 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.581 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.581 INFO (MainThread) [homeassistant.components.template.coordinator] Initialized trigger
+2025-09-30 09:58:37.637 INFO (MainThread) [custom_components.hacs] Loading removed repositories
+2025-09-30 09:58:37.638 INFO (MainThread) [homeassistant.setup] Setup of domain google_assistant took 0.06 seconds
+2025-09-30 09:58:37.703 INFO (MainThread) [custom_components.hacs] <Integration Mattat01/insnrg_chlorinator> Starting removal
+2025-09-30 09:58:38.078 INFO (MainThread) [custom_components.hacs] Loading known repositories
+2025-09-30 09:58:38.267 INFO (MainThread) [custom_components.hacs] Stage changed: running
+2025-09-30 09:58:40.152 INFO (SyncWorker_12) [homeassistant.loader] Loaded ipp from homeassistant.components.ipp
+2025-09-30 09:58:40.153 INFO (SyncWorker_2) [homeassistant.loader] Loaded apple_tv from homeassistant.components.apple_tv
+2025-09-30 09:58:40.243 INFO (MainThread) [homeassistant.components.automation.lock_the_front_door] Initialized trigger Lock the Front Door
+2025-09-30 09:58:40.243 INFO (MainThread) [homeassistant.components.automation.bedroom_light] Initialized trigger Bedroom Light
+2025-09-30 09:58:40.244 INFO (MainThread) [homeassistant.components.automation.replace_front_door_lock_batteries] Initialized trigger Replace Front Door Lock Batteries
+2025-09-30 09:58:40.245 INFO (MainThread) [homeassistant.components.automation.afternoon_living_room_lights] Initialized trigger Living Room Lights On and Off
+2025-09-30 09:58:40.246 INFO (MainThread) [homeassistant.components.automation.elinore_bedtime_light] Initialized trigger Elinore Light On and Off
+2025-09-30 09:58:40.246 INFO (MainThread) [homeassistant.components.automation.everett_s_light_on_and_off] Initialized trigger Everett's Light On and Off
+2025-09-30 09:58:40.247 INFO (MainThread) [homeassistant.components.automation.elinore_s_remote] Initialized trigger Elinore's Remote
+2025-09-30 09:58:40.247 INFO (MainThread) [homeassistant.components.automation.everett_s_remote_on] Initialized trigger Everett's Remote
+2025-09-30 09:58:40.248 INFO (MainThread) [homeassistant.components.automation.everett_s_light_turned_on] Initialized trigger Kids' Light Turned On
+2025-09-30 09:58:40.248 INFO (MainThread) [homeassistant.components.automation.kids_remote_use] Initialized trigger Kids Remote Use
+2025-09-30 09:58:40.248 INFO (MainThread) [homeassistant.components.automation.kids_remote_low_battery] Initialized trigger Kids Remote Low Battery
+2025-09-30 09:58:40.249 INFO (MainThread) [homeassistant.components.automation.front_door_light] Exterior Lights : Running automation actions
+2025-09-30 09:58:40.249 INFO (MainThread) [homeassistant.components.automation.front_door_light] Exterior Lights : Executing step assigning variables
+2025-09-30 09:58:40.253 INFO (MainThread) [homeassistant.components.automation.front_door_light] Initialized trigger Exterior Lights 
+2025-09-30 09:58:40.254 INFO (MainThread) [homeassistant.components.automation.chest_freezer_no_power] Initialized trigger Chest Freezer Status Checks
+2025-09-30 09:58:40.254 INFO (MainThread) [homeassistant.components.automation.everett_s_dance_party] Initialized trigger Everett's Dance Party
+2025-09-30 09:58:40.254 INFO (MainThread) [homeassistant.components.automation.washer_power_monitoring] Initialized trigger Laundry Notifications
+2025-09-30 09:58:40.254 INFO (MainThread) [homeassistant.components.automation.water_heater_leak] Initialized trigger Water Leak Detectors
+2025-09-30 09:58:40.255 INFO (MainThread) [homeassistant.components.automation.rtl_433_frequency_switch] Initialized trigger rtl_433 Frequency Switch
+2025-09-30 09:58:40.257 INFO (MainThread) [homeassistant.components.automation.automation_36] Initialized trigger Elinore's LED Light Strip
+2025-09-30 09:58:40.257 INFO (MainThread) [homeassistant.components.automation.automation_37] Initialized trigger Elinore's Dance Party
+2025-09-30 09:58:40.261 INFO (MainThread) [homeassistant.components.automation.everett_s_led_light] Initialized trigger Everett's LED Light Strip
+2025-09-30 09:58:40.261 INFO (MainThread) [homeassistant.components.automation.elinore_timer_coordination] Initialized trigger Elinore Timer Coordination
+2025-09-30 09:58:40.262 INFO (MainThread) [homeassistant.components.automation.everett_timer_coordination] Initialized trigger Everett Timer Coordination
+2025-09-30 09:58:40.262 INFO (MainThread) [homeassistant.components.automation.breezeway_light] Initialized trigger Breezeway Light
+2025-09-30 09:58:40.263 INFO (MainThread) [homeassistant.components.automation.kitchen_island_light] Initialized trigger Kitchen Island Light
+2025-09-30 09:58:40.263 INFO (MainThread) [homeassistant.components.automation.aqi_alerts] Initialized trigger AQI Alerts
+2025-09-30 09:58:40.263 INFO (MainThread) [homeassistant.components.automation.unavailable_devices_alert] Initialized trigger Unavailable Devices Alert
+2025-09-30 09:58:40.264 INFO (MainThread) [homeassistant.components.automation.office_ups_battery_charge_status] Initialized trigger Office UPS Battery Charge Status
+2025-09-30 09:58:40.264 INFO (MainThread) [homeassistant.components.automation.vacuum_bin_full] Initialized trigger Hygeia Notifications
+2025-09-30 09:58:40.264 INFO (MainThread) [homeassistant.components.automation.welcome_home_at_night] Initialized trigger Welcome Home at Night
+2025-09-30 09:58:40.264 INFO (MainThread) [homeassistant.components.automation.hestia_target_temperature_changed] Initialized trigger Hestia target temperature changed
+2025-09-30 09:58:40.265 INFO (MainThread) [homeassistant.components.automation.quote_and_pokemon_of_the_day_sensor_update] Initialized trigger Of The Day sensors updater
+2025-09-30 09:58:40.265 INFO (MainThread) [homeassistant.components.automation.guest_login] Initialized trigger Guest Login
+2025-09-30 09:58:40.266 INFO (MainThread) [homeassistant.components.automation.living_room_fan_light] Initialized trigger Living Room Ceiling Fan and Light
+2025-09-30 09:58:40.266 INFO (MainThread) [homeassistant.components.automation.bus_reminder] Initialized trigger Bus Reminder
+2025-09-30 09:58:40.266 INFO (MainThread) [homeassistant.components.automation.imessage_notifications] Initialized trigger imessage notifications
+2025-09-30 09:58:40.266 INFO (MainThread) [homeassistant.components.automation.send_imessage_2] Initialized trigger Send iMessage
+2025-09-30 09:58:40.266 INFO (MainThread) [homeassistant.components.automation.teethbrushing] Initialized trigger Teethbrushing
+2025-09-30 09:58:40.266 INFO (MainThread) [homeassistant.components.automation.josh_watch_charged] Initialized trigger Josh Watch Charged
+2025-09-30 09:58:40.267 INFO (MainThread) [homeassistant.components.automation.christmas_entities] Initialized trigger Christmas Entities
+2025-09-30 09:58:40.267 INFO (MainThread) [homeassistant.components.automation.frigate_notifications_unmuter] Initialized trigger Frigate Notifications Unmuter
+2025-09-30 09:58:40.267 INFO (MainThread) [homeassistant.components.automation.breezeway_light_decoupled_test] Initialized trigger Fun Fact of the Day
+2025-09-30 09:58:40.267 INFO (MainThread) [homeassistant.components.automation.plants] Initialized trigger Plants
+2025-09-30 09:58:40.267 INFO (MainThread) [homeassistant.components.automation.unlock_front_door] Initialized trigger Unlock front door
+2025-09-30 09:58:40.268 INFO (MainThread) [homeassistant.components.automation.hygeia_vacuum_schedule] Initialized trigger Hygeia Vacuum Schedule
+2025-09-30 09:58:40.268 INFO (MainThread) [homeassistant.components.automation.onkyo_receiver_source_selection] Initialized trigger Onkyo Receiver Source Selection
+2025-09-30 09:58:40.268 INFO (MainThread) [homeassistant.components.automation.hestia_filter_usage] Initialized trigger Hestia Filter Usage
+2025-09-30 09:58:40.271 INFO (MainThread) [homeassistant.components.automation.frigate_notifications_0_14_0_2w] Initialized trigger Frigate Notifications (0.14.0.2w)
+2025-09-30 09:58:40.271 INFO (MainThread) [homeassistant.components.automation.basement_tv_notifications] Initialized trigger Basement TV notifications
+2025-09-30 09:58:40.272 INFO (MainThread) [homeassistant.components.automation.birdnet_go_detection_check] Initialized trigger Birdnet-Go Detection Check
+2025-09-30 09:58:40.273 INFO (MainThread) [homeassistant.components.automation.cat_feeder] Initialized trigger Cat Feeders
+2025-09-30 09:58:40.273 INFO (MainThread) [homeassistant.components.automation.cat_counter] Initialized trigger Cat Counter
+2025-09-30 09:58:40.273 INFO (MainThread) [homeassistant.components.automation.doorbell_notifications] Initialized trigger Doorbell Notifications
+2025-09-30 09:58:40.273 INFO (MainThread) [homeassistant.components.automation.pacifica] Initialized trigger Pacifica
+2025-09-30 09:58:45.784 INFO (MainThread) [homeassistant.components.mqtt.client] MQTT client initialized, birth message sent
+2025-09-30 09:58:51.878 WARNING (zeroconf-ServiceBrowser-_googlecast._tcp-144) [pychromecast.dial] Failed to determine cast type for host <unknown> (<urlopen error _ssl.c:1015: The handshake operation timed out>) (services:{MDNSServiceInfo(name='Onkyo-TX-NR656-77fee09703865d8d4fe76314db505429._googlecast._tcp.local.')})
+2025-09-30 09:58:51.878 INFO (zeroconf-ServiceBrowser-_googlecast._tcp-144) [homeassistant.components.cast.helpers] Fetched cast details for unknown model 'Onkyo TX-NR656' manufacturer: 'Unknown manufacturer', type: 'cast'. Please create a bug report at https://github.com/home-assistant/core/issues?q=is%3Aopen+is%3Aissue+label%3A%22integration%3A+cast%22
+2025-09-30 09:59:00.135 INFO (MainThread) [homeassistant.components.automation.hestia_filter_usage] Hestia Filter Usage: Running automation actions
+2025-09-30 09:59:18.981 INFO (MainThread) [hass_nabucasa.google_report_state] Connected
+2025-09-30 09:59:21.925 ERROR (Thread-14) [pychromecast.socket_client] [Onkyo TX-NR656 E30A9F(192.168.16.81):8009] Failed to connect to service MDNSServiceInfo(name='Onkyo-TX-NR656-77fee09703865d8d4fe76314db505429._googlecast._tcp.local.'), retrying in 5.0s
+2025-09-30 09:59:29.302 INFO (MainThread) [homeassistant.components.automation.unavailable_devices_alert] Unavailable Devices Alert: Running automation actions
+2025-09-30 09:59:33.735 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device HVAC Return is online
+2025-09-30 10:00:00.370 INFO (MainThread) [homeassistant.helpers.script.trigger_update_coordinator] Trigger Update Coordinator: Running template script
+2025-09-30 10:00:00.370 INFO (MainThread) [homeassistant.helpers.script.trigger_update_coordinator] Trigger Update Coordinator: Executing step call service
+2025-09-30 10:00:30.163 INFO (MainThread) [hass_nabucasa.google_report_state] Timeout while waiting to receive message
+2025-09-30 10:01:23.808 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device HVAC Supply is online
+2025-09-30 10:01:23.810 INFO (MainThread) [habluetooth.wrappers] C5:B3:4D:63:9C:52 - WoSensorTH: Found 4 connection path(s), preferred order: hci0 (44:A3:BB:49:3E:68) (RSSI=-77) (failures=0) (in_progress=0) (slots=5/5 free) (score=-77.0), btproxy3 (D8:3B:DA:A4:50:66) (RSSI=-91) (failures=0) (in_progress=0) (slots=3/3 free) (score=-91.0), bobacat-display (84:FC:E6:70:70:59) (RSSI=-95) (failures=0) (in_progress=0) (slots=3/3 free) (score=-95.0), btproxy2 (0C:B8:15:C4:8E:EE) (RSSI=-99) (failures=0) (in_progress=0) (slots=3/3 free) (score=-99.0)
+2025-09-30 10:01:25.179 INFO (MainThread) [hass_nabucasa.google_report_state] Timeout while waiting to receive message
+2025-09-30 10:02:00.404 INFO (MainThread) [homeassistant.components.automation.cat_feeder] Cat Feeders: Running automation actions
+2025-09-30 10:02:00.406 INFO (MainThread) [homeassistant.components.automation.cat_feeder] Cat Feeders: Choose at step 1: choice 5: Running automation actions
+2025-09-30 10:02:00.407 INFO (MainThread) [homeassistant.components.automation.cat_feeder] Cat Feeders: Choose at step 1: choice 5: Executing step clear old unavailable notification first
+2025-09-30 10:02:00.568 INFO (MainThread) [homeassistant.components.mobile_app.notify] mobile_app push notification rate limits for josh: 0 sent, 500 allowed, 0 errors, resets in 9:57:59
+2025-09-30 10:02:00.569 INFO (MainThread) [homeassistant.components.automation.cat_feeder] Cat Feeders: Choose at step 1: choice 5: Executing step clear old available notification first
+2025-09-30 10:02:00.716 INFO (MainThread) [homeassistant.components.mobile_app.notify] mobile_app push notification rate limits for josh: 0 sent, 500 allowed, 0 errors, resets in 9:57:59
+2025-09-30 10:02:00.716 INFO (MainThread) [homeassistant.components.automation.cat_feeder] Cat Feeders: Choose at step 1: choice 5: Executing step call service
+2025-09-30 10:02:00.888 INFO (MainThread) [homeassistant.components.mobile_app.notify] mobile_app push notification rate limits for josh: 0 sent, 500 allowed, 0 errors, resets in 9:57:59
+2025-09-30 10:02:20.471 INFO (MainThread) [hass_nabucasa.google_report_state] Timeout while waiting to receive message
+2025-09-30 10:03:00.115 INFO (MainThread) [homeassistant.components.automation.afternoon_living_room_lights] Living Room Lights On and Off: Running automation actions
+2025-09-30 10:03:15.489 INFO (MainThread) [hass_nabucasa.google_report_state] Timeout while waiting to receive message
+2025-09-30 10:03:17.560 INFO (MainThread) [custom_components.openplantbook.uploader] Plant-sensors data upload initiated
+2025-09-30 10:03:21.815 INFO (MainThread) [custom_components.openplantbook.uploader] Uploading data from 4 sensors was successful
+2025-09-30 10:03:43.945 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device Forest Hills is online
+2025-09-30 10:04:19.899 INFO (MainThread) [hass_nabucasa.google_report_state] Timeout while waiting to receive message
+2025-09-30 10:05:14.911 INFO (MainThread) [hass_nabucasa.google_report_state] Timeout while waiting to receive message
+2025-09-30 10:05:16.680 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device Garage is online
+2025-09-30 10:06:09.930 INFO (MainThread) [hass_nabucasa.google_report_state] Timeout while waiting to receive message
+2025-09-30 10:06:13.653 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device Forest Hills is online
+2025-09-30 10:07:22.217 INFO (MainThread) [hass_nabucasa.google_report_state] Timeout while waiting to receive message
+2025-09-30 10:07:54.283 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device Hallway is online
+2025-09-30 10:08:17.229 INFO (MainThread) [hass_nabucasa.google_report_state] Timeout while waiting to receive message
+2025-09-30 10:09:00.111 INFO (MainThread) [homeassistant.components.automation.hestia_filter_usage] Hestia Filter Usage: Running automation actions
+2025-09-30 10:09:21.885 INFO (MainThread) [hass_nabucasa.google_report_state] Timeout while waiting to receive message
+2025-09-30 10:09:30.402 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device HVAC Return is online
+2025-09-30 10:10:16.903 INFO (MainThread) [hass_nabucasa.google_report_state] Timeout while waiting to receive message
+2025-09-30 10:11:23.706 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device HVAC Supply is online
+2025-09-30 10:11:34.495 INFO (MainThread) [hass_nabucasa.google_report_state] Timeout while waiting to receive message
+2025-09-30 10:11:48.315 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device Hallway is online
+2025-09-30 10:11:59.819 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device HVAC Supply is online
+2025-09-30 10:11:59.970 INFO (MainThread) [homeassistant.components.switchbot.coordinator] Device Forest Hills is online
+2025-09-30 10:12:10.858 INFO (SyncWorker_0) [homeassistant.loader] Loaded dlna_dms from homeassistant.components.dlna_dms
+2025-09-30 10:12:10.859 INFO (SyncWorker_0) [homeassistant.loader] Loaded opower from homeassistant.components.opower
+2025-09-30 10:12:32.331 DEBUG (MainThread) [custom_components.lionel_controller] Establishing connection to FC:1F:C3:9F:A5:4A
+2025-09-30 10:12:32.332 INFO (MainThread) [habluetooth.wrappers] FC:1F:C3:9F:A5:4A - LC0109BD: Found 4 connection path(s), preferred order: hci0 (44:A3:BB:49:3E:68) (RSSI=-70) (failures=0) (in_progress=0) (slots=5/5 free) (score=-70.0), btproxy2 (0C:B8:15:C4:8E:EE) (RSSI=-87) (failures=0) (in_progress=0) (slots=3/3 free) (score=-87.0), btproxy3 (D8:3B:DA:A4:50:66) (RSSI=-91) (failures=0) (in_progress=0) (slots=3/3 free) (score=-91.0), btproxy1 (30:C6:F7:05:5F:62) (RSSI=-101) (failures=0) (in_progress=0) (slots=3/3 free) (score=-101.0)
+2025-09-30 10:12:32.808 DEBUG (MainThread) [custom_components.lionel_controller] Read _model_number: LionChief
+2025-09-30 10:12:32.842 DEBUG (MainThread) [custom_components.lionel_controller] Read _serial_number: LC0139836
+2025-09-30 10:12:32.877 DEBUG (MainThread) [custom_components.lionel_controller] Read _firmware_revision: 1.1.0
+2025-09-30 10:12:32.898 DEBUG (MainThread) [custom_components.lionel_controller] Read _hardware_revision: 1.00
+2025-09-30 10:12:32.921 DEBUG (MainThread) [custom_components.lionel_controller] Read _software_revision: 0.0.0
+2025-09-30 10:12:32.943 DEBUG (MainThread) [custom_components.lionel_controller] Read _manufacturer_name: Lionel
+2025-09-30 10:12:32.944 INFO (MainThread) [custom_components.lionel_controller] === BLE Service Discovery for FC:1F:C3:9F:A5:4A ===
+2025-09-30 10:12:32.944 INFO (MainThread) [custom_components.lionel_controller] Found 5 services
+2025-09-30 10:12:32.944 INFO (MainThread) [custom_components.lionel_controller] Service 1: Battery Service (UUID: 0000180f-0000-1000-8000-00805f9b34fb)
+2025-09-30 10:12:32.944 INFO (MainThread) [custom_components.lionel_controller]   Found 0 characteristics in this service
+2025-09-30 10:12:32.944 INFO (MainThread) [custom_components.lionel_controller] Service 2: Generic Access Profile (UUID: 00001800-0000-1000-8000-00805f9b34fb)
+2025-09-30 10:12:32.944 INFO (MainThread) [custom_components.lionel_controller]   Char 1: Central Address Resolution (UUID: 00002aa6-0000-1000-8000-00805f9b34fb) [READ]
+2025-09-30 10:12:32.944 DEBUG (MainThread) [custom_components.lionel_controller]     Attempting to read characteristic value...
+2025-09-30 10:12:32.967 INFO (MainThread) [custom_components.lionel_controller]     Value (text): ''
+2025-09-30 10:12:32.968 INFO (MainThread) [custom_components.lionel_controller]   Char 2: Appearance (UUID: 00002a01-0000-1000-8000-00805f9b34fb) [READ]
+2025-09-30 10:12:32.968 DEBUG (MainThread) [custom_components.lionel_controller]     Attempting to read characteristic value...
+2025-09-30 10:12:32.988 INFO (MainThread) [custom_components.lionel_controller]     Value (text): ''
+2025-09-30 10:12:32.988 INFO (MainThread) [custom_components.lionel_controller]   Char 3: Peripheral Preferred Connection Parameters (UUID: 00002a04-0000-1000-8000-00805f9b34fb) [READ]
+2025-09-30 10:12:32.988 DEBUG (MainThread) [custom_components.lionel_controller]     Attempting to read characteristic value...
+2025-09-30 10:12:33.011 INFO (MainThread) [custom_components.lionel_controller]     Value (hex): 06000c0000009001
+2025-09-30 10:12:33.011 INFO (MainThread) [custom_components.lionel_controller]   Char 4: Device Name (UUID: 00002a00-0000-1000-8000-00805f9b34fb) [READ, WRITE]
+2025-09-30 10:12:33.011 DEBUG (MainThread) [custom_components.lionel_controller]     Attempting to read characteristic value...
+2025-09-30 10:12:33.034 INFO (MainThread) [custom_components.lionel_controller]     Value (text): 'LC0109BD-4AA5'
+2025-09-30 10:12:33.034 INFO (MainThread) [custom_components.lionel_controller]   Found 4 characteristics in this service
+2025-09-30 10:12:33.035 INFO (MainThread) [custom_components.lionel_controller] Service 3: Generic Attribute Profile (UUID: 00001801-0000-1000-8000-00805f9b34fb)
+2025-09-30 10:12:33.035 INFO (MainThread) [custom_components.lionel_controller]   Found 0 characteristics in this service
+2025-09-30 10:12:33.035 INFO (MainThread) [custom_components.lionel_controller] Service 4: Unknown (UUID: e20a39f4-73f5-4bc4-a12f-17d1ad07a961)
+2025-09-30 10:12:33.035 INFO (MainThread) [custom_components.lionel_controller]   Char 1: Unknown (UUID: 08590f7e-db05-467e-8757-72f6faeb13d4) [WRITE]
+2025-09-30 10:12:33.035 INFO (MainThread) [custom_components.lionel_controller]     *** POTENTIAL LIONCHIEF WRITE CHARACTERISTIC ***
+2025-09-30 10:12:33.035 INFO (MainThread) [custom_components.lionel_controller]   Char 2: Unknown (UUID: 08590f7e-db05-467e-8757-72f6faeb14d3) [NOTIFY]
+2025-09-30 10:12:33.035 INFO (MainThread) [custom_components.lionel_controller]     *** POTENTIAL LIONCHIEF NOTIFY CHARACTERISTIC ***
+2025-09-30 10:12:33.035 INFO (MainThread) [custom_components.lionel_controller]   Char 3: Unknown (UUID: 08590f7e-db05-467e-8757-72f6faeb14d5) []
+2025-09-30 10:12:33.035 INFO (MainThread) [custom_components.lionel_controller]   Char 4: Unknown (UUID: 09590f7e-db05-467e-8757-72f6faeb14d5) []
+2025-09-30 10:12:33.035 INFO (MainThread) [custom_components.lionel_controller]   Char 5: Unknown (UUID: 08590f7e-db05-467e-8757-72f6faeb15d4) [WRITE, WRITE-NO-RESP]
+2025-09-30 10:12:33.035 INFO (MainThread) [custom_components.lionel_controller]   Found 5 characteristics in this service
+2025-09-30 10:12:33.036 INFO (MainThread) [custom_components.lionel_controller] Service 5: Device Information (UUID: 0000180a-0000-1000-8000-00805f9b34fb)
+2025-09-30 10:12:33.036 INFO (MainThread) [custom_components.lionel_controller]   Char 1: Hardware Revision String (UUID: 00002a27-0000-1000-8000-00805f9b34fb) [READ]
+2025-09-30 10:12:33.036 DEBUG (MainThread) [custom_components.lionel_controller]     Attempting to read characteristic value...
+2025-09-30 10:12:33.067 INFO (MainThread) [custom_components.lionel_controller]     Value (text): '1.00'
+2025-09-30 10:12:33.067 INFO (MainThread) [custom_components.lionel_controller]   Char 2: Model Number String (UUID: 00002a24-0000-1000-8000-00805f9b34fb) [READ]
+2025-09-30 10:12:33.067 DEBUG (MainThread) [custom_components.lionel_controller]     Attempting to read characteristic value...
+2025-09-30 10:12:33.101 INFO (MainThread) [custom_components.lionel_controller]     Value (text): 'LionChief'
+2025-09-30 10:12:33.101 INFO (MainThread) [custom_components.lionel_controller]   Char 3: Manufacturer Name String (UUID: 00002a29-0000-1000-8000-00805f9b34fb) [READ]
+2025-09-30 10:12:33.101 DEBUG (MainThread) [custom_components.lionel_controller]     Attempting to read characteristic value...
+2025-09-30 10:12:33.123 INFO (MainThread) [custom_components.lionel_controller]     Value (text): 'Lionel'
+2025-09-30 10:12:33.123 INFO (MainThread) [custom_components.lionel_controller]   Char 4: System ID (UUID: 00002a23-0000-1000-8000-00805f9b34fb) [READ]
+2025-09-30 10:12:33.123 DEBUG (MainThread) [custom_components.lionel_controller]     Attempting to read characteristic value...
+2025-09-30 10:12:33.146 INFO (MainThread) [custom_components.lionel_controller]     Value (text): 'Y\00\00\00\00V4'
+2025-09-30 10:12:33.146 INFO (MainThread) [custom_components.lionel_controller]   Char 5: Serial Number String (UUID: 00002a25-0000-1000-8000-00805f9b34fb) [READ]
+2025-09-30 10:12:33.146 DEBUG (MainThread) [custom_components.lionel_controller]     Attempting to read characteristic value...
+2025-09-30 10:12:33.167 INFO (MainThread) [custom_components.lionel_controller]     Value (text): 'LC0139836'
+2025-09-30 10:12:33.168 INFO (MainThread) [custom_components.lionel_controller]   Char 6: PnP ID (UUID: 00002a50-0000-1000-8000-00805f9b34fb) [READ]
+2025-09-30 10:12:33.168 DEBUG (MainThread) [custom_components.lionel_controller]     Attempting to read characteristic value...
+2025-09-30 10:12:33.202 INFO (MainThread) [custom_components.lionel_controller]     Value (text): 'Y\00\00'
+2025-09-30 10:12:33.202 INFO (MainThread) [custom_components.lionel_controller]   Char 7: Firmware Revision String (UUID: 00002a26-0000-1000-8000-00805f9b34fb) [READ]
+2025-09-30 10:12:33.202 DEBUG (MainThread) [custom_components.lionel_controller]     Attempting to read characteristic value...
+2025-09-30 10:12:33.228 INFO (MainThread) [custom_components.lionel_controller]     Value (text): '1.1.0'
+2025-09-30 10:12:33.228 INFO (MainThread) [custom_components.lionel_controller]   Char 8: Software Revision String (UUID: 00002a28-0000-1000-8000-00805f9b34fb) [READ]
+2025-09-30 10:12:33.228 DEBUG (MainThread) [custom_components.lionel_controller]     Attempting to read characteristic value...
+2025-09-30 10:12:33.257 INFO (MainThread) [custom_components.lionel_controller]     Value (text): '0.0.0'
+2025-09-30 10:12:33.257 INFO (MainThread) [custom_components.lionel_controller]   Char 9: IEEE 11073-20601 Regulatory Cert. Data List (UUID: 00002a2a-0000-1000-8000-00805f9b34fb) [READ]
+2025-09-30 10:12:33.257 DEBUG (MainThread) [custom_components.lionel_controller]     Attempting to read characteristic value...
+2025-09-30 10:12:33.293 INFO (MainThread) [custom_components.lionel_controller]     Value (hex): fe006578706572696d656e74616c
+2025-09-30 10:12:33.293 INFO (MainThread) [custom_components.lionel_controller]   Found 9 characteristics in this service
+2025-09-30 10:12:33.293 INFO (MainThread) [custom_components.lionel_controller] === End BLE Service Discovery ===
+2025-09-30 10:12:33.293 INFO (MainThread) [custom_components.lionel_controller] 🎯 DISCOVERED LIONCHIEF SERVICE: e20a39f4-73f5-4bc4-a12f-17d1ad07a961
+2025-09-30 10:12:33.293 INFO (MainThread) [custom_components.lionel_controller] 🎯 DISCOVERED WRITE CHARACTERISTIC: 08590f7e-db05-467e-8757-72f6faeb13d4
+2025-09-30 10:12:33.293 INFO (MainThread) [custom_components.lionel_controller] 🎯 DISCOVERED NOTIFY CHARACTERISTIC: 08590f7e-db05-467e-8757-72f6faeb14d3
+2025-09-30 10:12:33.326 INFO (MainThread) [custom_components.lionel_controller] 📡 Set up notifications on 08590f7e-db05-467e-8757-72f6faeb14d3
+2025-09-30 10:12:33.326 INFO (MainThread) [custom_components.lionel_controller] Connected to Lionel train at FC:1F:C3:9F:A5:4A
+2025-09-30 10:12:33.326 INFO (MainThread) [custom_components.lionel_controller] Successfully connected to Lionel train at FC:1F:C3:9F:A5:4A
+2025-09-30 10:12:33.326 INFO (MainThread) [homeassistant.components.number] Setting up lionel_controller.number
+2025-09-30 10:12:33.330 INFO (MainThread) [homeassistant.components.switch] Setting up lionel_controller.switch
+2025-09-30 10:12:33.333 INFO (MainThread) [homeassistant.components.button] Setting up lionel_controller.button
+2025-09-30 10:12:33.337 INFO (MainThread) [homeassistant.components.binary_sensor] Setting up lionel_controller.binary_sensor
