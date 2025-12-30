@@ -1,5 +1,6 @@
 ## This was an exercise in Github Copilot AI coding. The entire integration was created and coded by Copilot using prompts. 
-### This integration will be made public and archived, so that someone else may fork and expand on this.
+<strike>### This integration will be made public and archived, so that someone else may fork and expand on this</strike>
+Unarchived because I am a completionist.  
 
 ---
 # Lionel Train Controller
