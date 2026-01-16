@@ -51,7 +51,7 @@ A Home Assistant custom integration for controlling Lionel LionChief Bluetooth l
 1. Open HACS in Home Assistant
 2. Go to "Integrations"
 3. Click the three dots menu and select "Custom repositories"
-4. Add `https://github.com/iamjoshk/ha_lionel_controller` as an Integration
+4. Add `https://github.com/iamjoshk/lionel_controller` as an Integration
 5. Install "Lionel Train Controller"
 6. Restart Home Assistant
 
